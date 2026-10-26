@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>신풍제약리뉴얼포트폴리오</title>
+    <link rel="stylesheet" href="../css/default.css">
+    <link rel="stylesheet" href="../npm/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../font/css/pretendardvariable.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../npm/swiper/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>제목공간</header>
+        <main>
+            <div class="hero-sec">
+                <!-- Slider main container -->
+                <div class="swiper visual">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <img src="assets/images/hero.jpg" alt="하츠 인덕션 배너" class="pc">
+                            <img src="assets/images/image_a32a0648.jpg" alt="하츠 인덕션 모바일 배너" class="mo">
+                        </div>
+                        <!-- 테스트용으로 같은 이미지를 한 번 더 넣었습니다. 이미지가 정해지면 바꿔주세요 -->
+                        <div class="swiper-slide">
+                            <img src="assets/images/hero.jpg" alt="하츠 인덕션 배너" class="pc">
+                            <img src="assets/images/image_a32a0648.jpg" alt="하츠 인덕션 모바일 배너" class="mo">
+                        </div>
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+            </div>
+        </main>
+        <footer>&copy;</footer>
+    </div>
+    <script>
+        const swiper = new Swiper('.hero-sec .swiper', {
+            direction: 'horizontal',
+            loop: true,
+            pagination: {
+                el: '.visual .swiper-pagination',
+            },
+            navigation: {
+                nextEl: '.visual .swiper-button-next',
+                prevEl: '.visual .swiper-button-prev',
+            },
+            scrollbar: {
+                el: '.visual .swiper-scrollbar',
+            },
+        });
+    </script>
+</body>
+</html>
