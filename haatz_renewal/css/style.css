@@ -19,7 +19,7 @@ a{color:inherit}ul,ol{list-style:none;margin:0;padding:0}img{max-width:100%;disp
 .gnb a:hover,.gnb a:focus-visible{background:var(--mist);color:var(--blue-d)}
 .menu-btn{display:none;min-height:44px;padding:0 16px;border:1px solid var(--line);background:#fff;border-radius:var(--r);font:inherit;cursor:pointer}
 
-.hero{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),#1b1b1b url(../assets/images/hero.jpg) center/cover;color:#fff;padding:140px 0}
+.hero{background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),#1b1b1b url(../img/hero.jpg) center/cover;color:#fff;padding:140px 0}
 .hero h1{font-size:clamp(32px,5vw,56px);line-height:1.25;margin:8px 0 20px;font-weight:700}
 .hero-sub{margin:0;font-size:16px;color:#bfe8f8}.hero-p{margin:0 0 32px;font-size:18px;max-width:640px}
 .btn{display:inline-block;min-height:48px;padding:12px 28px;background:var(--blue);color:#fff;border:0;border-radius:var(--r);font:inherit;font-weight:700;text-decoration:none;cursor:pointer;text-align:center}
