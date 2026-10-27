@@ -9,7 +9,7 @@ if (!REDUCE) document.documentElement.classList.add("js-motion");
 
 /* ===== 데이터: 공식 사이트(haatz.com) 메인 페이지 기준. 교체 시 이 객체만 수정 ===== */
 const B = "https://www.haatz.com/kor/";
-const I = "assets/images/";
+const I = "img/";
 const MENU = [
   ["하츠이야기", B+"about/about.html"],
   ["제품소개", B+"product/kitchen_list.html"],
