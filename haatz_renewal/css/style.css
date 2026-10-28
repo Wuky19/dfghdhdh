@@ -153,7 +153,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 
 .thumb.snsimg{aspect-ratio:4/3;object-fit:cover;object-position:center 60%}
 
-.foot{background:#161616;color:#cfd6da;padding:56px 0 36px}
+.foot{background:#161616;color:#cfd6da;padding:36px 0}
 .foot-top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-bottom:28px;border-bottom:1px solid #333}
 .foot .logo.light{margin:0}
 .foot-sns{display:flex;gap:12px}
@@ -168,7 +168,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .info span{display:inline-block;margin-right:20px}
 .copy{margin:20px 0 0;font-size:13px;color:#8fa0ab}
 .copy span{display:block;margin-top:4px;font-size:12px;color:#6d7d87}
-@media (max-width:768px){.foot{padding:44px 0 28px}.foot-links{gap:8px 20px}.info span{display:block;margin-right:0}}
+@media (max-width:768px){.foot{padding:36px 0}.foot-links{gap:8px 20px}.info span{display:block;margin-right:0}}
 
 /* 맞춤 제품 찾기: 하츠 사이트 메인의 "나에게 꼭 맞는 하츠 제품은?" 카드 스타일 참고 */
 .finder{background:#f5f6f8}
