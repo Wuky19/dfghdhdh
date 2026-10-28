@@ -1,4 +1,28 @@
 /* #009ddc, #242424, #454545, #cccbcb 는 하츠 사이트 CSS(main.min.css)에서 확인한 값. 공식 브랜드 가이드 지정값은 확인하지 못함 */
+/*
+Figma 컬러 변수 정리
+변수명                    값         용도
+--action-primary-2        #007eae    포인트 파랑, 주요 강조 요소
+--neutral-white-blue      #bfe8f8    연한 블루 배경 및 보조 강조
+--neutral-charcoal        #252729    본문 글자색, 어두운 요소
+--neutral-steel-gray      #747a7e    보조 텍스트
+--text-primary            #242729    주요 텍스트
+--neutral-white           #ffffff    흰색 배경
+--neutral-silver-gray     #d9dde0    선, 테두리
+--brand-blue              #007eae    브랜드 블루
+--neutral-light-gray      #f3f4f4    연한 회색 배경
+--neutral-deep-charcoal   #242729    진한 텍스트 및 어두운 요소
+--text-secondary          #f3f4f4    어두운 배경 위 보조 텍스트
+--action-primary          #252729    주요 액션 요소
+
+기존 스타일과의 호환을 위해 아래 변수도 유지:
+--blue                    var(--brand-blue)
+--blue-d                  var(--action-primary-2)
+--ink                     var(--neutral-charcoal)
+--sub                     var(--neutral-steel-gray)
+--line                    var(--neutral-silver-gray)
+--mist                    var(--neutral-light-gray)
+*/
 :root{--action-primary-2:#007eae;--neutral-white-blue:#bfe8f8;--neutral-charcoal:#252729;--neutral-steel-gray:#747a7e;--text-primary:#242729;--neutral-white:#ffffff;--neutral-silver-gray:#d9dde0;--brand-blue:#007eae;--neutral-light-gray:#f3f4f4;--neutral-deep-charcoal:#242729;--text-secondary:#f3f4f4;--action-primary:#252729;--blue:var(--brand-blue);--blue-d:var(--action-primary-2);--ink:var(--neutral-charcoal);--sub:var(--neutral-steel-gray);--line:var(--neutral-silver-gray);--mist:var(--neutral-light-gray);--max:1200px;--gap:24px;--r:8px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
