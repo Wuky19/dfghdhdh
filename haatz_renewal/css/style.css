@@ -298,7 +298,8 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .sp-p{margin:0 0 40px;font-size:clamp(14px,1.2vw,17px);line-height:1.8;max-width:780px}
 .btn-line{display:inline-flex;align-items:center;gap:12px;height:48px;padding:0 26px;border:1px solid #fff;border-radius:999px;color:#fff;font-size:15px;font-weight:600;text-decoration:none;transition:background .25s,color .25s}
 .btn-line svg{transition:transform .25s}
-.btn-line.btn-line-dark{border-color:var(--ink);color:var(--ink)}.btn-line.btn-line-dark:hover,.btn-line.btn-line-dark:focus-visible{background:var(--ink);color:#fff}.btn-line.btn-line-dark:hover svg,.btn-line.btn-line-dark:focus-visible svg{transform:translateX(4px)}
+.btn-line.btn-line-dark{border-color:var(--ink);color:var(--ink)}
+.sec-head .btn-line.btn-line-dark{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);padding:0 26px;min-height:48px;white-space:nowrap}.sec-head .btn-line.btn-line-dark:hover,.sec-head .btn-line.btn-line-dark:focus-visible{background:var(--ink);color:#fff}.btn-line.btn-line-dark:hover,.btn-line.btn-line-dark:focus-visible{background:var(--ink);color:#fff}.btn-line.btn-line-dark:hover svg,.btn-line.btn-line-dark:focus-visible svg{transform:translateX(4px)}
 .btn-line:hover,.btn-line:focus-visible{background:#fff;color:var(--ink)}.btn-line:hover svg,.btn-line:focus-visible svg{transform:translateX(4px)}
 @media (max-width:768px){.story-photo{min-height:520px}.sp-p br{display:none}}
 
