@@ -15,7 +15,7 @@ a{color:inherit}ul,ol{list-style:none;margin:0;padding:0}img{max-width:100%;disp
 .logo{font-weight:800;font-size:26px;letter-spacing:.04em;color:var(--blue);text-decoration:none}
 .logo img{height:30px;width:auto}.logo.light{color:#fff;margin:0 0 16px}
 .gnb ul{display:flex;gap:8px}
-.gnb a{display:block;padding:12px 22px;text-decoration:none;font-weight:600;border-radius:var(--r)}
+.gnb a{display:block;padding:12px 18px;text-decoration:none;font-weight:600;border-radius:var(--r)}
 .gnb a:hover,.gnb a:focus-visible{background:var(--mist);color:var(--blue-d)}
 .menu-btn{display:none;min-height:44px;padding:0 16px;border:1px solid var(--line);background:#fff;border-radius:var(--r);font:inherit;cursor:pointer}
 
