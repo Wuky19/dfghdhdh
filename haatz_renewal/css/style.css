@@ -276,7 +276,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .mega-r{flex-wrap:nowrap;gap:14px;padding-left:36px}
 .chip{flex:1 1 0;min-width:0;padding:0 18px;gap:10px;font-size:14px;white-space:nowrap}
 @media (max-width:1100px) and (min-width:769px){.mega-r{flex-wrap:wrap}.chip{flex:1 1 40%}}
-.mega-r{display:grid;grid-template-columns:repeat(5,minmax(110px,150px));gap:14px 18px;align-content:center;justify-content:start}
+.mega-r{display:grid;grid-template-columns:repeat(5,minmax(110px,150px));gap:14px 18px;align-content:center;justify-content:center}
 @media (max-width:1100px) and (min-width:769px){.mega-r{grid-template-columns:repeat(3,1fr)}}
 /* 자세히 보기 항목: 칩 → 텍스트 + 오른쪽 위 작은 원 (hover 시 진한 색) */
 .mega .chip{background:transparent;border-radius:0;justify-content:center;min-height:60px;height:auto;padding:12px 8px;font-size:17px;font-weight:500;line-height:1.5;white-space:normal;transform:none;color:var(--ink)}
