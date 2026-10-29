@@ -279,14 +279,14 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .mega-r{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;align-content:center}
 @media (max-width:1100px) and (min-width:769px){.mega-r{grid-template-columns:repeat(3,1fr)}}
 /* 자세히 보기 항목: 칩 → 텍스트 + 오른쪽 위 작은 원 (hover 시 진한 색) */
-.mega .chip{background:transparent;border-radius:0;justify-content:center;height:60px;padding:0 8px;font-size:16px;transform:none;color:var(--ink)}
+.mega .chip{background:transparent;border-radius:0;justify-content:center;min-height:60px;height:auto;padding:12px 8px;font-size:17px;font-weight:500;line-height:1.5;white-space:normal;transform:none;color:var(--ink)}
 .mega .chip svg{display:none}
 .mega .chip span{position:relative;padding-right:14px}
 .mega .chip span::after{content:"";position:absolute;right:0;top:-2px;width:8px;height:8px;border-radius:50%;background:#c9ebf8;transition:background .25s,transform .25s}
 .mega .chip:hover,.mega .chip:focus-visible{background:transparent;color:var(--ink);transform:none}
 .mega .chip:hover span::after,.mega .chip:focus-visible span::after{background:var(--blue-d);transform:scale(1.15)}
 .mega .chip:focus-visible{outline-offset:-2px}
-.mega-r{row-gap:4px}
+.mega-r{row-gap:12px;column-gap:18px}
 .m-sub .chip span::after{content:none}
 
 /* ===== 하츠 이야기: 큰 사진 + 큰 제목 + 윤곽선 버튼 ===== */
