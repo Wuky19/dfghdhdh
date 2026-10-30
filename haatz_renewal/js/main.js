@@ -134,7 +134,7 @@ const SUB = {
     if (SUB[name]) {
       a.setAttribute("aria-haspopup", "true"); a.setAttribute("aria-expanded", "false"); a.setAttribute("aria-controls", "mega");
       /* 모바일 메뉴: 같은 항목 아래에 하위 링크를 세로로 표시 */
-      a.parentElement.insertAdjacentHTML("beforeend", `<div class="m-sub">${subLinks(SUB[name].links)}</div>`);
+      a.parentElement.insertAdjacentHTML("beforeend", `<div class="m-sub${name === "제품소개" ? " m-sub-product" : ""}">${subLinks(SUB[name].links)}</div>`);
     }
     const li = a.parentElement;
     li.addEventListener("mouseenter", () => { if (innerWidth > 768) open(name, a); });
