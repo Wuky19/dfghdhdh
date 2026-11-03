@@ -86,7 +86,49 @@ const R = {
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
 document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${u.startsWith("http") ? ext : ""}>${t}</a></li>`).join("") + `<li><a href="#finder">맞춤 제품 찾기</a></li>`;
-document.querySelectorAll("[data-chan]").forEach(b => b.innerHTML = CHAN.map(([t,u]) => `<a href="${u}" ${ext}>${t}</a>`).join(""));
+/* SNS 채널 탭: 전체/인스타그램/블로그/유튜브 */
+const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
+const snsTrack = document.querySelector('[data-cards="sns"]');
+function renderSNS(channel = "전체") {
+  const filtered = channel === "전체" ? SNS : SNS.filter(([, kind]) => kind === channel);
+  snsTrack.innerHTML = filtered.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`).join("");
+}
+document.querySelectorAll("[data-chan]").forEach(container => {
+  container.setAttribute("role", "tablist");
+  container.setAttribute("aria-label", "SNS 채널 선택");
+  container.innerHTML = SNS_CHANNELS.map((name, i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-channel="${name}">${name}</button>`).join("");
+  const buttons = [...container.querySelectorAll("button")];
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      buttons.forEach(item => {
+        const selected = item === button;
+        item.setAttribute("aria-selected", String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      renderSNS(button.dataset.channel);
+      const track = document.querySelector("#sns .track");
+      if (track) track.scrollLeft = 0;
+      const prev = document.querySelector("#sns .sl-prev");
+      const next = document.querySelector("#sns .sl-next");
+      if (prev && next && track) {
+        prev.disabled = true;
+        next.disabled = track.scrollWidth <= track.clientWidth + 4;
+      }
+    });
+    button.addEventListener("keydown", event => {
+      let nextIndex = index;
+      if (event.key === "ArrowRight") nextIndex = (index + 1) % buttons.length;
+      else if (event.key === "ArrowLeft") nextIndex = (index - 1 + buttons.length) % buttons.length;
+      else if (event.key === "Home") nextIndex = 0;
+      else if (event.key === "End") nextIndex = buttons.length - 1;
+      else return;
+      event.preventDefault();
+      buttons[nextIndex].click();
+      buttons[nextIndex].focus();
+    });
+  });
+});
+renderSNS();
 
 /* ===== 헤더 자세히 보기(메가 메뉴): 제품소개에 마우스를 올리거나 포커스하면 펼쳐짐 ===== */
 const SUB = {
