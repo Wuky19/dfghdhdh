@@ -221,7 +221,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .card.newscard{padding:12px;border:0;border-radius:24px;background:#fff;box-shadow:0 6px 24px rgba(20,40,60,.07);transition:transform .25s,box-shadow .25s}
 .nthumb{overflow:hidden;border-radius:16px}
 .nthumb .thumb{display:block;width:100%;aspect-ratio:13/10;object-fit:cover;transition:transform .4s}
-.newscard .card-b{padding:16px 10px 12px;gap:0}
+.newscard .card-b{padding:16px 10px 0;gap:0}
 .newscard h3.sm{font-size:17px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card.newscard:hover,.card.newscard:focus-within{transform:translateY(-6px);box-shadow:0 14px 32px rgba(20,40,60,.13)}
 .card.newscard:hover .thumb{transform:scale(1.05)}
