@@ -85,7 +85,7 @@ const R = {
   sns: SNS.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`),
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
-document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${ext}>${t}</a></li>`).join("") + `<li><a href="#finder">맞춤 제품 찾기</a></li>`;
+document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${u.startsWith("http") ? ext : ""}>${t}</a></li>`).join("") + `<li><a href="#finder">맞춤 제품 찾기</a></li>`;
 document.querySelectorAll("[data-chan]").forEach(b => b.innerHTML = CHAN.map(([t,u]) => `<a href="${u}" ${ext}>${t}</a>`).join(""));
 
 /* ===== 헤더 자세히 보기(메가 메뉴): 제품소개에 마우스를 올리거나 포커스하면 펼쳐짐 ===== */
@@ -112,7 +112,7 @@ const SUB = {
   const mega = document.createElement("div");
   mega.className = "mega"; mega.id = "mega"; mega.hidden = true;
   head.appendChild(mega);
-  const subLinks = (links) => links.map(([t, u]) => `<a class="chip" href="${u}" ${u.startsWith("#") ? "" : ext}><span>${t}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`).join("");
+  const subLinks = (links) => links.map(([t, u]) => `<a class="chip" href="${u}" ${u.startsWith("http") ? ext : ""}><span>${t}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`).join("");
   let cur = null, timer;
   function open(name, trigger) {
     clearTimeout(timer);
