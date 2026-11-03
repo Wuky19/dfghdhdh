@@ -229,7 +229,8 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 
 /* SNS: 소식 카드와 같은 부드러운 스타일 */
 #sns .eyebrow{margin:0 0 6px;text-align:left}
-#sns .track{padding:10px 4px 28px;margin:0 -4px}
+#news .wrap,#sns .wrap{padding-left:20px;padding-right:20px}
+#sns .track{padding:10px 0 28px;margin:0}
 .snscard .card-b{gap:8px}
 .snscard .tag{align-self:flex-start;padding:2px 10px;border-radius:999px;background:var(--mist);font-size:12px}
 .snscard h3.sm{margin-bottom:4px}
