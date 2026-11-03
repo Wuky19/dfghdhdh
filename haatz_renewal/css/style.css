@@ -320,3 +320,9 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .js-motion .story-photo.in .sp-img{animation:kb 2.4s cubic-bezier(.2,.7,.2,1) both}
 @keyframes kb{from{transform:scale(1.24)}to{transform:scale(1.12)}}
 @media (prefers-reduced-motion:reduce){.story-photo .sp-img{transform:none}}
+
+
+/* SNS 채널 탭 */
+.chan button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:14px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.chan button:hover,.chan button:focus-visible{border-color:var(--blue);color:var(--blue-d)}
+.chan button[aria-selected="true"]{border-color:var(--blue);background:var(--blue);color:#fff}
