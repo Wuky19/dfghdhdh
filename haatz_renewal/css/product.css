@@ -25,7 +25,7 @@
 .product-card{height:100%;display:flex;flex-direction:column;background:#fff;border:1px solid #e3e3e3;border-radius:var(--r);overflow:hidden;transition:transform .25s,box-shadow .25s}
 .product-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(20,40,60,.12)}
 .product-image{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:16px;background:#f4f6f8;color:#8b949a}
-.product-image span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border:1px dashed #c8d3d9;color:#8b949a;font-size:12px;font-weight:600;letter-spacing:.08em}
+.product-image span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border:1px dashed #c8d3d9;color:#8b949a;font-size:12px;font-weight:600;letter-spacing:.08em}.product-image img{display:block;width:100%;height:100%;object-fit:cover}
 .product-card-info{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:7px;padding:18px 18px 20px}
 .product-card-info .tag{margin-bottom:2px}
 .product-card-info h3{margin:0;font-size:18px;line-height:1.4;font-weight:600}
@@ -34,7 +34,7 @@
 .product-link span{color:var(--blue);font-size:18px}
 .product-link:hover,.product-link:focus-visible{color:var(--blue-d)}
 .product-note{margin:22px 0 0;color:var(--sub);font-size:13px;line-height:1.7}
-.product-empty{min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;border:1px dashed var(--line);border-radius:var(--r);background:#fafbfc;text-align:center}
+.product-empty{min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;border:1px dashed var(--line);border-radius:var(--r);background:#fafbfc;text-align:center}.product-empty img{display:block;width:100%;max-height:190px;aspect-ratio:5/3;object-fit:cover;border-radius:calc(var(--r) - 4px)}
 .product-empty strong{font-size:18px}
 .product-empty p{margin:0;color:var(--sub);font-size:14px}
 .product-empty span{color:#8b949a;font-size:11px;letter-spacing:.08em}
