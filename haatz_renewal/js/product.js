@@ -60,5 +60,6 @@
       menuButton.setAttribute("aria-expanded", "false");
     }
   });
-  selectCategory("all");
+  const hashCategory = { "#tab-kitchen": "kitchen", "#tab-bath": "bath", "#tab-air": "air", "#tab-life": "life" }[window.location.hash] || "all";
+  selectCategory(hashCategory);
 })();
