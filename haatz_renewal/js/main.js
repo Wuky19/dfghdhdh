@@ -12,7 +12,7 @@ const B = "https://www.haatz.com/kor/";
 const I = "img/";
 const MENU = [
   ["하츠이야기", B+"about/about.html"],
-  ["제품소개", B+"product/kitchen_list.html"],
+  ["제품소개", "product.html"],
   ["고객지원", B+"support/faq.html"],
   ["홍보센터", B+"pr-center/news__list.html"]
 ];
@@ -96,7 +96,7 @@ const SUB = {
   },
   "제품소개": {
     desc: "주방, 생활, 공기환경 등 다양한 분야의 제품을 통해 일상에 편리함과 품질을 더하는 하츠의 솔루션을 소개합니다.",
-    links: [["나에게 맞는 하츠 찾기", "#finder"], ["빌트인 주방가전", B+"product/kitchen_list.html"], ["욕실 솔루션", B+"product/haatzbath_list.html"], ["환기·공기질 솔루션", B+"product/airappliances_list.html"], ["생활 소형가전", B+"product/expendables_list.html"]]
+    links: [["나에게 맞는 하츠 찾기", "#finder"], ["빌트인 주방가전", "product.html#tab-kitchen"], ["욕실 솔루션", "product.html#tab-bath"], ["환기·공기질 솔루션", "product.html#tab-air"], ["생활 소형가전", "product.html#tab-life"]]
   },
   "고객지원": {
     desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 한곳에서 확인하세요.",
