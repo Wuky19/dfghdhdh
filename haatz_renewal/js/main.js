@@ -8,27 +8,27 @@ function swapIn(el, dx = 0, dy = 0, delay = 0, dur = 480) {
 if (!REDUCE) document.documentElement.classList.add("js-motion");
 
 /* ===== 데이터: 공식 사이트(haatz.com) 메인 페이지 기준. 교체 시 이 객체만 수정 ===== */
-const B = "https://www.haatz.com/kor/";
+const B = "index.html#";
 const I = "img/";
 const MENU = [
-  ["하츠이야기", B+"about/about.html"],
+  ["하츠이야기", "index.html#story"],
   ["제품소개", "product.html"],
-  ["고객지원", B+"support/faq.html"],
-  ["홍보센터", B+"pr-center/news__list.html"]
+  ["고객지원", "index.html#care"],
+  ["홍보센터", "index.html#news"]
 ];
 const CAT = [
-  ["빌트인 주방가전","Built-in Kitchen Appliances","세련된 디자인과 정교한 기술력으로 주방의 새로운 기준을 제시합니다.",I+"cat-kitchen.webp",B+"product/kitchen_list.html"],
-  ["환기·공기질 솔루션","Ventilation & Air Quality Solutions","효율적인 환기와 정교한 공기 제어로, 조용하고 깨끗한 생활환경을 실현합니다.",I+"cat-air.webp",B+"product/airappliances_list.html"],
-  ["욕실 솔루션","Bathroom Solutions","감각적인 디자인과 섬세한 기능이 어우러져, 욕실을 나만의 안식처로 바꿉니다.",I+"cat-bath.webp",B+"product/haatzbath_list.html"],
-  ["생활 소형가전","Home & Lifestyle Appliances","일상에 영감을 더하는 디자인과 실용성으로, 더 편리하고 여유로운 라이프를 제안합니다.",I+"cat-life.webp",B+"product/expendables_list.html"]
+  ["빌트인 주방가전","Built-in Kitchen Appliances","세련된 디자인과 정교한 기술력으로 주방의 새로운 기준을 제시합니다.",I+"cat-kitchen.webp","product.html#tab-kitchen"],
+  ["환기·공기질 솔루션","Ventilation & Air Quality Solutions","효율적인 환기와 정교한 공기 제어로, 조용하고 깨끗한 생활환경을 실현합니다.",I+"cat-air.webp","product.html#tab-air"],
+  ["욕실 솔루션","Bathroom Solutions","감각적인 디자인과 섬세한 기능이 어우러져, 욕실을 나만의 안식처로 바꿉니다.",I+"cat-bath.webp","product.html#tab-bath"],
+  ["생활 소형가전","Home & Lifestyle Appliances","일상에 영감을 더하는 디자인과 실용성으로, 더 편리하고 여유로운 라이프를 제안합니다.",I+"cat-life.webp","product.html#tab-life"]
 ];
 const SVC = [
-  ["A/S 신청 및 확인","간편하게 접수하고, 진행상황까지 한눈에 확인하세요.",I+"svc-as.webp",B+"support/service__1.html"],
-  ["전국 대리점 찾기","가까운 대리점을 쉽고 빠르게 확인하세요.",I+"svc-store.webp",B+"support/buy.html"],
-  ["자주 묻는 질문","고객님들이 가장 많이 찾는 답변을 한곳에 모았습니다.",I+"svc-faq.webp",B+"support/faq.html"],
-  ["사용 설명서","제품 사용을 쉽고 정확하게 안내해드립니다.",I+"svc-manual.webp",B+"support/manuals.html"]
+  ["A/S 신청 및 확인","간편하게 접수하고, 진행상황까지 한눈에 확인하세요.",I+"svc-as.webp","#care"],
+  ["전국 대리점 찾기","가까운 대리점을 쉽고 빠르게 확인하세요.",I+"svc-store.webp","#care"],
+  ["자주 묻는 질문","고객님들이 가장 많이 찾는 답변을 한곳에 모았습니다.",I+"svc-faq.webp","#care"],
+  ["사용 설명서","제품 사용을 쉽고 정확하게 안내해드립니다.",I+"svc-manual.webp","#care"]
 ];
-const P = (n,u) => B+"product/"+n+"_list.html?bmain=view&uid="+u;
+const P = (n,u) => "product.html#tab-" + (n === "airappliances" ? "air" : n === "haatzbath" ? "bath" : "kitchen");
 const BEST = [
   ["마이티","공기환경을 쾌적하게 가꾸는 하츠의 환기·공기질 솔루션",I+"p-mighty.png",P("airappliances",202)],
   ["폰테 사각싱크볼(엠보리폼980)","사각 형태로 주방 공간을 깔끔하게 완성하는 싱크볼",I+"p-sink.png",P("kitchen",119)],
@@ -40,9 +40,9 @@ const BEST = [
   ["클레르 인덕션","공간에 맞춰 설치하는 하츠의 빌트인 인덕션",I+"p-clair.jpg",P("kitchen",93)]
 ];
 const STORY = [
-  ["하츠소개","About 하츠",B+"about/about.html"],
-  ["연혁","하츠가 걸어온 길",B+"about/history.html"],
-  ["사업소개","하츠의 사업 영역",B+"about/overview.html"]
+  ["하츠소개","About 하츠","index.html#story"],
+  ["연혁","하츠가 걸어온 길","index.html#story"],
+  ["사업소개","하츠의 사업 영역","index.html#story"]
 ];
 const NEWS = [
   ["'주방 리모델링 편의성 높인다' 하츠,'수전 일체형 올인원 사각볼' 출시",I+"n1.png"],
@@ -134,7 +134,7 @@ renderSNS();
 const SUB = {
   "하츠이야기": {
     desc: "30년 넘게 이어온 하츠의 이야기와 사업, 경영 정보를 소개합니다.",
-    links: [["About 하츠","about/about.html"],["연혁","about/history.html"],["CI","about/ci.html"],["사업소","about/lcations__1.html"],["사업소개","about/overview.html"],["투자정보","about/investor__1.html"],["윤리경영","about/ethical__write.html"]].map(([t,u]) => [t, B+u])
+    links: [["About 하츠","about/about.html"],["연혁","about/history.html"],["CI","about/ci.html"],["사업소","about/lcations__1.html"],["사업소개","about/overview.html"],["투자정보","about/investor__1.html"],["윤리경영","about/ethical__write.html"]].map(([t,u]) => [t, "#care"])
   },
   "제품소개": {
     desc: "주방, 생활, 공기환경 등 다양한 분야의 제품을 통해 일상에 편리함과 품질을 더하는 하츠의 솔루션을 소개합니다.",
@@ -142,11 +142,11 @@ const SUB = {
   },
   "고객지원": {
     desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 한곳에서 확인하세요.",
-    links: [["자주 묻는 질문","support/faq.html"],["유지관리 가이드","support/maintenance__list.html"],["A/S 신청&amp;조회","support/service__1.html"],["E - 카탈로그","support/catalog.html"],["사용설명서","support/manuals.html"],["서비스정책","support/policy.html"],["구매처","support/buy.html"],["고객의 소리","support/feedback__1.html"],["대리점 개설 문의","support/inquiry__1.html"]].map(([t,u]) => [t, B+u])
+    links: [["자주 묻는 질문","support/faq.html"],["유지관리 가이드","support/maintenance__list.html"],["A/S 신청&amp;조회","support/service__1.html"],["E - 카탈로그","support/catalog.html"],["사용설명서","support/manuals.html"],["서비스정책","support/policy.html"],["구매처","support/buy.html"],["고객의 소리","support/feedback__1.html"],["대리점 개설 문의","support/inquiry__1.html"]].map(([t,u]) => [t, "#care"])
   },
   "홍보센터": {
     desc: "하츠의 새로운 소식과 홍보영상, 미디어 자료, 공지사항을 확인하세요.",
-    links: [["NEWS","pr-center/news__list.html"],["홍보영상","pr-center/promotion__list.html"],["하츠 미디어","pr-center/media__list.html"],["공지사항","pr-center/notices__list.html"]].map(([t,u]) => [t, B+u])
+    links: [["NEWS","pr-center/news__list.html"],["홍보영상","pr-center/promotion__list.html"],["하츠 미디어","pr-center/media__list.html"],["공지사항","pr-center/notices__list.html"]].map(([t,u]) => [t, "#news"])
   }
 };
 (function () {
