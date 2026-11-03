@@ -7,7 +7,7 @@ function swapIn(el, dx = 0, dy = 0, delay = 0, dur = 480) {
 }
 if (!REDUCE) document.documentElement.classList.add("js-motion");
 
-/* ===== 데이터: 공식 사이트(haatz.com) 메인 페이지 기준. 교체 시 이 객체만 수정 ===== */
+/* ===== 사이트 콘텐츠 데이터: 교체 시 이 객체만 수정 ===== */
 const B = "index.html#";
 const I = "img/";
 const MENU = [
