@@ -31,6 +31,7 @@
   mega.className = "mega";
   mega.id = "mega";
   mega.hidden = true;
+  mega.style.zIndex = "1000";
   head.appendChild(mega);
 
   let current = null;
@@ -77,7 +78,7 @@
     mobileSub.innerHTML = makeLinks(SUB[name].links);
     link.parentElement.appendChild(mobileSub);
 
-    link.addEventListener("mouseenter", () => open(name, link));
+    link.parentElement.addEventListener("mouseenter", () => open(name, link));
     link.addEventListener("focus", () => open(name, link));
   });
 
