@@ -200,7 +200,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .finder-panel .rec .prod-img{width:100%;aspect-ratio:4/5;padding:0;border-radius:18px;object-fit:cover;background:transparent;box-shadow:0 8px 20px rgba(20,60,90,.12)}
 .finder-panel .rec h4{font-size:24px}
 .finder-panel .rec p{line-height:1.7}
-.finder-panel .rec small{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:999px;background:#fff;color:var(--sub);font-size:12px}
+.finder-panel .rec small{display:inline-block;margin-top:6px;padding:2px 10px;border-radius:999px;background:#fff;color:var(--sub);font-size:16px}
 @media (max-width:768px){.finder-panel .rec{grid-template-columns:1fr}.finder-panel .rec .prod-img{max-width:260px;margin:0 auto}}
 
 /* 하츠의 대표 제품 카드: 테두리·회색 박스를 없애고 부드러운 카드로 */
@@ -234,7 +234,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .snscard .card-b{gap:8px}
 .snscard .tag{align-self:flex-start;padding:2px 10px;border-radius:999px;background:var(--mist);font-size:12px}
 .snscard h3.sm{margin-bottom:4px}
-.snscard .btn{width:auto;min-height:44px;margin-top:auto;padding:8px 0;border:0;background:none;color:var(--ink);text-align:left;font-size:14px;transition:color .2s}
+.snscard .btn{width:auto;min-height:44px;margin-top:auto;padding:8px 0;border:0;background:none;color:var(--ink);text-align:left;font-size:16px;transition:color .2s}
 .snscard .btn:after{content:" \2192"}
 .snscard .btn:hover{background:none;color:var(--blue-d)}
 .chan a{border-radius:999px}
