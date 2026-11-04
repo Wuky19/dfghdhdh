@@ -8,8 +8,7 @@
     all: "전체 제품",
     kitchen: "빌트인 주방가전",
     bath: "욕실 솔루션",
-    air: "환기·공기질 솔루션",
-    life: "생활 소형가전"
+    air: "환기·공기질 솔루션"
   };
 
   function selectCategory(category, moveFocus = false) {
@@ -60,6 +59,6 @@
       menuButton.setAttribute("aria-expanded", "false");
     }
   });
-  const hashCategory = { "#tab-kitchen": "kitchen", "#tab-bath": "bath", "#tab-air": "air", "#tab-life": "life" }[window.location.hash] || "all";
+  const hashCategory = { "#tab-kitchen": "kitchen", "#tab-bath": "bath", "#tab-air": "air" }[window.location.hash] || "all";
   selectCategory(hashCategory);
 })();
