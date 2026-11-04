@@ -25,7 +25,7 @@
 .product-card{height:100%;display:flex;flex-direction:column;background:#fff;border:1px solid #eee8e1;border-radius:14px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
 .product-card:hover{transform:translateY(-3px);border-color:#e4d9cc;box-shadow:0 10px 24px rgba(72,56,38,.09)}
 .product-image{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;padding:0;background:#f3f0eb;color:#8b949a;overflow:hidden}
-.product-image span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border:1px dashed #d8cec2;color:#958a7e;font-size:12px;font-weight:600;letter-spacing:.08em}.product-image img{display:block;width:100%;height:100%;object-fit:cover}
+.product-image span{display:flex;align-items:center;justify-content:center;width:100%;height:100%;border:1px dashed #d8cec2;color:#958a7e;font-size:16px;font-weight:600;letter-spacing:.08em}.product-image img{display:block;width:100%;height:100%;object-fit:cover}
 .product-card-info{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:8px;padding:18px}
 .product-card-info .tag{margin-bottom:2px}
 .product-card-info h3{margin:0;font-size:18px;line-height:1.4;font-weight:600}
@@ -37,7 +37,7 @@
 .product-empty{min-height:280px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:16px;border:1px dashed var(--line);border-radius:var(--r);background:#fafbfc;text-align:center}.product-empty img{display:block;width:100%;max-height:190px;aspect-ratio:5/3;object-fit:cover;border-radius:calc(var(--r) - 4px)}
 .product-empty strong{font-size:18px}
 .product-empty p{margin:0;color:var(--sub);font-size:16px}
-.product-empty span{color:#8b949a;font-size:11px;letter-spacing:.08em}
+.product-empty span{color:#8b949a;font-size:16px;letter-spacing:.08em}
 .product-cta{padding:56px 0;background:var(--mist)}
 .product-cta-in{display:flex;align-items:center;justify-content:space-between;gap:24px}
 .product-cta h2{margin:0 0 8px;font-size:clamp(22px,3vw,30px)}
