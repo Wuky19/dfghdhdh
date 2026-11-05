@@ -62,3 +62,9 @@
 @media(max-width:900px){.cf-category-grid{gap:12px}.cf-category-copy{padding:16px}.cf-category-copy strong{font-size:16px}.cf-size-panel{padding:28px}}
 @media(max-width:680px){.cf-hero{padding:68px 0 64px}.cf-hero p:not(.cf-eyebrow){font-size:16px}.cf-content{padding-top:56px;padding-bottom:68px}.cf-progress{justify-content:space-between;gap:8px}.cf-progress li{gap:6px;font-size:12px}.cf-progress li span{width:28px;height:28px}.cf-category-grid{grid-template-columns:1fr;gap:10px}.cf-category{display:grid;grid-template-columns:112px 1fr;align-items:center;min-height:104px}.cf-category-image{grid-row:1;grid-column:1;align-self:stretch;aspect-ratio:auto;height:100%}.cf-category-copy{grid-row:1;grid-column:2;padding:14px}.cf-check{top:10px;right:10px}.cf-size-panel{margin-top:28px;padding:23px 18px}.cf-input-row{flex-wrap:wrap}.cf-input-row input{flex:1;width:100%;min-width:0}.cf-input-row .btn{width:100%;margin:8px 0 0}.cf-unit{margin-left:-48px}.cf-result{padding:22px 17px}.cf-result-summary{grid-template-columns:1fr}.cf-result-actions{align-items:stretch;flex-direction:column}.cf-result-actions .btn{width:100%}.cf-reset{width:100%}.cf-guide-in{align-items:flex-start;flex-direction:column}.cf-guide .btn-line{width:100%}.mobile-only{display:block}}
 @media(prefers-reduced-motion:reduce){.cf-category,.cf-check{transition:none}.cf-category:hover{transform:none}}
+
+/* 단계별 노출: 다음 단계는 이전 선택이 완료된 뒤 표시 */
+.cf-size-panel[hidden],.cf-result[hidden]{display:none!important}
+.cf-size-panel:not([hidden]){animation:cf-reveal .35s ease both}
+@keyframes cf-reveal{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.cf-size-panel:not([hidden]){animation:none}}
