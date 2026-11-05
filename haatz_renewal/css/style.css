@@ -326,3 +326,19 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .chan button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:16px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
 .chan button:hover,.chan button:focus-visible{border-color:var(--blue);color:var(--blue-d)}
 .chan button[aria-selected="true"]{border-color:var(--blue);background:var(--blue);color:#fff}
+
+
+/* 그룹형 메가 메뉴 */
+.mega-in-grouped{grid-template-columns:220px 1fr;gap:36px}
+.mega-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mega-group{min-width:0}
+.mega-group h3{margin:0 0 14px;font-size:16px;font-weight:700;color:var(--ink)}
+.mega-group-links{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.mega-group .chip{justify-content:space-between;min-height:40px;padding:8px 10px;border-radius:6px}
+.m-sub-group{display:flex;flex-direction:column;gap:6px;padding:12px 0;border-top:1px solid #eee}
+.m-sub-group>strong{font-size:14px;padding:0 18px;color:var(--sub)}
+.m-sub-group .chip{margin:0 8px;border:0;justify-content:space-between}
+@media(max-width:768px){
+ .mega-groups{grid-template-columns:1fr}
+ .mega-in-grouped{grid-template-columns:1fr}
+}
