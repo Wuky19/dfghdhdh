@@ -98,3 +98,37 @@
 .cf-recommend-info a:hover{text-decoration:underline}
 .cf-recommend-note{margin:13px 0 0;color:#68747b;font-size:12px;line-height:1.6}
 @media(max-width:680px){.cf-recommend-grid{grid-template-columns:1fr}.cf-recommend-info{padding:15px}}
+
+
+/* 추천 카드 CTA를 버튼 형태로 정리 */
+.cf-recommend-info a{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  width:fit-content;
+  min-height:40px;
+  margin-top:auto;
+  padding:0 14px;
+  border:1px solid #cfe5ee;
+  border-radius:5px;
+  background:#f3f9fb;
+  color:var(--blue-d);
+  font-size:13px;
+  font-weight:700;
+  text-decoration:none;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.cf-recommend-info a::after{
+  content:"→";
+  font-size:16px;
+  line-height:1;
+  transition:transform .2s;
+}
+.cf-recommend-info a:hover{
+  border-color:var(--blue);
+  background:var(--blue);
+  color:#fff;
+}
+.cf-recommend-info a:hover::after{transform:translateX(3px)}
+.cf-recommend-info a:focus-visible{outline:3px solid rgba(0,157,220,.2);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.cf-recommend-info a,.cf-recommend-info a::after{transition:none}}
