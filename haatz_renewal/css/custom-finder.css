@@ -132,3 +132,19 @@
 .cf-recommend-info a:hover::after{transform:translateX(3px)}
 .cf-recommend-info a:focus-visible{outline:3px solid rgba(0,157,220,.2);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.cf-recommend-info a,.cf-recommend-info a::after{transition:none}}
+
+
+/* 추천 제품 영역의 블루 사용을 줄이고 차분한 중립 톤으로 조정 */
+.cf-recommend-info .tag{color:#68747b}
+.cf-recommend-info a{
+  gap:0;
+  border:1px solid #d9dfe2;
+  background:#fff;
+  color:#30383c;
+}
+.cf-recommend-info a::after{content:none}
+.cf-recommend-info a:hover{
+  border-color:#59656b;
+  background:#59656b;
+  color:#fff;
+}
