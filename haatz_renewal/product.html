@@ -22,6 +22,7 @@
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnb">메뉴</button>
       <nav id="gnb" class="gnb" aria-label="주요 메뉴">
         <ul id="gnb-list">
+          <li><a href="custom-finder.html">나에게 맞는 하츠 찾기</a></li>
           <li><a href="about.html">하츠이야기</a></li>
           <li><a href="product.html" class="on" aria-current="page">제품소개</a></li>
           <li><a href="index.html#care">고객지원</a></li>
@@ -49,8 +50,8 @@
         <div class="sec-head product-heading">
           <div>
             <p class="eyebrow">PRODUCT CATEGORY</p>
-            <h2 id="catalog-title">제품 카테고리</h2>
-            <p class="lead">관심 있는 공간과 제품 분야를 선택해 살펴보세요.</p>
+            <h2 id="catalog-title">전체 제품 <span class="catalog-total" id="catalog-total"></span></h2>
+            <p class="lead">원하는 제품을 검색하거나 카테고리별로 살펴보세요.</p>
           </div>
           <p class="product-count" aria-live="polite"><strong id="product-count">8</strong>개 제품</p>
         </div>
@@ -62,6 +63,7 @@
           <button type="button" class="product-tab" id="tab-air" role="tab" aria-selected="false" aria-controls="product-grid" data-category="air" tabindex="-1">환기·공기질 솔루션</button>
         </div>
 
+        <div class="product-tools"><label class="product-search"><span class="sr-only">제품 검색</span><input type="search" id="product-search" placeholder="제품명을 검색하세요" autocomplete="off><button type="button" id="search-clear" aria-label="검색어 지우기">×</button></label></div>
         <div class="product-result-head">
           <h3 id="result-title">전체 제품</h3>
           <p>빌트인 주방가전 제품 이미지를 적용했습니다. 일부 제품 이미지는 추가 확인이 필요합니다.</p>
@@ -71,49 +73,49 @@
           <li class="product-item" data-category="kitchen">
             <article class="product-card">
               <div class="product-image"><img src="img/1.jfif" alt="폰테 사각싱크볼 제품 이미지"></div>
-              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>폰테 사각싱크볼</h3><p>엠보리폼 980</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>폰테 사각싱크볼</h3><p>엠보리폼 980</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="kitchen">
             <article class="product-card">
               <div class="product-image"><img src="img/2.jfif" alt="노바 후드 제품 이미지"></div>
-              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>노바 후드</h3><p>주방 공간을 위한 후드</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>노바 후드</h3><p>주방 공간을 위한 후드</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="kitchen">
             <article class="product-card">
               <div class="product-image"><img src="img/3.jfif" alt="모아후드 제품 이미지"></div>
-              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>모아후드</h3><p>플루티드 유리 디자인</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>모아후드</h3><p>플루티드 유리 디자인</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="kitchen">
             <article class="product-card">
               <div class="product-image"><img src="img/4.png" alt="휠라이트 인덕션이 설치된 주방 공간"></div>
-              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>휠라이트 인덕션</h3><p>빌트인 인덕션</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>휠라이트 인덕션</h3><p>빌트인 인덕션</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="kitchen">
             <article class="product-card">
               <div class="product-image"><img src="img/5.jfif" alt="클레르 인덕션 제품 이미지"></div>
-              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>클레르 인덕션</h3><p>빌트인 인덕션</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">빌트인 주방가전</span><h3>클레르 인덕션</h3><p>빌트인 인덕션</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="bath">
             <article class="product-card">
               <div class="product-image"><img src="img/cat-bath.webp" alt="세면대와 비데가 배치된 욕실 공간"></div>
-              <div class="product-card-info"><span class="tag">욕실 솔루션</span><h3>하츠 비데</h3><p>욕실 위생가전</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">욕실 솔루션</span><h3>하츠 비데</h3><p>욕실 위생가전</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="bath">
             <article class="product-card">
               <div class="product-image"><img src="img/cat-bath.webp" alt="세면대와 비데가 배치된 욕실 공간"></div>
-              <div class="product-card-info"><span class="tag">욕실 솔루션</span><h3>하츠 비데 라이트</h3><p>욕실 위생가전</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">욕실 솔루션</span><h3>하츠 비데 라이트</h3><p>욕실 위생가전</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
           <li class="product-item" data-category="air">
             <article class="product-card">
               <div class="product-image"><img src="img/cat-air.webp" alt="넓은 창과 자연이 보이는 실내 공간"></div>
-              <div class="product-card-info"><span class="tag">환기·공기질 솔루션</span><h3>마이티</h3><p>환기·공기질 솔루션</p><a href="#product-inquiry" class="product-link">제품 자세히 보기 <span aria-hidden="true">↗</span></a></div>
+              <div class="product-card-info"><span class="tag">환기·공기질 솔루션</span><h3>마이티</h3><p>환기·공기질 솔루션</p><button type="button" class="product-link detail-open">제품 자세히 보기 <span aria-hidden="true">↗</span></button></div>
             </article>
           </li>
         </ul>
@@ -145,6 +147,7 @@
       <p class="copy">HAATZ WEBSITE RENEWAL · SUB PAGE</p>
     </div>
   </footer>
+  <dialog class="product-detail-dialog" id="product-detail-dialog" aria-labelledby="detail-title"><button type="button" class="detail-close" aria-label="상세창 닫기">×</button><div class="detail-content"><p class="eyebrow">PRODUCT DETAIL</p><h2 id="detail-title">제품 상세정보</h2><p>제품 상세창 구성은 참고 화면 확인 후 반영할 예정입니다.</p></div></dialog>
   <script src="js/product.js"></script>
   <script src="js/product-nav.js"></script>
 </body>
