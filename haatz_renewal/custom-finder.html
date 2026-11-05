@@ -69,33 +69,35 @@
         <div class="cf-size-panel" id="size-panel" aria-labelledby="size-title" hidden>
           <div class="cf-panel-head">
             <span class="cf-step-label">STEP 02</span>
-            <h2 id="size-title">설치할 수 있는 가로 폭을 입력해 주세요.</h2>
-            <p>제품이 설치될 공간의 가로 폭을 mm 단위로 입력해 주세요.</p>
+            <h2 id="size-title">설치 공간의 가로 폭을 선택해 주세요.</h2>
+            <p>공간의 크기와 가까운 항목을 선택하면 해당 조건으로 제품을 찾아볼 수 있습니다.</p>
           </div>
-          <form id="finder-form" class="cf-form">
-            <label for="width-input">설치 가능 가로 폭 <span>(mm)</span></label>
-            <div class="cf-input-row">
-              <input id="width-input" name="width" type="number" min="1" max="5000" step="1" placeholder="예: 600" inputmode="numeric" required>
-              <span class="cf-unit">mm</span>
-              <button type="submit" class="btn">제품 탐색하기</button>
+          <div class="cf-form">
+            <p class="cf-size-label">설치 가능 가로 폭 <span>(mm)</span></p>
+            <div class="cf-size-options" id="width-options" role="group" aria-label="설치 가능 가로 폭 선택">
+              <button type="button" class="cf-size-option" data-width="300" aria-pressed="false">300<span>mm</span></button>
+              <button type="button" class="cf-size-option" data-width="500" aria-pressed="false">500<span>mm</span></button>
+              <button type="button" class="cf-size-option" data-width="600" aria-pressed="false">600<span>mm</span></button>
+              <button type="button" class="cf-size-option" data-width="700" aria-pressed="false">700<span>mm</span></button>
+              <button type="button" class="cf-size-option" data-width="900" aria-pressed="false">900<span>mm</span></button>
+              <button type="button" class="cf-size-option" data-width="1200" aria-pressed="false">1200<span>mm</span></button>
             </div>
-            <p class="cf-help" id="width-help">제품마다 필요한 설치 규격이 다르므로 제품 사양서를 함께 확인해야 합니다.</p>
-            <p class="cf-error" id="width-error" role="alert" hidden>1~5000mm 사이의 숫자를 입력해 주세요.</p>
-          </form>
+            <p class="cf-help">선택한 폭과 가까운 제품을 탐색합니다. 실제 설치 가능 여부는 제품별 상세 규격을 확인해야 합니다.</p>
+          </div>
         </div>
 
         <section class="cf-result" id="finder-result" aria-labelledby="result-title" aria-live="polite" hidden>
           <div class="cf-result-head">
             <span class="cf-step-label">STEP 03 · SEARCH RESULT</span>
-            <h2 id="result-title">선택한 조건을 확인해 주세요.</h2>
+            <h2 id="result-title">선택한 조건과 가까운 제품을 확인해 보세요.</h2>
           </div>
           <div class="cf-result-summary">
             <div><span>선택 카테고리</span><strong id="result-category">빌트인 주방가전</strong></div>
             <div><span>설치 가능 가로 폭</span><strong><span id="result-width">600</span> mm</strong></div>
           </div>
           <div class="cf-result-notice">
-            <strong>제품별 상세 규격 확인이 필요합니다.</strong>
-            <p>현재 프로젝트에 등록된 제품 정보만으로는 모든 제품의 설치 가능 여부를 정확하게 판별할 수 없습니다. 입력한 크기는 탐색 조건으로 저장되며, 실제 구매·설치 전에는 해당 모델의 공식 사양서와 설치 조건을 확인해 주세요.</p>
+            <strong>선택한 크기와 가까운 제품을 확인해 보세요.</strong>
+            <p>현재 등록된 제품 데이터에는 모든 모델의 정확한 가로 폭이 포함되어 있지 않아, 제품별 가까운 순위를 확정할 수 없습니다. 아래 카테고리에서 제품을 살펴본 뒤 실제 제품 치수와 설치 조건을 비교해 주세요.</p>
           </div>
           <div class="cf-result-actions">
             <a class="btn" id="category-link" href="product.html#tab-kitchen">선택한 카테고리 제품 보기</a>
