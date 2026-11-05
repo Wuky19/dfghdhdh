@@ -91,3 +91,8 @@
 .product-search .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
 .product-search input{flex:1;width:1%;min-width:0;height:46px;padding:0 14px;border:0;outline:0;background:transparent;font:inherit}
 .product-search button{flex:0 0 42px}
+
+
+/* 페이지네이션 번호 가로 정렬 보정 */
+.product-pagination{display:flex!important;flex-direction:row!important;flex-wrap:nowrap;justify-content:center!important;align-items:center!important;gap:8px;width:100%;}
+.product-pagination button{display:inline-flex!important;flex:0 0 40px;}
