@@ -85,7 +85,7 @@ const R = {
   sns: SNS.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`),
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
-document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${u.startsWith("http") ? ext : ""}>${t}</a></li>`).join("") + `<li><a href="#finder">맞춤 제품 찾기</a></li>`;
+document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${u.startsWith("http") ? ext : ""}>${t}</a></li>`).join("") + `<li><a href="custom-finder.html">맞춤 제품 찾기</a></li>`;
 /* SNS 채널 탭: 전체/인스타그램/블로그/유튜브 */
 const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
@@ -138,7 +138,7 @@ const SUB = {
   },
   "제품소개": {
     desc: "주방, 생활, 공기환경 등 다양한 분야의 제품을 통해 일상에 편리함과 품질을 더하는 하츠의 솔루션을 소개합니다.",
-    links: [["나에게 맞는 하츠 찾기", "#finder"], ["빌트인 주방가전", "product.html#tab-kitchen"], ["욕실 솔루션", "product.html#tab-bath"], ["환기·공기질 솔루션", "product.html#tab-air"]]
+    links: [["나에게 맞는 하츠 찾기", "custom-finder.html"], ["빌트인 주방가전", "product.html#tab-kitchen"], ["욕실 솔루션", "product.html#tab-bath"], ["환기·공기질 솔루션", "product.html#tab-air"]]
   },
   "고객지원": {
     desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 확인하세요.",
