@@ -21,7 +21,7 @@
     "제품소개": {
       desc: "주방, 욕실, 환기·공기질 등 다양한 공간에 필요한 하츠의 제품 솔루션을 살펴보세요.",
       links: [
-        ["나에게 맞는 하츠 찾기", "index.html#finder"],
+        ["나에게 맞는 하츠 찾기", "custom-finder.html"],
         ["빌트인 주방가전", "product.html#tab-kitchen"],
         ["욕실 솔루션", "product.html#tab-bath"],
         ["환기·공기질 솔루션", "product.html#tab-air"]
