@@ -11,7 +11,7 @@
 .about-section-head{max-width:760px;margin-bottom:56px}
 .about-section-head h2{margin:0 0 18px;font-size:clamp(32px,4.5vw,52px);line-height:1.2;letter-spacing:-.04em}
 .about-intro{max-width:680px;margin:0;color:#555;font-size:18px;line-height:1.8}
-.brand-story-copy{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;padding:48px 0;border-top:1px solid #d8d8d8;border-bottom:1px solid #d8d8d8}
+.brand-story-copy{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;padding:48px 0;border-top:1px solid #d8d8d8}
 .brand-statement{margin:0;font-size:clamp(30px,4vw,48px);font-weight:700;line-height:1.35;letter-spacing:-.04em}
 .brand-story-copy>p:last-child{max-width:500px;margin:0;color:#555;line-height:1.9}
 .brand-keywords{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:36px}
