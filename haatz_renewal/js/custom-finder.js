@@ -1,6 +1,7 @@
 (() => {
   const categoryButtons = [...document.querySelectorAll(".cf-category")];
   const form = document.getElementById("finder-form");
+  const sizePanel = document.getElementById("size-panel");
   const widthInput = document.getElementById("width-input");
   const error = document.getElementById("width-error");
   const result = document.getElementById("finder-result");
@@ -18,7 +19,7 @@
     bath: "product.html#tab-bath",
     air: "product.html#tab-air"
   };
-  let selectedCategory = "kitchen";
+  let selectedCategory = null;
 
   function selectCategory(button) {
     selectedCategory = button.dataset.category;
@@ -29,6 +30,10 @@
     });
     result.hidden = true;
     error.hidden = true;
+    sizePanel.hidden = false;
+    document.getElementById("progress-category").classList.add("is-done");
+    document.getElementById("progress-size").classList.add("is-current");
+    sizePanel.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest"});
   }
 
   categoryButtons.forEach(button => {
@@ -50,6 +55,7 @@
     categoryLink.href = categoryUrls[selectedCategory];
     result.hidden = false;
     document.getElementById("progress-category").classList.add("is-done");
+    document.getElementById("progress-size").classList.remove("is-current");
     document.getElementById("progress-size").classList.add("is-done");
     document.getElementById("progress-result").classList.add("is-current");
     result.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start"});
@@ -57,9 +63,17 @@
 
   changeButton.addEventListener("click", () => {
     result.hidden = true;
+    sizePanel.hidden = true;
+    widthInput.value = "";
+    error.hidden = true;
+    categoryButtons.forEach(button => {
+      button.classList.remove("is-selected");
+      button.setAttribute("aria-pressed", "false");
+    });
     document.getElementById("progress-category").classList.remove("is-done");
-    document.getElementById("progress-size").classList.remove("is-done");
+    document.getElementById("progress-size").classList.remove("is-done", "is-current");
     document.getElementById("progress-result").classList.remove("is-current");
-    widthInput.focus();
+    selectedCategory = null;
+    document.getElementById("category-options").scrollIntoView({behavior: "smooth", block: "center"});
   });
 })();
