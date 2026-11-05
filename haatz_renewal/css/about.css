@@ -83,3 +83,11 @@
  .value-grid article{padding:0 0 28px}
  .value-grid article>img{height:auto;aspect-ratio:16/10}
 }
+
+/* HERO와 CTA 배경 이미지 */
+.about-hero{background-image:linear-gradient(90deg,rgba(233,230,224,.94) 0%,rgba(233,230,224,.78) 48%,rgba(233,230,224,.12) 100%),url("../img/hero.jfif");background-position:center;background-size:cover}
+.about-cta{background-image:linear-gradient(rgba(233,230,224,.88),rgba(233,230,224,.88)),url("../img/cta.jfif");background-position:center;background-size:cover}
+@media(max-width:768px){
+ .about-hero{background-position:58% center}
+ .about-cta{background-position:center}
+}
