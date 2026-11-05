@@ -4,6 +4,9 @@
   const title = document.getElementById("result-title");
   const count = document.getElementById("product-count");
   const grid = document.getElementById("product-grid");
+  const pagination = document.getElementById("product-pagination");
+  const pageSize = 4;
+  let currentPage = 1;
   const search = document.getElementById("product-search");
   const clearSearch = document.getElementById("search-clear");
   const total = document.getElementById("catalog-total");
@@ -16,13 +19,6 @@
   const shareDetail = document.querySelector(".detail-share");
   let currentDetailUrl = window.location.href;
   const closeDetail = dialog?.querySelector(".detail-close");
-  items.forEach((item, index) => {
-    const card = item.querySelector(".product-card-info");
-    const number = document.createElement("span");
-    number.className = "product-number";
-    number.textContent = String(index + 1).padStart(2, "0");
-    card?.prepend(number);
-  });
   if (total) total.textContent = `(${items.length}개)`;
   const names = {
     all: "전체 제품",
@@ -39,25 +35,49 @@
       tab.setAttribute("aria-selected", String(selected));
       tab.tabIndex = selected ? 0 : -1;
     });
-
-    let visibleCount = 0;
-    items.forEach(item => {
-      const keyword = (search?.value || "").trim().toLowerCase();
+    const keyword = (search?.value || "").trim().toLowerCase();
+    const filteredItems = items.filter(item => {
       const productName = item.querySelector("h3")?.textContent.toLowerCase() || "";
-      const visible = (category === "all" || item.dataset.category === category) && productName.includes(keyword);
-      item.hidden = !visible;
-      if (visible && !item.classList.contains("is-empty")) visibleCount += 1;
+      return (category === "all" || item.dataset.category === category) && productName.includes(keyword);
     });
-
+    const pageCount = Math.max(1, Math.ceil(filteredItems.length / pageSize));
+    currentPage = Math.min(currentPage, pageCount);
+    const startIndex = (currentPage - 1) * pageSize;
+    const pageItems = new Set(filteredItems.slice(startIndex, startIndex + pageSize));
+    items.forEach(item => { item.hidden = !pageItems.has(item); });
     title.textContent = names[category] || names.all;
-    count.textContent = String(visibleCount);
-    if (total) total.textContent = `(${visibleCount}개 표시 / 전체 ${items.length}개)`;
+    count.textContent = String(filteredItems.length);
+    if (total) total.textContent = `(${filteredItems.length}개)`;
     grid.setAttribute("aria-labelledby", activeTab.id);
+    renderPagination(pageCount, category);
     if (moveFocus) activeTab.focus();
   }
 
-  search?.addEventListener("input", () => selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"));
-  clearSearch?.addEventListener("click", () => { if (search) search.value = ""; selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"); search?.focus(); });
+  function renderPagination(pageCount, category) {
+    if (!pagination) return;
+    pagination.innerHTML = "";
+    const addButton = (label, page, disabled = false, current = false, aria = label) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = label;
+      button.disabled = disabled;
+      button.classList.toggle("is-current", current);
+      if (current) button.setAttribute("aria-current", "page");
+      button.setAttribute("aria-label", aria);
+      button.addEventListener("click", () => {
+        currentPage = page;
+        selectCategory(category);
+        grid.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      pagination.append(button);
+    };
+    addButton("이전", Math.max(1, currentPage - 1), currentPage === 1, false, "이전 페이지");
+    for (let page = 1; page <= pageCount; page++) addButton(String(page), page, false, page === currentPage, `${page}페이지`);
+    addButton("다음", Math.min(pageCount, currentPage + 1), currentPage === pageCount, false, "다음 페이지");
+  }
+
+  search?.addEventListener("input", () => { currentPage = 1; selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"); });
+  clearSearch?.addEventListener("click", () => { if (search) search.value = ""; currentPage = 1; selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"); search?.focus(); });
   grid.addEventListener("click", event => {
     const button = event.target.closest(".detail-open");
     if (!button) return;
@@ -81,7 +101,7 @@
   });
   dialog?.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
   tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => selectCategory(tab.dataset.category));
+    tab.addEventListener("click", () => { currentPage = 1; selectCategory(tab.dataset.category); });
     tab.addEventListener("keydown", event => {
       let next = index;
       if (event.key === "ArrowRight") next = (index + 1) % tabs.length;
@@ -90,6 +110,7 @@
       else if (event.key === "End") next = tabs.length - 1;
       else return;
       event.preventDefault();
+      currentPage = 1;
       selectCategory(tabs[next].dataset.category, true);
     });
   });
