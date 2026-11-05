@@ -11,7 +11,7 @@ if (!REDUCE) document.documentElement.classList.add("js-motion");
 const B = "index.html#";
 const I = "img/";
 const MENU = [
-  ["하츠이야기", "about.html"],
+  ["하츠이야기", "./about.html"],
   ["제품소개", "product.html"],
   ["고객지원", "index.html#care"],
   ["홍보센터", "index.html#news"]
@@ -134,7 +134,7 @@ renderSNS();
 const SUB = {
   "하츠이야기": {
     desc: "30년 넘게 이어온 하츠의 이야기와 사업, 경영 정보를 소개합니다.",
-    links: [["About 하츠","about.html"],["연혁","about.html#brand-story"],["CI","about.html#brand-value"],["사업소","about.html#haatz-solution"],["사업소개","about.html#haatz-solution"],["투자정보","about.html#brand-value"],["윤리경영","about.html#brand-value"]]
+    links: [["About 하츠","./about.html"],["연혁","about.html#brand-story"],["CI","about.html#brand-value"],["사업소","about.html#haatz-solution"],["사업소개","about.html#haatz-solution"],["투자정보","about.html#brand-value"],["윤리경영","about.html#brand-value"]]
   },
   "제품소개": {
     desc: "주방, 생활, 공기환경 등 다양한 분야의 제품을 통해 일상에 편리함과 품질을 더하는 하츠의 솔루션을 소개합니다.",
