@@ -147,7 +147,22 @@
       <p class="copy">HAATZ WEBSITE RENEWAL · SUB PAGE</p>
     </div>
   </footer>
-  <dialog class="product-detail-dialog" id="product-detail-dialog" aria-labelledby="detail-title"><button type="button" class="detail-close" aria-label="상세창 닫기">×</button><div class="detail-content"><p class="eyebrow">PRODUCT DETAIL</p><h2 id="detail-title">제품 상세정보</h2><p>제품 상세창 구성은 참고 화면 확인 후 반영할 예정입니다.</p></div></dialog>
+  <dialog class="product-detail-dialog" id="product-detail-dialog" aria-labelledby="detail-title">
+    <button type="button" class="detail-close" aria-label="상세창 닫기">×</button>
+    <div class="detail-layout">
+      <div class="detail-gallery">
+        <div class="detail-main-image"><img id="detail-image" src="" alt=""></div>
+      </div>
+      <section class="detail-info">
+        <div class="detail-title-row"><h2 id="detail-title">제품 상세정보</h2><button type="button" class="detail-share" aria-label="제품 링크 복사">공유</button></div>
+        <p class="detail-model" id="detail-category"></p>
+        <div class="detail-divider"></div>
+        <p class="detail-description" id="detail-description"></p>
+        <div class="detail-tags" id="detail-tags"></div>
+        <a class="detail-cta" href="#product-inquiry">제품 문의하기 <span aria-hidden="true">→</span></a>
+      </section>
+    </div>
+  </dialog>
   <script src="js/product.js"></script>
   <script src="js/product-nav.js"></script>
 </body>
