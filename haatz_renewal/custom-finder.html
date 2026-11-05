@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="공간과 제품 카테고리, 설치 가능한 가로 폭을 입력해 하츠 제품을 탐색해 보세요.">
+  <title>맞춤 제품 찾기 | HAATZ</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/custom-finder.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문 바로가기</a>
+  <div class="util"><div class="wrap"><span>ENG</span><a href="https://haatz.career.greetinghr.com/ko/intro" target="_blank" rel="noopener">인재채용</a></div></div>
+  <header class="head">
+    <div class="wrap head-in">
+      <a class="logo" href="index.html" aria-label="하츠 메인으로"><img src="img/logo.webp" alt="HAATZ" onerror="this.replaceWith('HAATZ')"></a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnb">메뉴</button>
+      <nav id="gnb" class="gnb" aria-label="주요 메뉴"><ul id="gnb-list">
+        <li><a href="about.html">하츠이야기</a></li>
+        <li><a href="product.html">제품소개</a></li>
+        <li><a href="customer.html">고객지원</a></li>
+        <li><a href="pr-center.html">홍보센터</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <main id="main" class="custom-finder-page">
+    <section class="cf-hero" aria-labelledby="cf-title">
+      <div class="wrap cf-hero-in">
+        <p class="cf-eyebrow">PERSONALIZED PRODUCT FINDER</p>
+        <h1 id="cf-title">내 공간에 맞는<br>하츠 제품 찾기</h1>
+        <p>사용할 공간과 설치 가능한 크기를 선택해<br class="mobile-only"> 제품 탐색을 시작해 보세요.</p>
+      </div>
+    </section>
+
+    <section class="cf-content sec" aria-labelledby="cf-step-title">
+      <div class="wrap">
+        <div class="cf-heading">
+          <p class="eyebrow">FIND YOUR PRODUCT</p>
+          <h2 id="cf-step-title">어떤 제품을 찾으시나요?</h2>
+          <p class="lead">먼저 제품 카테고리를 선택해 주세요.</p>
+        </div>
+
+        <ol class="cf-progress" aria-label="제품 찾기 진행 단계">
+          <li class="is-current" id="progress-category"><span>01</span> 카테고리 선택</li>
+          <li id="progress-size"><span>02</span> 크기 입력</li>
+          <li id="progress-result"><span>03</span> 탐색 결과</li>
+        </ol>
+
+        <div class="cf-category-grid" id="category-options">
+          <button class="cf-category is-selected" type="button" data-category="kitchen" aria-pressed="true">
+            <span class="cf-category-image"><img src="img/cat-kitchen.webp" alt=""></span>
+            <span class="cf-category-copy"><strong>빌트인 주방가전</strong><small>후드, 인덕션, 싱크볼 등</small></span>
+            <span class="cf-check" aria-hidden="true">✓</span>
+          </button>
+          <button class="cf-category" type="button" data-category="bath" aria-pressed="false">
+            <span class="cf-category-image"><img src="img/cat-bath.webp" alt=""></span>
+            <span class="cf-category-copy"><strong>욕실 솔루션</strong><small>비데 등 욕실 제품</small></span>
+            <span class="cf-check" aria-hidden="true">✓</span>
+          </button>
+          <button class="cf-category" type="button" data-category="air" aria-pressed="false">
+            <span class="cf-category-image"><img src="img/cat-air.webp" alt=""></span>
+            <span class="cf-category-copy"><strong>환기·공기질 솔루션</strong><small>환기 및 공기질 관리 제품</small></span>
+            <span class="cf-check" aria-hidden="true">✓</span>
+          </button>
+        </div>
+
+        <div class="cf-size-panel" aria-labelledby="size-title">
+          <div class="cf-panel-head">
+            <span class="cf-step-label">STEP 02</span>
+            <h2 id="size-title">설치할 수 있는 가로 폭을 입력해 주세요.</h2>
+            <p>제품이 설치될 공간의 가로 폭을 mm 단위로 입력해 주세요.</p>
+          </div>
+          <form id="finder-form" class="cf-form">
+            <label for="width-input">설치 가능 가로 폭 <span>(mm)</span></label>
+            <div class="cf-input-row">
+              <input id="width-input" name="width" type="number" min="1" max="5000" step="1" placeholder="예: 600" inputmode="numeric" required>
+              <span class="cf-unit">mm</span>
+              <button type="submit" class="btn">제품 탐색하기</button>
+            </div>
+            <p class="cf-help" id="width-help">제품마다 필요한 설치 규격이 다르므로 제품 사양서를 함께 확인해야 합니다.</p>
+            <p class="cf-error" id="width-error" role="alert" hidden>1~5000mm 사이의 숫자를 입력해 주세요.</p>
+          </form>
+        </div>
+
+        <section class="cf-result" id="finder-result" aria-labelledby="result-title" aria-live="polite" hidden>
+          <div class="cf-result-head">
+            <span class="cf-step-label">STEP 03 · SEARCH RESULT</span>
+            <h2 id="result-title">선택한 조건을 확인해 주세요.</h2>
+          </div>
+          <div class="cf-result-summary">
+            <div><span>선택 카테고리</span><strong id="result-category">빌트인 주방가전</strong></div>
+            <div><span>설치 가능 가로 폭</span><strong><span id="result-width">600</span> mm</strong></div>
+          </div>
+          <div class="cf-result-notice">
+            <strong>제품별 상세 규격 확인이 필요합니다.</strong>
+            <p>현재 프로젝트에 등록된 제품 정보만으로는 모든 제품의 설치 가능 여부를 정확하게 판별할 수 없습니다. 입력한 크기는 탐색 조건으로 저장되며, 실제 구매·설치 전에는 해당 모델의 공식 사양서와 설치 조건을 확인해 주세요.</p>
+          </div>
+          <div class="cf-result-actions">
+            <a class="btn" id="category-link" href="product.html#tab-kitchen">선택한 카테고리 제품 보기</a>
+            <button class="cf-reset" type="button" id="change-condition">조건 다시 선택하기</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="cf-guide">
+      <div class="wrap cf-guide-in">
+        <div><p class="eyebrow">CHECK BEFORE INSTALLATION</p><h2>제품을 선택하기 전에 확인하세요.</h2><p>제품의 가로 폭만으로 설치 가능 여부가 결정되지는 않습니다. 깊이, 높이, 타공 치수, 전원 및 배관·덕트 조건도 함께 확인해야 합니다.</p></div>
+        <a href="product.html" class="btn-line btn-line-dark">전체 제품 살펴보기</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot-top"><p class="logo light">HAATZ</p><div class="foot-sns" aria-label="공식 채널">
+        <a href="https://www.instagram.com/haatz_korea/" target="_blank" rel="noopener" aria-label="인스타그램"><img src="img/icon-instagram.webp" alt=""></a>
+        <a href="https://blog.naver.com/haatz_official" target="_blank" rel="noopener" aria-label="블로그"><img src="img/icon-blog.webp" alt=""></a>
+        <a href="https://www.youtube.com/@_haatz" target="_blank" rel="noopener" aria-label="유튜브"><img src="img/icon-youtube.webp" alt=""></a>
+      </div></div>
+      <ul class="foot-links"><li><a href="index.html">메인페이지</a></li><li><a href="about.html">하츠이야기</a></li><li><a href="product.html">제품소개</a></li><li><a href="customer.html">고객지원</a></li><li><a href="pr-center.html">홍보센터</a></li></ul>
+      <p class="copy">HAATZ WEBSITE RENEWAL · PRODUCT FINDER</p>
+    </div>
+  </footer>
+  <script src="js/product-nav.js"></script>
+  <script src="js/custom-finder.js"></script>
+</body>
+</html>
