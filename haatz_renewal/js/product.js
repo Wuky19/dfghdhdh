@@ -1,6 +1,7 @@
 (() => {
   const tabs = [...document.querySelectorAll(".product-tab")];
   const items = [...document.querySelectorAll(".product-item")];
+  const grid = document.getElementById("product-grid");
 
   // 전체 145개 구성을 위한 추가 예시 데이터
   // 실제 판매 제품 목록이 아닌 화면 구성용 임시 항목입니다.
@@ -54,7 +55,6 @@
   });
   const title = document.getElementById("result-title");
   const count = document.getElementById("product-count");
-  const grid = document.getElementById("product-grid");
   const pagination = document.getElementById("product-pagination");
   const pageSize = 4;
   let currentPage = 1;
