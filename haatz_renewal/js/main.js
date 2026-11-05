@@ -23,10 +23,10 @@ const CAT = [
   ["생활 소형가전","Home & Lifestyle Appliances","일상에 영감을 더하는 디자인과 실용성으로, 더 편리하고 여유로운 라이프를 제안합니다.",I+"cat-life.webp","product.html#tab-life"]
 ];
 const SVC = [
-  ["A/S 신청 및 확인","간편하게 접수하고, 진행상황까지 한눈에 확인하세요.",I+"svc-as.webp","#care"],
-  ["전국 대리점 찾기","가까운 대리점을 쉽고 빠르게 확인하세요.",I+"svc-store.webp","#care"],
-  ["자주 묻는 질문","고객님들이 가장 많이 찾는 답변을 한곳에 모았습니다.",I+"svc-faq.webp","#care"],
-  ["사용 설명서","제품 사용을 쉽고 정확하게 안내해드립니다.",I+"svc-manual.webp","#care"]
+  ["A/S 신청 및 확인","간편하게 접수하고, 진행상황까지 한눈에 확인하세요.",I+"svc-as.webp","customer/service.html"],
+  ["전국 대리점 찾기","가까운 대리점을 쉽고 빠르게 확인하세요.",I+"svc-store.webp","customer/store.html"],
+  ["자주 묻는 질문","고객님들이 가장 많이 찾는 답변을 한곳에 모았습니다.",I+"svc-faq.webp","customer/faq.html"],
+  ["사용 설명서","제품 사용을 쉽고 정확하게 안내해드립니다.",I+"svc-manual.webp","customer/manual.html"]
 ];
 const P = (n,u) => "product.html#tab-" + (n === "airappliances" ? "air" : n === "haatzbath" ? "bath" : "kitchen");
 const BEST = [
