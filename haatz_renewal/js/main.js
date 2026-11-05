@@ -13,8 +13,8 @@ const I = "img/";
 const MENU = [
   ["하츠이야기", "./about.html"],
   ["제품소개", "product.html"],
-  ["고객지원", "index.html#care"],
-  ["홍보센터", "index.html#news"]
+  ["고객지원", "customer.html"],
+  ["홍보센터", "pr-center.html"]
 ];
 const CAT = [
   ["빌트인 주방가전","Built-in Kitchen Appliances","세련된 디자인과 정교한 기술력으로 주방의 새로운 기준을 제시합니다.",I+"cat-kitchen.webp","product.html#tab-kitchen"],
@@ -141,7 +141,7 @@ const SUB = {
     links: [["나에게 맞는 하츠 찾기", "#finder"], ["빌트인 주방가전", "product.html#tab-kitchen"], ["욕실 솔루션", "product.html#tab-bath"], ["환기·공기질 솔루션", "product.html#tab-air"]]
   },
   "고객지원": {
-    desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 한곳에서 확인하세요.",
+    desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 확인하세요.",
     links: [["고객지원 홈","customer.html"],["자주 묻는 질문","customer/faq.html"],["유지관리 가이드","customer/maintenance.html"],["A/S 신청·조회","customer/service.html"],["E-카탈로그","customer/catalog.html"],["사용설명서","customer/manual.html"],["서비스 정책","customer/policy.html"],["구매처","customer/store.html"],["고객의 소리","customer/voice.html"],["대리점 개설 문의","customer/partnership.html"]]
   },
   "홍보센터": {
