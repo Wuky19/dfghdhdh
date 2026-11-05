@@ -148,3 +148,25 @@
     background-position:center;
   }
 }
+
+
+/* HERO 이미지 비중 확대: 텍스트 42% / 이미지 58% */
+@media(min-width:769px){
+  .about-hero{
+    grid-template-columns:42% 58%;
+    min-height:640px;
+  }
+  .about-hero::after{
+    min-height:640px;
+    background-position:center;
+  }
+  .about-hero-in{
+    padding:88px 42px 88px max(48px,calc((100vw - 1240px)/2));
+  }
+  .about-hero h1{
+    max-width:560px;
+    font-size:clamp(38px,3.5vw,54px);
+    line-height:1.2;
+  }
+  .about-hero h1 br{display:none}
+}
