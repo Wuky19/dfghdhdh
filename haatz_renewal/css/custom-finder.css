@@ -80,3 +80,21 @@
 .cf-size-option:focus-visible{outline:3px solid rgba(0,157,220,.2);outline-offset:2px}
 @media(max-width:680px){.cf-size-options{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.cf-size-option{min-height:58px}}
 @media(prefers-reduced-motion:reduce){.cf-size-option{transition:none}}
+
+/* 추천 제품 카드 */
+.cf-recommendations{margin-top:30px}
+.cf-recommend-head{margin-bottom:16px}
+.cf-recommend-head h3{margin:0 0 6px;font-size:20px}
+.cf-recommend-head p{margin:0;color:var(--sub);font-size:14px}
+.cf-recommend-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cf-recommend-card{display:flex;flex-direction:column;overflow:hidden;border:1px solid #e5e9eb;border-radius:10px;background:#fff}
+.cf-recommend-image{display:block;aspect-ratio:16/10;overflow:hidden;background:#f3f5f6}
+.cf-recommend-image img{width:100%;height:100%;display:block;object-fit:cover}
+.cf-recommend-info{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:17px 18px}
+.cf-recommend-info .tag{margin-bottom:7px;color:var(--blue-d);font-size:12px;font-weight:700}
+.cf-recommend-info h4{margin:0 0 6px;font-size:17px}
+.cf-recommend-info p{margin:0 0 16px;color:var(--sub);font-size:13px;line-height:1.5}
+.cf-recommend-info a{margin-top:auto;color:var(--blue-d);font-size:14px;font-weight:700;text-decoration:none}
+.cf-recommend-info a:hover{text-decoration:underline}
+.cf-recommend-note{margin:13px 0 0;color:#68747b;font-size:12px;line-height:1.6}
+@media(max-width:680px){.cf-recommend-grid{grid-template-columns:1fr}.cf-recommend-info{padding:15px}}
