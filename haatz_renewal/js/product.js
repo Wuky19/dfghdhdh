@@ -1,6 +1,57 @@
 (() => {
   const tabs = [...document.querySelectorAll(".product-tab")];
   const items = [...document.querySelectorAll(".product-item")];
+
+  // 전체 145개 구성을 위한 추가 예시 데이터
+  // 실제 판매 제품 목록이 아닌 화면 구성용 임시 항목입니다.
+  const demoGroups = [
+    { category: "kitchen", total: 90, existing: 5, image: "img/2.jfif", tag: "빌트인 주방가전",
+      families: ["후드", "전기쿡탑", "가스쿡탑", "싱크볼", "싱크 수전", "빌트인 기기", "주방 액세서리"] },
+    { category: "bath", total: 25, existing: 2, image: "img/cat-bath.webp", tag: "욕실 솔루션",
+      families: ["비데", "욕실 환풍기", "욕실 액세서리", "위생가전"] },
+    { category: "air", total: 30, existing: 1, image: "img/cat-air.webp", tag: "환기·공기질 솔루션",
+      families: ["환기청정기", "환풍기", "공기질 관리 시스템", "공기청정기"] }
+  ];
+
+  demoGroups.forEach(group => {
+    const addCount = group.total - group.existing;
+    for (let i = 0; i < addCount; i++) {
+      const family = group.families[i % group.families.length];
+      const familyIndex = Math.floor(i / group.families.length) + 1;
+      const item = document.createElement("li");
+      item.className = "product-item";
+      item.dataset.category = group.category;
+
+      const article = document.createElement("article");
+      article.className = "product-card";
+      const imageWrap = document.createElement("div");
+      imageWrap.className = "product-image";
+      const image = document.createElement("img");
+      image.src = group.image;
+      image.alt = group.tag + " 예시 이미지";
+      image.loading = "lazy";
+      imageWrap.append(image);
+
+      const info = document.createElement("div");
+      info.className = "product-card-info";
+      const tag = document.createElement("span");
+      tag.className = "tag";
+      tag.textContent = group.tag;
+      const heading = document.createElement("h3");
+      heading.textContent = family + " 시리즈 " + String(familyIndex).padStart(2, "0");
+      const description = document.createElement("p");
+      description.textContent = "제품 목록 구성을 위한 예시 항목";
+      const detailButton = document.createElement("button");
+      detailButton.type = "button";
+      detailButton.className = "product-link detail-open";
+      detailButton.textContent = "제품 자세히 보기";
+      info.append(tag, heading, description, detailButton);
+      article.append(imageWrap, info);
+      item.append(article);
+      grid.append(item);
+      items.push(item);
+    }
+  });
   const title = document.getElementById("result-title");
   const count = document.getElementById("product-count");
   const grid = document.getElementById("product-grid");
