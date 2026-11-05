@@ -4,26 +4,51 @@
   const navLinks = [...document.querySelectorAll("#gnb-list > li > a")];
   if (!head || !navLinks.length) return;
 
+  /* 기존 리뉴얼 사이트에서 사용하던 하위 메뉴 목록과 단순 칩 형태를 유지 */
   const SUB = {
     "하츠이야기": {
-      desc: "하츠의 브랜드와 기업, 경영 정보를 소개합니다.",
-      groups: [
-        { title: "브랜드", links: [["About 하츠","about.html"],["CI","about.html#brand-value"]] },
-        { title: "기업정보", links: [["연혁","about.html#history"],["사업소개","about.html#business"],["사업소","about.html#offices"]] },
-        { title: "경영정보", links: [["투자정보","about.html#investment"],["윤리경영","about.html#ethics"]] }
+      desc: "30년 넘게 이어온 하츠의 이야기와 사업, 경영 정보를 소개합니다.",
+      links: [
+        ["About 하츠", "about.html"],
+        ["연혁", "about.html#brand-story"],
+        ["CI", "about.html#brand-value"],
+        ["사업소", "about.html#haatz-solution"],
+        ["사업소개", "about.html#haatz-solution"],
+        ["투자정보", "about.html#brand-value"],
+        ["윤리경영", "about.html#brand-value"]
       ]
     },
     "제품소개": {
       desc: "주방, 욕실, 환기·공기질 등 다양한 공간에 필요한 하츠의 제품 솔루션을 살펴보세요.",
-      groups: [{ title: "제품 카테고리", links: [["나에게 맞는 하츠 찾기","index.html#finder"],["빌트인 주방가전","product.html#tab-kitchen"],["욕실 솔루션","product.html#tab-bath"],["환기·공기질 솔루션","product.html#tab-air"]] }]
+      links: [
+        ["나에게 맞는 하츠 찾기", "index.html#finder"],
+        ["빌트인 주방가전", "product.html#tab-kitchen"],
+        ["욕실 솔루션", "product.html#tab-bath"],
+        ["환기·공기질 솔루션", "product.html#tab-air"]
+      ]
     },
     "고객지원": {
       desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 확인하세요.",
-      groups: [{ title: "고객지원", links: [["자주 묻는 질문","index.html#care"],["유지관리 가이드","index.html#care"],["A/S 신청·조회","index.html#care"],["E-카탈로그","index.html#care"],["사용설명서","index.html#care"],["서비스정책","index.html#care"],["구매처","index.html#care"],["고객의 소리","index.html#care"],["대리점 개설 문의","index.html#care"]] }]
+      links: [
+        ["자주 묻는 질문", "index.html#care"],
+        ["유지관리 가이드", "index.html#care"],
+        ["A/S 신청·조회", "index.html#care"],
+        ["E-카탈로그", "index.html#care"],
+        ["사용설명서", "index.html#care"],
+        ["서비스정책", "index.html#care"],
+        ["구매처", "index.html#care"],
+        ["고객의 소리", "index.html#care"],
+        ["대리점 개설 문의", "index.html#care"]
+      ]
     },
     "홍보센터": {
       desc: "하츠의 새로운 소식과 홍보영상, 미디어 자료, 공지사항을 확인하세요.",
-      groups: [{ title: "홍보센터", links: [["NEWS","index.html#news"],["홍보영상","index.html#news"],["하츠 미디어","index.html#news"],["공지사항","index.html#news"]] }]
+      links: [
+        ["NEWS", "index.html#news"],
+        ["홍보영상", "index.html#news"],
+        ["하츠 미디어", "index.html#news"],
+        ["공지사항", "index.html#news"]
+      ]
     }
   };
 
@@ -31,15 +56,10 @@
     `<a class="chip" href="${url}"><span>${label}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`
   ).join("");
 
-  const makeGroups = groups => groups.map(group =>
-    `<section class="mega-group"><h3>${group.title}</h3><div class="mega-group-links">${makeLinks(group.links)}</div></section>`
-  ).join("");
-
   const mega = document.createElement("div");
   mega.className = "mega";
   mega.id = "mega";
   mega.hidden = true;
-  mega.style.zIndex = "1000";
   head.appendChild(mega);
 
   let current = null;
@@ -51,9 +71,9 @@
     clearTimeout(closeTimer);
     if (current !== name) {
       mega.innerHTML = `
-        <div class="wrap mega-in mega-in-grouped">
+        <div class="wrap mega-in">
           <div class="mega-l"><strong>${name}</strong><p>${item.desc}</p></div>
-          <div class="mega-r mega-groups">${makeGroups(item.groups)}</div>
+          <div class="mega-r">${makeLinks(item.links)}</div>
         </div>`;
       current = name;
     }
@@ -83,9 +103,7 @@
 
     const mobileSub = document.createElement("div");
     mobileSub.className = "m-sub";
-    mobileSub.innerHTML = SUB[name].groups.map(group =>
-      `<div class="m-sub-group"><strong>${group.title}</strong>${makeLinks(group.links)}</div>`
-    ).join("");
+    mobileSub.innerHTML = makeLinks(SUB[name].links);
     link.parentElement.appendChild(mobileSub);
 
     link.parentElement.addEventListener("mouseenter", () => open(name, link));
