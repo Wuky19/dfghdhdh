@@ -1,5 +1,5 @@
 /* #009ddc, #242424, #454545, #cccbcb 는 하츠 사이트 CSS(main.min.css)에서 확인한 값. 공식 브랜드 가이드 지정값은 확인하지 못함 */
-:root{--blue:#009ddc;--blue-d:#0a7fb0;--ink:#242424;--sub:#454545;--line:#cccbcb;--mist:#eef7fb;--max:1200px;--gap:24px;--r:8px}
+:root{--blue:#009ddc;--blue-d:#0a7fb0;--ink:#242424;--sub:#454545;--line:#cccbcb;--mist:#eef7fb;--max:1440px;--gap:24px;--r:8px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{margin:0;font-family:"Pretendard","Noto Sans KR",system-ui,sans-serif;color:var(--ink);background:#fff;font-size:16px;line-height:1.6;word-break:keep-all}button,input,select,textarea{font:inherit}
