@@ -48,3 +48,19 @@
 @media(max-width:768px){.product-hero{min-height:300px}.product-hero-visual{left:20%;opacity:.82}.product-hero-visual::before{background:linear-gradient(90deg,#eef0f2 0%,rgba(238,240,242,.9) 18%,rgba(238,240,242,.25) 72%,rgba(238,240,242,.08) 100%)}.product-hero-in{padding-top:52px;padding-bottom:54px}.product-hero h1{font-size:clamp(30px,6vw,40px)}.product-hero p:not(.eyebrow){font-size:16px}.product-catalog{padding-top:56px;padding-bottom:64px}.product-tabs{gap:8px}.product-tab{min-height:44px;padding:0 16px;font-size:16px}.product-grid{gap:16px}.product-card-info{padding:15px}.product-cta{padding:40px 0}.product-cta-in{align-items:flex-start;flex-direction:column}.product-cta .btn{width:100%}.desktop-only{display:none}}
 @media(max-width:480px){.product-hero{min-height:260px}.product-hero-visual{left:8%;opacity:.58}.product-hero-visual::before{background:linear-gradient(90deg,#eef0f2 0%,rgba(238,240,242,.92) 24%,rgba(238,240,242,.42) 100%)}.product-hero-in{padding-top:44px;padding-bottom:46px}.product-hero h1{font-size:30px}.product-grid{grid-template-columns:1fr}.product-image{aspect-ratio:5/4}.product-result-head{margin-top:24px}}
 @media(prefers-reduced-motion:reduce){.product-card,.product-tab,.product-link{transition:none}.product-card:hover{transform:none}}
+
+
+/* 전체 제품 검색 및 게시판형 번호 */
+.product-tools{display:flex;justify-content:flex-end;margin:24px 0 8px}
+.product-search{display:flex;align-items:center;width:min(100%,360px);min-height:48px;border:1px solid var(--line);border-radius:8px;background:#fff}
+.product-search input{width:100%;min-width:0;padding:0 14px;border:0;outline:0;background:transparent}
+.product-search button{width:44px;height:44px;border:0;background:transparent;font-size:24px;cursor:pointer;color:var(--sub)}
+.product-item{position:relative}
+.product-number{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:28px;margin:0 0 10px;padding:0 8px;border-radius:4px;background:#eef7fb;color:#087eae;font-size:13px;font-weight:700}
+.catalog-total{font-size:16px;color:var(--sub);font-weight:500}
+.product-link{border:0;padding:0;background:transparent;font-family:inherit;cursor:pointer}
+.product-detail-dialog{position:fixed;inset:0;width:min(720px,calc(100% - 32px));max-width:none;max-height:calc(100% - 32px);padding:0;border:0;border-radius:14px;box-shadow:0 20px 70px rgba(0,0,0,.25)}
+.product-detail-dialog::backdrop{background:rgba(0,0,0,.58)}
+.detail-content{padding:40px}
+.detail-close{position:absolute;top:12px;right:14px;width:40px;height:40px;border:0;border-radius:50%;background:#f1f3f4;font-size:26px;cursor:pointer}
+@media(max-width:768px){.product-tools{margin-top:18px}.product-search{width:100%}.detail-content{padding:28px 22px}}
