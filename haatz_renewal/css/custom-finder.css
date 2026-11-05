@@ -148,3 +148,16 @@
   background:#59656b;
   color:#fff;
 }
+
+
+/* 추천 제품 CTA를 페이지의 메인 블루 톤과 통일 */
+.cf-recommend-info a{
+  border:1px solid #b9deeb;
+  background:#f0f9fc;
+  color:#008fc5;
+}
+.cf-recommend-info a:hover{
+  border-color:#00a0dc;
+  background:#00a0dc;
+  color:#fff;
+}
