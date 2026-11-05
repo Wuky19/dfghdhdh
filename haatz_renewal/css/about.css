@@ -67,7 +67,7 @@
 .space-row:nth-child(even) .space-image{order:2}
 .space-image{display:block;width:100%;height:260px;object-fit:cover;border-radius:4px}
 .solution-card{overflow:hidden;padding:0 0 28px}
-.solution-card>img{display:block;width:100%;height:190px;margin-bottom:26px;object-fit:cover}
+.solution-card>img{display:block;width:100%;height:250px;min-height:250px;margin-bottom:26px;object-fit:cover}
 .solution-card>span,.solution-card h3,.solution-card p,.solution-card a{margin-left:28px;margin-right:28px}
 .value-grid article{padding:0 0 30px;overflow:hidden}
 .value-grid article>img{display:block;width:100%;height:190px;margin-bottom:26px;object-fit:cover}
@@ -79,7 +79,7 @@
  .space-row:nth-child(even) .space-image{order:0}
  .space-image{height:auto;aspect-ratio:16/10}
  .solution-card{padding-bottom:26px}
- .solution-card>img{height:auto;aspect-ratio:16/10}
+ .solution-card>img{height:250px;min-height:250px;aspect-ratio:auto}
  .value-grid article{padding:0 0 28px}
  .value-grid article>img{height:auto;aspect-ratio:16/10}
 }
