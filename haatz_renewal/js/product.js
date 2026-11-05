@@ -106,14 +106,16 @@
   function renderPagination(pageCount, category) {
     if (!pagination) return;
     pagination.innerHTML = "";
-    const addButton = (label, current = false, aria = label) => {
+    const addButton = (label, current = false, aria = label, disabled = false) => {
       const button = document.createElement("button");
       button.type = "button";
       button.textContent = label;
       button.classList.toggle("is-current", current);
+      button.disabled = disabled;
       if (current) button.setAttribute("aria-current", "page");
       button.setAttribute("aria-label", aria);
       button.addEventListener("click", () => {
+        if (label === "‹" || label === "›") return;
         pagination.querySelectorAll("button").forEach(item => {
           item.classList.remove("is-current");
           item.removeAttribute("aria-current");
@@ -123,10 +125,12 @@
       });
       pagination.append(button);
     };
+    addButton("‹", false, "이전 페이지", true);
     addButton("1", true, "1페이지");
     addButton("2", false, "2페이지");
     addButton("3", false, "3페이지");
     addButton("4", false, "4페이지");
+    addButton("›", false, "다음 페이지", true);
   }
 
   search?.addEventListener("input", () => { currentPage = 1; selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"); });
