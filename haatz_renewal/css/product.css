@@ -56,7 +56,6 @@
 .product-search input{width:100%;min-width:0;padding:0 14px;border:0;outline:0;background:transparent}
 .product-search button{width:44px;height:44px;border:0;background:transparent;font-size:24px;cursor:pointer;color:var(--sub)}
 .product-item{position:relative}
-.product-number{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:28px;margin:0 0 10px;padding:0 8px;border-radius:4px;background:#eef7fb;color:#087eae;font-size:13px;font-weight:700}
 .catalog-total{font-size:16px;color:var(--sub);font-weight:500}
 .product-link{border:0;padding:0;background:transparent;font-family:inherit;cursor:pointer}
 .product-detail-dialog{position:fixed;inset:0;width:min(1240px,calc(100% - 48px));max-width:none;max-height:calc(100% - 48px);height:min(720px,calc(100% - 48px));padding:0;border:0;border-radius:18px;background:#f1f1f1;box-shadow:0 24px 80px rgba(0,0,0,.24);overflow:visible}
@@ -79,3 +78,9 @@
 .detail-close{position:absolute;top:-16px;right:-16px;z-index:2;width:42px;height:42px;border:0;border-radius:50%;background:#fff;box-shadow:0 4px 16px rgba(0,0,0,.15);font-size:25px;cursor:pointer}
 @media(max-width:768px){.product-tools{margin-top:18px}.product-search{width:100%}.product-detail-dialog{width:calc(100% - 24px);height:auto;max-height:calc(100% - 24px);overflow-y:auto}.detail-layout{grid-template-columns:1fr;gap:16px;padding:18px}.detail-gallery{height:auto}.detail-main-image{height: min(42vh,320px)}.detail-info{padding:22px 18px}.detail-close{top:8px;right:8px}.detail-title-row h2{padding-right:32px}}
 .product-search{width:100%}.detail-content{padding:28px 22px}}
+
+.product-pagination{display:flex;justify-content:center;align-items:center;gap:8px;margin:42px 0 0}
+.product-pagination button{display:flex;align-items:center;justify-content:center;min-width:40px;height:40px;padding:0 10px;border:1px solid #ddd;border-radius:5px;background:#fff;color:#333;font:inherit;font-size:14px;cursor:pointer}
+.product-pagination button:hover{border-color:var(--blue);color:var(--blue-d)}
+.product-pagination button.is-current{border-color:var(--blue);background:var(--blue);color:#fff;font-weight:700}
+.product-pagination button:disabled{opacity:.35;cursor:default}
