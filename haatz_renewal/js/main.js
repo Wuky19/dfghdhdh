@@ -142,11 +142,11 @@ const SUB = {
   },
   "고객지원": {
     desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 한곳에서 확인하세요.",
-    links: [["자주 묻는 질문","support/faq.html"],["유지관리 가이드","support/maintenance__list.html"],["A/S 신청&amp;조회","support/service__1.html"],["E - 카탈로그","support/catalog.html"],["사용설명서","support/manuals.html"],["서비스정책","support/policy.html"],["구매처","support/buy.html"],["고객의 소리","support/feedback__1.html"],["대리점 개설 문의","support/inquiry__1.html"]].map(([t,u]) => [t, "#care"])
+    links: [["고객지원 홈","customer.html"],["자주 묻는 질문","customer/faq.html"],["유지관리 가이드","customer/maintenance.html"],["A/S 신청·조회","customer/service.html"],["E-카탈로그","customer/catalog.html"],["사용설명서","customer/manual.html"],["서비스 정책","customer/policy.html"],["구매처","customer/store.html"],["고객의 소리","customer/voice.html"],["대리점 개설 문의","customer/partnership.html"]]
   },
   "홍보센터": {
     desc: "하츠의 새로운 소식과 홍보영상, 미디어 자료, 공지사항을 확인하세요.",
-    links: [["NEWS","pr-center/news__list.html"],["홍보영상","pr-center/promotion__list.html"],["하츠 미디어","pr-center/media__list.html"],["공지사항","pr-center/notices__list.html"]].map(([t,u]) => [t, "#news"])
+    links: [["홍보센터 홈","pr-center.html"],["NEWS","pr-center/news.html"],["홍보영상","pr-center/video.html"],["하츠 미디어","pr-center/media.html"],["공지사항","pr-center/notice.html"]]
   }
 };
 (function () {
