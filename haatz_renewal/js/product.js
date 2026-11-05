@@ -19,7 +19,7 @@
   const shareDetail = document.querySelector(".detail-share");
   let currentDetailUrl = window.location.href;
   const closeDetail = dialog?.querySelector(".detail-close");
-  if (total) total.textContent = `(${items.length}개)`;
+  if (total) total.textContent = "(145개)";
   const names = {
     all: "전체 제품",
     kitchen: "빌트인 주방가전",
@@ -47,7 +47,6 @@
     items.forEach(item => { item.hidden = !pageItems.has(item); });
     title.textContent = names[category] || names.all;
     count.textContent = String(filteredItems.length);
-    if (total) total.textContent = `(${filteredItems.length}개)`;
     grid.setAttribute("aria-labelledby", activeTab.id);
     renderPagination(pageCount, category);
     if (moveFocus) activeTab.focus();
