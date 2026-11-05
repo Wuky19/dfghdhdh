@@ -4,6 +4,20 @@
   const title = document.getElementById("result-title");
   const count = document.getElementById("product-count");
   const grid = document.getElementById("product-grid");
+  const search = document.getElementById("product-search");
+  const clearSearch = document.getElementById("search-clear");
+  const total = document.getElementById("catalog-total");
+  const dialog = document.getElementById("product-detail-dialog");
+  const detailTitle = document.getElementById("detail-title");
+  const closeDetail = dialog?.querySelector(".detail-close");
+  items.forEach((item, index) => {
+    const card = item.querySelector(".product-card-info");
+    const number = document.createElement("span");
+    number.className = "product-number";
+    number.textContent = String(index + 1).padStart(2, "0");
+    card?.prepend(number);
+  });
+  if (total) total.textContent = `(${items.length}개)`;
   const names = {
     all: "전체 제품",
     kitchen: "빌트인 주방가전",
@@ -22,17 +36,32 @@
 
     let visibleCount = 0;
     items.forEach(item => {
-      const visible = category === "all" || item.dataset.category === category;
+      const keyword = (search?.value || "").trim().toLowerCase();
+      const productName = item.querySelector("h3")?.textContent.toLowerCase() || "";
+      const visible = (category === "all" || item.dataset.category === category) && productName.includes(keyword);
       item.hidden = !visible;
       if (visible && !item.classList.contains("is-empty")) visibleCount += 1;
     });
 
     title.textContent = names[category] || names.all;
     count.textContent = String(visibleCount);
+    if (total) total.textContent = `(${visibleCount}개 표시 / 전체 ${items.length}개)`;
     grid.setAttribute("aria-labelledby", activeTab.id);
     if (moveFocus) activeTab.focus();
   }
 
+  search?.addEventListener("input", () => selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"));
+  clearSearch?.addEventListener("click", () => { if (search) search.value = ""; selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"); search?.focus(); });
+  grid.addEventListener("click", event => {
+    const button = event.target.closest(".detail-open");
+    if (!button) return;
+    const card = button.closest(".product-card");
+    const name = card?.querySelector("h3")?.textContent || "제품 상세정보";
+    if (detailTitle) detailTitle.textContent = name;
+    dialog?.showModal();
+  });
+  closeDetail?.addEventListener("click", () => dialog.close());
+  dialog?.addEventListener("click", event => { if (event.target === dialog) dialog.close(); });
   tabs.forEach((tab, index) => {
     tab.addEventListener("click", () => selectCategory(tab.dataset.category));
     tab.addEventListener("keydown", event => {
