@@ -32,7 +32,9 @@
     error.hidden = true;
     sizePanel.hidden = false;
     document.getElementById("progress-category").classList.add("is-done");
+    document.getElementById("progress-size").classList.remove("is-done");
     document.getElementById("progress-size").classList.add("is-current");
+    document.getElementById("progress-result").classList.remove("is-current");
     sizePanel.scrollIntoView({behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "nearest"});
   }
 
