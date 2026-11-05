@@ -11,7 +11,7 @@ if (!REDUCE) document.documentElement.classList.add("js-motion");
 const B = "index.html#";
 const I = "img/";
 const MENU = [
-  ["하츠이야기", "index.html#story"],
+  ["하츠이야기", "about.html"],
   ["제품소개", "product.html"],
   ["고객지원", "index.html#care"],
   ["홍보센터", "index.html#news"]
@@ -40,7 +40,7 @@ const BEST = [
   ["클레르 인덕션","공간에 맞춰 설치하는 하츠의 빌트인 인덕션",I+"p-clair.jpg",P("kitchen",93)]
 ];
 const STORY = [
-  ["하츠소개","About 하츠","index.html#story"],
+  ["하츠소개","About 하츠","about.html"],
   ["연혁","하츠가 걸어온 길","index.html#story"],
   ["사업소개","하츠의 사업 영역","index.html#story"]
 ];
@@ -134,7 +134,7 @@ renderSNS();
 const SUB = {
   "하츠이야기": {
     desc: "30년 넘게 이어온 하츠의 이야기와 사업, 경영 정보를 소개합니다.",
-    links: [["About 하츠","about/about.html"],["연혁","about/history.html"],["CI","about/ci.html"],["사업소","about/lcations__1.html"],["사업소개","about/overview.html"],["투자정보","about/investor__1.html"],["윤리경영","about/ethical__write.html"]].map(([t,u]) => [t, "#care"])
+    links: [["About 하츠","about.html"],["연혁","#brand-story"],["CI","#brand-value"],["사업소","#haatz-solution"],["사업소개","#haatz-solution"],["투자정보","#brand-value"],["윤리경영","#brand-value"]]
   },
   "제품소개": {
     desc: "주방, 생활, 공기환경 등 다양한 분야의 제품을 통해 일상에 편리함과 품질을 더하는 하츠의 솔루션을 소개합니다.",
