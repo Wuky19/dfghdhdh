@@ -12,7 +12,7 @@ const B = "index.html#";
 const I = "img/";
 const MENU = [
   ["하츠이야기", "./about.html"],
-  ["제품소개", "product.html"],
+  ["제품소개", "custom-finder.html"],
   ["고객지원", "customer.html"],
   ["홍보센터", "pr-center.html"]
 ];
