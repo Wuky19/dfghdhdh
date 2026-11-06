@@ -104,3 +104,16 @@
 
 /* 제품 카드 목록과 페이지네이션 사이 여백 */
 .product-pagination{margin-top:56px!important;}
+
+
+/* 검색 영역과 안내 문구 반응형 정렬 보정 */
+.product-tools{width:100%;box-sizing:border-box;justify-content:flex-end;}
+.product-tools .product-search{width:min(100%,360px)!important;flex:0 1 360px;box-sizing:border-box;}
+.product-result-head{width:100%;min-width:0;box-sizing:border-box;}
+.product-result-head p{max-width:100%;min-width:0;text-align:right;overflow-wrap:anywhere;}
+@media(max-width:768px){
+  .product-tools{justify-content:flex-end;}
+  .product-tools .product-search{width:100%!important;flex-basis:100%;}
+  .product-result-head{align-items:flex-start;flex-direction:column;gap:8px;}
+  .product-result-head p{text-align:left;}
+}
