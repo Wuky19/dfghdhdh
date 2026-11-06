@@ -106,7 +106,10 @@
   function renderPagination(pageCount, category) {
     if (!pagination) return;
     pagination.innerHTML = "";
-    const addButton = (label, current = false, aria = label, disabled = false) => {
+
+    const visiblePages = [1, 2, 3, 4];
+    const isAllProducts = category === "all";
+    const addButton = (label, page, current = false, aria = label, disabled = false) => {
       const button = document.createElement("button");
       button.type = "button";
       button.textContent = label;
@@ -115,7 +118,11 @@
       if (current) button.setAttribute("aria-current", "page");
       button.setAttribute("aria-label", aria);
       button.addEventListener("click", () => {
-        if (label === "‹" || label === "›") return;
+        if (isAllProducts && page !== null) {
+          currentPage = page;
+          selectCategory(category);
+          return;
+        }
         pagination.querySelectorAll("button").forEach(item => {
           item.classList.remove("is-current");
           item.removeAttribute("aria-current");
@@ -125,12 +132,12 @@
       });
       pagination.append(button);
     };
-    addButton("‹", false, "이전 페이지", true);
-    addButton("1", true, "1페이지");
-    addButton("2", false, "2페이지");
-    addButton("3", false, "3페이지");
-    addButton("4", false, "4페이지");
-    addButton("›", false, "다음 페이지", true);
+
+    addButton("‹", isAllProducts ? Math.max(1, currentPage - 1) : null, false, "이전 페이지", !isAllProducts || currentPage === 1);
+    visiblePages.forEach(page => {
+      addButton(String(page), page, currentPage === page, page + "페이지", isAllProducts && page > pageCount);
+    });
+    addButton("›", isAllProducts ? Math.min(pageCount, currentPage + 1) : null, false, "다음 페이지", !isAllProducts || currentPage >= Math.min(pageCount, 4));
   }
 
   search?.addEventListener("input", () => { currentPage = 1; selectCategory(tabs.find(tab => tab.classList.contains("is-active"))?.dataset.category || "all"); });
