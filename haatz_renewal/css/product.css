@@ -96,3 +96,7 @@
 /* 페이지네이션 번호 가로 정렬 보정 */
 .product-pagination{display:flex!important;flex-direction:row!important;flex-wrap:nowrap;justify-content:center!important;align-items:center!important;gap:8px;width:100%;}
 .product-pagination button{display:inline-flex!important;flex:0 0 40px;}
+
+
+/* 페이지네이션 버튼 사이 간격 확대 */
+.product-pagination{gap:14px!important;}
