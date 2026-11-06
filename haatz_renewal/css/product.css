@@ -100,3 +100,7 @@
 
 /* 페이지네이션 버튼 사이 간격 확대 */
 .product-pagination{gap:14px!important;}
+
+
+/* 제품 카드 목록과 페이지네이션 사이 여백 */
+.product-pagination{margin-top:56px!important;}
