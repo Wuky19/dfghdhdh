@@ -11,7 +11,6 @@ if (!REDUCE) document.documentElement.classList.add("js-motion");
 const B = "index.html#";
 const I = "img/";
 const MENU = [
-  ["나에게 맞는 하츠 찾기", "custom-finder.html"],
   ["하츠이야기", "./about.html"],
   ["제품소개", "product.html"],
   ["고객지원", "customer.html"],
