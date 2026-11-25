@@ -1,7 +1,7 @@
 /* 공통 헤더 메가 메뉴 및 모바일 하위 메뉴 */
 (() => {
   const head = document.querySelector(".head");
-  const navLinks = [...document.querySelectorAll("#gnb-list > li > a")];
+  const navLinks = [...document.querySelectorAll("#gnb-list > li > a, #gnb > ul > li > a")];
   if (!head || !navLinks.length) return;
 
   /* 기존 리뉴얼 사이트에서 사용하던 하위 메뉴 목록과 단순 칩 형태를 유지 */
