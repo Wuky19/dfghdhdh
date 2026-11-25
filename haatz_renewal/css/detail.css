@@ -22,3 +22,27 @@
 .subpage-list span{display:block;margin-top:7px;color:#667078;font-size:14px;line-height:1.6}
 .empty-state{margin-top:28px;padding:48px 24px;border:1px dashed #cbd4d8;border-radius:8px;background:#fff;text-align:center;color:#667078;line-height:1.8}
 @media(max-width:760px){.subpage{padding:60px 0 72px}.subpage-body{grid-template-columns:1fr;gap:16px}.subpage-content,.subpage-aside{padding:22px}.subpage-lead{font-size:15px}}
+
+
+/* 홍보센터 뉴스 게시판 */
+.news-board-wrap{margin-top:36px;overflow:hidden;border:1px solid #e1e7ea;border-radius:12px;background:#fff}
+.news-board-head,.news-board-row{display:grid;grid-template-columns:90px 150px minmax(0,1fr) 150px;align-items:center;gap:18px;padding:18px 24px}
+.news-board-head{background:#f1f5f7;color:#53616a;font-size:14px;font-weight:700;text-align:center}
+.news-board-row{min-height:82px;border-top:1px solid #e9edef;color:#25313a;text-decoration:none;transition:background .2s}
+.news-board-row:hover,.news-board-row:focus-visible{background:#f5fafc}
+.news-board-row:focus-visible{outline:2px solid #1686ad;outline-offset:-2px}
+.news-board-no,.news-board-date{text-align:center;color:#78858c;font-size:14px}
+.news-board-type{justify-self:start;padding:5px 10px;border-radius:999px;background:#eaf5f9;color:#147da2;font-size:12px;font-weight:700}
+.news-board-title{font-size:16px;font-weight:600;line-height:1.6}
+.news-board-note{margin:18px 0 0;color:#77838a;font-size:13px;line-height:1.7}
+.news-board-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:28px}
+.news-board-actions a{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border:1px solid #25313a;border-radius:999px;font-weight:600}
+.news-board-actions a.primary{background:#25313a;color:#fff}
+@media(max-width:760px){
+ .news-board-head{display:none}
+ .news-board-row{grid-template-columns:44px minmax(0,1fr);gap:6px 12px;padding:17px 16px}
+ .news-board-no{grid-row:1 / span 2;text-align:left}
+ .news-board-type{grid-column:2;grid-row:1}
+ .news-board-title{grid-column:2;grid-row:2;font-size:15px}
+ .news-board-date{display:none}
+}
