@@ -14,7 +14,7 @@ const MENU = [
   ["하츠이야기", "./about.html"],
   ["제품소개", "custom-finder.html"],
   ["고객지원", "customer.html"],
-  ["홍보센터", "pr-center.html"]
+  ["홍보센터", "pr-center/news.html"]
 ];
 const CAT = [
   ["빌트인 주방가전","Built-in Kitchen Appliances","세련된 디자인과 정교한 기술력으로 주방의 새로운 기준을 제시합니다.",I+"cat-kitchen.webp","product.html#tab-kitchen"],
@@ -81,7 +81,7 @@ const R = {
   svc: SVC.map(([t,d,s,u]) => `<li><a class="svc" href="${u}"><span class="svc-img">${img(s,"","ico")}</span><span class="svc-b"><strong>${esc(t)}</strong><span>${esc(d)}</span></span></a></li>`),
   best: BEST.map(([t,d,s,u]) => `<li><article class="card prod">${img(s,t,"prod-img")}<div class="card-b"><h3>${esc(t)}</h3>${d?`<p>${esc(d)}</p>`:""}<a class="btn" href="${u}" ${ext}>제품 보기</a></div></article></li>`),
   story: STORY.map(([t,d,u]) => `<li><a href="${u}" ${ext}>${esc(t)} <span class="sr">(외부 링크)</span><span aria-hidden="true">&rarr;</span></a></li>`),
-  news: NEWS.map(([t,s]) => `<li><article class="card newscard"><div class="nthumb">${img(s,t,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(t)}</h3></div></article></li>`),
+  news: NEWS.map(([t,s], i) => `<li><a class="news-card-link" href="pr-center/news.html#news-${String(i+1).padStart(2,"0")}"><article class="card newscard"><div class="nthumb">${img(s,t,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(t)}</h3></div></article></a></li>`),
   sns: SNS.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`),
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
@@ -149,8 +149,8 @@ const SUB = {
     links: [["고객지원 홈","customer.html"],["자주 묻는 질문","customer/faq.html"],["유지관리 가이드","customer/maintenance.html"],["A/S 신청·조회","customer/service.html"],["E-카탈로그","customer/catalog.html"],["사용설명서","customer/manual.html"],["서비스 정책","customer/policy.html"],["구매처","customer/store.html"],["고객의 소리","customer/voice.html"],["대리점 개설 문의","customer/partnership.html"]]
   },
   "홍보센터": {
-    desc: "하츠의 새로운 소식과 홍보영상, 미디어 자료, 공지사항을 확인하세요.",
-    links: [["홍보센터 홈","pr-center.html"],["NEWS","pr-center/news.html"],["홍보영상","pr-center/video.html"],["하츠 미디어","pr-center/media.html"],["공지사항","pr-center/notice.html"]]
+    desc: "하츠의 최신 소식과 브랜드 뉴스를 확인하세요.",
+    links: [["하츠 소식","pr-center/news.html"]]
   }
 };
 (function () {
