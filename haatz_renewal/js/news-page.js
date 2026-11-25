@@ -1,68 +1,90 @@
-/* 공통 뉴스 데이터를 페이지 단위로 출력 */
+/* 뉴스·블로그·인스타그램 통합 목록 및 카테고리 필터 */
 (() => {
   const board = document.getElementById("news-board-list");
   const pagination = document.getElementById("news-pagination");
-  const news = window.HAATZ_NEWS || [];
-  if (!board || !pagination) return;
+  const filters = document.getElementById("news-category-filters");
+  const allItems = window.HAATZ_NEWS || [];
+  if (!board || !pagination || !filters) return;
 
   const pageSize = 6;
+  const categories = [
+    ["ALL", "전체"],
+    ["NEWS", "뉴스"],
+    ["BLOG", "블로그"],
+    ["INSTAGRAM", "인스타그램"]
+  ];
+  let activeCategory = "ALL";
   let currentPage = 1;
-  const totalPages = Math.ceil(news.length / pageSize);
 
   const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
     "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
   }[char]));
 
-  function renderPage() {
+  function getItems() {
+    return allItems
+      .filter(item => activeCategory === "ALL" || item.category === activeCategory)
+      .slice()
+      .sort((a,b) => (b.sortDate || "").localeCompare(a.sortDate || ""));
+  }
+
+  function render() {
+    const items = getItems();
+    const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+    currentPage = Math.min(currentPage, totalPages);
     const start = (currentPage - 1) * pageSize;
-    const pageItems = news.slice(start, start + pageSize);
+    const pageItems = items.slice(start, start + pageSize);
 
     board.innerHTML = `
       <div class="news-board-head" aria-hidden="true">
         <span>번호</span><span>분류</span><span>제목</span><span>게시일</span>
       </div>
-      ${pageItems.map(([title, image, category, date, url], index) => {
-        const globalIndex = start + index;
-        const id = String(globalIndex + 1).padStart(2, "0");
-        const number = String(news.length - globalIndex).padStart(2, "0");
-        const href = url ? esc(url) : `#news-${id}`;
-        const target = url ? ' target="_blank" rel="noopener noreferrer"' : "";
+      ${pageItems.map((item,index) => {
+        const number = String(items.length - start - index).padStart(2,"0");
+        const href = item.url ? esc(item.url) : `#${esc(item.id)}`;
+        const target = item.url ? ' target="_blank" rel="noopener noreferrer"' : "";
+        const image = item.image ? `<img class="news-board-thumb" src="../${esc(item.image)}" alt="" loading="lazy">` : "";
         return `
-          <a class="news-board-row" id="news-${id}" href="${href}"${target}>
+          <a class="news-board-row" id="${esc(item.id)}" href="${href}"${target}>
             <span class="news-board-no">${number}</span>
-            <span class="news-board-type">${esc(category || "NEWS")}</span>
-            <strong class="news-board-title">${esc(title)}</strong>
-            <span class="news-board-date">${esc(date || "게시일 확인 필요")}</span>
+            <span class="news-board-type news-type-${esc(item.category.toLowerCase())}">${esc(item.category)}</span>
+            <span class="news-board-title-wrap">${image}<strong class="news-board-title">${esc(item.title)}</strong></span>
+            <span class="news-board-date">${esc(item.date || "게시일 확인 필요")}</span>
           </a>`;
       }).join("")}
     `;
+    if (!pageItems.length) board.innerHTML = '<p class="empty-state">등록된 콘텐츠가 없습니다.</p>';
 
     pagination.innerHTML = `
-      <button type="button" class="news-page-arrow" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""} aria-label="이전 페이지">이전</button>
-      <div class="news-page-numbers" aria-label="페이지 선택">
-        ${Array.from({length: totalPages}, (_, i) => {
-          const pageNumber = i + 1;
-          return `<button type="button" class="news-page-number ${pageNumber === currentPage ? "is-active" : ""}" data-page="${pageNumber}" ${pageNumber === currentPage ? 'aria-current="page"' : ""}>${pageNumber}</button>`;
-        }).join("")}
+      <button type="button" class="news-page-arrow" data-page="${currentPage-1}" ${currentPage===1?"disabled":""}>이전</button>
+      <div class="news-page-numbers">
+        ${Array.from({length:totalPages},(_,i)=>`<button type="button" class="news-page-number ${i+1===currentPage?"is-active":""}" data-page="${i+1}" ${i+1===currentPage?'aria-current="page"':""}>${i+1}</button>`).join("")}
       </div>
-      <button type="button" class="news-page-arrow" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""} aria-label="다음 페이지">다음</button>
+      <button type="button" class="news-page-arrow" data-page="${currentPage+1}" ${currentPage===totalPages?"disabled":""}>다음</button>
     `;
+    pagination.querySelectorAll("[data-page]").forEach(button => button.addEventListener("click", () => {
+      const next = Number(button.dataset.page);
+      if (next < 1 || next > totalPages || next === currentPage) return;
+      currentPage = next;
+      render();
+      board.scrollIntoView({behavior:"smooth",block:"start"});
+    }));
+  }
 
-    pagination.querySelectorAll("button[data-page]").forEach(button => {
-      button.addEventListener("click", () => {
-        const nextPage = Number(button.dataset.page);
-        if (nextPage < 1 || nextPage > totalPages || nextPage === currentPage) return;
-        currentPage = nextPage;
-        renderPage();
-        board.scrollIntoView({behavior:"smooth", block:"start"});
-      });
+  filters.innerHTML = categories.map(([key,label]) =>
+    `<button type="button" class="news-filter ${key===activeCategory?"is-active":""}" data-category="${key}" aria-pressed="${key===activeCategory}">${label}</button>`
+  ).join("");
+  filters.addEventListener("click", event => {
+    const button = event.target.closest("[data-category]");
+    if (!button) return;
+    activeCategory = button.dataset.category;
+    currentPage = 1;
+    filters.querySelectorAll(".news-filter").forEach(item => {
+      const selected = item.dataset.category === activeCategory;
+      item.classList.toggle("is-active",selected);
+      item.setAttribute("aria-pressed",String(selected));
     });
-  }
+    render();
+  });
 
-  if (!news.length) {
-    board.innerHTML = '<p class="empty-state">등록된 소식이 없습니다.</p>';
-    pagination.hidden = true;
-    return;
-  }
-  renderPage();
+  render();
 })();
