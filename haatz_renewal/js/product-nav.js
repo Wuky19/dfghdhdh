@@ -41,12 +41,6 @@
         ["고객의 소리", "customer/voice.html"],
         ["대리점 개설 문의", "customer/partnership.html"]
       ]
-    },
-    "홍보센터": {
-      desc: "하츠의 최신 소식과 브랜드 뉴스를 확인하세요.",
-      links: [
-        ["하츠 소식", "pr-center/news.html"]
-      ]
     }
   };
 
