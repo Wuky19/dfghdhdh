@@ -44,14 +44,7 @@ const STORY = [
   ["연혁","하츠가 걸어온 길","index.html#story"],
   ["사업소개","하츠의 사업 영역","index.html#story"]
 ];
-const NEWS = [
-  ["'주방 리모델링 편의성 높인다' 하츠,'수전 일체형 올인원 사각볼' 출시",I+"n1.png"],
-  ["하츠, 라이프스타일 플랫폼까지 유통망 확대… B2C 사업 경쟁력 강화",I+"n2.png"],
-  ["하츠, 프리미엄 욕실 브랜드 하츠바스 경쟁력 강화… 대표 제품 '루체오슬림' 주목",I+"n3.png"],
-  ["휠 조작으로 완성하는 새로운 주방 경험, 하츠, 마그네틱 휠 적용한 '휠라이트 인덕션' 출시",I+"n4.png"],
-  ["“오세아니아 시장 공략 본격화” 하츠, ‘호주 국제 주방·욕실 박람회 2026’ 참가",I+"n5.png"],
-  ["“제품 넘어 공간 케어 영역 확장” 하츠, ‘홈케어서비스’ 런칭",I+"n6.png"]
-];
+const NEWS = window.HAATZ_NEWS || [];
 const SNS = [
   ["온라인 하츠레터 43편","블로그",I+"s-l43.png","https://blog.naver.com/haatz_official/224309633090"],
   ["[하츠한스푼] ep4. 마라 고수가 말아주는 인생 마라샹궈","유튜브",I+"s-ep4.png","https://youtu.be/FZMMQ3x8ILQ"],
@@ -81,7 +74,7 @@ const R = {
   svc: SVC.map(([t,d,s,u]) => `<li><a class="svc" href="${u}"><span class="svc-img">${img(s,"","ico")}</span><span class="svc-b"><strong>${esc(t)}</strong><span>${esc(d)}</span></span></a></li>`),
   best: BEST.map(([t,d,s,u]) => `<li><article class="card prod">${img(s,t,"prod-img")}<div class="card-b"><h3>${esc(t)}</h3>${d?`<p>${esc(d)}</p>`:""}<a class="btn" href="${u}" ${ext}>제품 보기</a></div></article></li>`),
   story: STORY.map(([t,d,u]) => `<li><a href="${u}" ${ext}>${esc(t)} <span class="sr">(외부 링크)</span><span aria-hidden="true">&rarr;</span></a></li>`),
-  news: NEWS.map(([t,s], i) => `<li><a class="news-card-link" href="pr-center/news.html#news-${String(i+1).padStart(2,"0")}"><article class="card newscard"><div class="nthumb">${img(s,t,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(t)}</h3></div></article></a></li>`),
+  news: NEWS.slice(0, 6).map(([t,s], i) => `<li><a class="news-card-link" href="pr-center/news.html#news-${String(i+1).padStart(2,"0")}"><article class="card newscard"><div class="nthumb">${img(s,t,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(t)}</h3></div></article></a></li>`),
   sns: SNS.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`),
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
