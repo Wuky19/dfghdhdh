@@ -147,10 +147,6 @@ const SUB = {
   "고객지원": {
     desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 확인하세요.",
     links: [["고객지원 홈","customer.html"],["자주 묻는 질문","customer/faq.html"],["유지관리 가이드","customer/maintenance.html"],["A/S 신청·조회","customer/service.html"],["E-카탈로그","customer/catalog.html"],["사용설명서","customer/manual.html"],["서비스 정책","customer/policy.html"],["구매처","customer/store.html"],["고객의 소리","customer/voice.html"],["대리점 개설 문의","customer/partnership.html"]]
-  },
-  "홍보센터": {
-    desc: "하츠의 최신 소식과 브랜드 뉴스를 확인하세요.",
-    links: [["하츠 소식","pr-center/news.html"]]
   }
 };
 (function () {
