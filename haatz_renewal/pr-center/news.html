@@ -32,41 +32,7 @@
         <p class="subpage-lead">하츠의 최신 제품 소식과 브랜드 뉴스를 확인할 수 있습니다.</p>
       </div>
       <section aria-labelledby="news-list-title">
-        <div class="news-board-wrap">
-          <div class="news-board-head" aria-hidden="true">
-            <span>번호</span><span>분류</span><span>제목</span><span>게시일</span>
-          </div>
-          <a class="news-board-row" id="news-01" href="#news-01">
-            <span class="news-board-no">06</span><span class="news-board-type">PRODUCT NEWS</span>
-            <strong class="news-board-title">‘주방 리모델링 편의성 높인다’ 하츠, ‘수전 일체형 올인원 사각볼’ 출시</strong>
-            <span class="news-board-date">게시일 정보 없음</span>
-          </a>
-          <a class="news-board-row" id="news-02" href="#news-02">
-            <span class="news-board-no">05</span><span class="news-board-type">BRAND NEWS</span>
-            <strong class="news-board-title">하츠, 라이프스타일 플랫폼까지 유통망 확대… B2C 사업 경쟁력 강화</strong>
-            <span class="news-board-date">게시일 정보 없음</span>
-          </a>
-          <a class="news-board-row" id="news-03" href="#news-03">
-            <span class="news-board-no">04</span><span class="news-board-type">BRAND NEWS</span>
-            <strong class="news-board-title">하츠, 프리미엄 욕실 브랜드 하츠바스 경쟁력 강화… 대표 제품 ‘루체오슬림’ 주목</strong>
-            <span class="news-board-date">게시일 정보 없음</span>
-          </a>
-          <a class="news-board-row" id="news-04" href="#news-04">
-            <span class="news-board-no">03</span><span class="news-board-type">PRODUCT NEWS</span>
-            <strong class="news-board-title">휠 조작으로 완성하는 새로운 주방 경험, 하츠 ‘휠라이트 인덕션’ 출시</strong>
-            <span class="news-board-date">게시일 정보 없음</span>
-          </a>
-          <a class="news-board-row" id="news-05" href="#news-05">
-            <span class="news-board-no">02</span><span class="news-board-type">BRAND NEWS</span>
-            <strong class="news-board-title">‘오세아니아 시장 공략 본격화’ 하츠, ‘호주 국제 주방·욕실 박람회 2026’ 참가</strong>
-            <span class="news-board-date">게시일 정보 없음</span>
-          </a>
-          <a class="news-board-row" id="news-06" href="#news-06">
-            <span class="news-board-no">01</span><span class="news-board-type">SERVICE NEWS</span>
-            <strong class="news-board-title">‘제품 넘어 공간 케어 영역 확장’ 하츠, ‘홈케어서비스’ 런칭</strong>
-            <span class="news-board-date">게시일 정보 없음</span>
-          </a>
-        </div>
+        <div class="news-board-wrap" id="news-board-list" aria-live="polite"></div>
         <p class="news-board-note">현재 목록은 메인 페이지에 등록된 6개 소식과 연결되어 있습니다. 게시일과 상세 보도자료 원문은 제공되지 않아 임의로 작성하지 않았습니다. 새 소식이 추가되면 같은 목록에 누적해 주세요.</p>
       </section>
       <div class="news-board-actions">
@@ -86,6 +52,8 @@
       <p class="copy">HAATZ WEBSITE RENEWAL</p>
     </div>
   </footer>
+  <script src="../js/news-data.js"></script>
+  <script src="../js/news-page.js"></script>
   <script src="../js/product-nav.js"></script>
   <script>
     const menuButton = document.querySelector(".menu-btn");
