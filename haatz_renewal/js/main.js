@@ -78,7 +78,7 @@ const ext = 'target="_blank" rel="noopener"';
 const img = (s,a,c="") => `<img class="${c}" src="${s}" alt="${esc(a)}" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'ph',textContent:'이미지를 불러올 수 없습니다'}))">`;
 const R = {
   cat: CAT.map(([t,e,d,s,u]) => `<li><article class="card">${img(s,t,"thumb")}<div class="card-b"><span class="tag">${esc(e)}</span><h3>${esc(t)}</h3><p>${esc(d)}</p><a class="btn" href="${u}" ${ext}>${esc(t)} 보기</a></div></article></li>`),
-  svc: SVC.map(([t,d,s,u]) => `<li><a class="svc" href="${u}" ${ext}><span class="svc-img">${img(s,"","ico")}</span><span class="svc-b"><strong>${esc(t)}</strong><span>${esc(d)}</span></span></a></li>`),
+  svc: SVC.map(([t,d,s,u]) => `<li><a class="svc" href="${u}"><span class="svc-img">${img(s,"","ico")}</span><span class="svc-b"><strong>${esc(t)}</strong><span>${esc(d)}</span></span></a></li>`),
   best: BEST.map(([t,d,s,u]) => `<li><article class="card prod">${img(s,t,"prod-img")}<div class="card-b"><h3>${esc(t)}</h3>${d?`<p>${esc(d)}</p>`:""}<a class="btn" href="${u}" ${ext}>제품 보기</a></div></article></li>`),
   story: STORY.map(([t,d,u]) => `<li><a href="${u}" ${ext}>${esc(t)} <span class="sr">(외부 링크)</span><span aria-hidden="true">&rarr;</span></a></li>`),
   news: NEWS.map(([t,s]) => `<li><article class="card newscard"><div class="nthumb">${img(s,t,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(t)}</h3></div></article></li>`),
@@ -91,6 +91,10 @@ const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
 function renderSNS(channel = "전체") {
   const filtered = channel === "전체" ? SNS : SNS.filter(([, kind]) => kind === channel);
+  if (channel === "인스타그램" && filtered.length === 0) {
+    snsTrack.innerHTML = `<li class="sns-empty"><article class="card newscard snscard"><div class="card-b"><span class="tag">INSTAGRAM</span><h3 class="sm">인스타그램 콘텐츠를 준비하고 있습니다.</h3><p>하츠 공식 인스타그램에서 최신 소식을 확인해 보세요.</p><a class="btn" href="https://www.instagram.com/haatz_korea/" target="_blank" rel="noopener">인스타그램 방문하기</a></div></article></li>`;
+    return;
+  }
   snsTrack.innerHTML = filtered.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`).join("");
 }
 document.querySelectorAll("[data-chan]").forEach(container => {
