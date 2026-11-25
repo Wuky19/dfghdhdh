@@ -342,3 +342,25 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
  .mega-groups{grid-template-columns:1fr}
  .mega-in-grouped{grid-template-columns:1fr}
 }
+
+
+/* Instagram embedded post cards */
+#sns .instagram-post-card .instagram-post-frame{
+  width:100%;
+  min-height:420px;
+  overflow:hidden;
+  background:#fff;
+  border-bottom:1px solid var(--line,#e8ecef);
+}
+#sns .instagram-post-frame iframe{
+  display:block;
+  width:100%;
+  height:430px;
+  border:0;
+  background:#fff;
+}
+#sns .instagram-post-card .card-b{min-height:132px}
+@media(max-width:640px){
+  #sns .instagram-post-frame{min-height:390px}
+  #sns .instagram-post-frame iframe{height:400px}
+}
