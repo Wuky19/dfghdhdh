@@ -46,3 +46,18 @@
  .news-board-title{grid-column:2;grid-row:2;font-size:15px}
  .news-board-date{display:none}
 }
+
+
+/* 뉴스 게시판 페이지 이동 */
+.news-pagination{display:flex;align-items:center;justify-content:center;gap:10px;margin:34px 0 8px}
+.news-page-numbers{display:flex;align-items:center;gap:8px}
+.news-pagination button{min-width:40px;height:40px;padding:0 12px;border:1px solid #dce3e6;border-radius:6px;background:#fff;color:#25313a;font:inherit;font-size:14px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.news-pagination button:hover:not(:disabled){border-color:#1686ad;color:#1686ad}
+.news-pagination button.is-active{border-color:#25313a;background:#25313a;color:#fff;font-weight:700}
+.news-pagination button:disabled{opacity:.35;cursor:not-allowed}
+.news-pagination button:focus-visible{outline:2px solid #1686ad;outline-offset:3px}
+@media(max-width:760px){
+ .news-pagination{gap:6px;margin-top:26px}
+ .news-page-numbers{gap:5px}
+ .news-pagination button{min-width:36px;height:36px;padding:0 9px;font-size:13px}
+}
