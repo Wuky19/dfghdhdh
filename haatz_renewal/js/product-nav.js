@@ -43,13 +43,9 @@
       ]
     },
     "홍보센터": {
-      desc: "하츠의 새로운 소식과 홍보영상, 미디어 자료, 공지사항을 확인하세요.",
+      desc: "하츠의 최신 소식과 브랜드 뉴스를 확인하세요.",
       links: [
-        ["홍보센터 홈", "pr-center.html"],
-        ["NEWS", "pr-center/news.html"],
-        ["홍보영상", "pr-center/video.html"],
-        ["하츠 미디어", "pr-center/media.html"],
-        ["공지사항", "pr-center/notice.html"]
+        ["하츠 소식", "pr-center/news.html"]
       ]
     }
   };
