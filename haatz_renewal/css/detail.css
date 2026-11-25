@@ -1,0 +1,24 @@
+/* 고객지원·홍보센터 공통 상세 페이지 */
+.subpage{min-height:60vh;padding:84px 0 100px;background:#f7f8f8}
+.subpage .wrap{max-width:1120px}
+.subpage-head{padding:0 0 34px;border-bottom:1px solid #dfe4e6}
+.subpage-eyebrow{margin:0 0 14px;color:#1686ad;font-size:12px;font-weight:700;letter-spacing:.14em}
+.subpage h1{margin:0;color:#202a30;font-size:clamp(34px,5vw,54px);letter-spacing:-.05em}
+.subpage-lead{max-width:760px;margin:18px 0 0;color:#667078;font-size:17px;line-height:1.8}
+.subpage-body{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:32px;margin-top:36px}
+.subpage-content,.subpage-aside{padding:30px;background:#fff;border:1px solid #e5e9eb;border-radius:10px}
+.subpage-content h2{margin:0 0 14px;font-size:23px;letter-spacing:-.04em}
+.subpage-content p,.subpage-content li{color:#59636a;line-height:1.85}
+.subpage-content ul{padding-left:20px}
+.subpage-content section+section{margin-top:32px;padding-top:28px;border-top:1px solid #edf0f1}
+.subpage-aside h2{margin:0 0 12px;font-size:18px}
+.subpage-aside p{color:#667078;font-size:14px;line-height:1.7}
+.subpage-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.subpage-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid #202a30;border-radius:5px;background:#202a30;color:#fff;font-weight:700}
+.subpage-btn.secondary{background:#fff;color:#202a30}
+.subpage-list{display:grid;gap:12px;margin-top:28px}
+.subpage-list a{display:block;padding:22px 24px;border:1px solid #e5e9eb;border-radius:8px;background:#fff}
+.subpage-list strong{display:block;color:#202a30;font-size:18px}
+.subpage-list span{display:block;margin-top:7px;color:#667078;font-size:14px;line-height:1.6}
+.empty-state{margin-top:28px;padding:48px 24px;border:1px dashed #cbd4d8;border-radius:8px;background:#fff;text-align:center;color:#667078;line-height:1.8}
+@media(max-width:760px){.subpage{padding:60px 0 72px}.subpage-body{grid-template-columns:1fr;gap:16px}.subpage-content,.subpage-aside{padding:22px}.subpage-lead{font-size:15px}}
