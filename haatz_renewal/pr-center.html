@@ -40,7 +40,13 @@
         <div class="pr-section-head">
           <div><p class="eyebrow">EXPLORE HAATZ</p><h2 id="pr-menu-title">무엇을 찾으시나요?</h2><p class="lead">원하는 콘텐츠를 선택해 하츠의 소식을 확인하세요.</p></div>
         </div>
-        <div class="pr-menu-grid">
+        <form class="pr-search" id="pr-search" role="search">
+          <label class="sr-only" for="pr-query">홍보센터 콘텐츠 검색</label>
+          <input id="pr-query" type="search" placeholder="찾으시는 콘텐츠를 검색하세요. (예: 영상, 공지사항)" autocomplete="off">
+          <button type="submit">검색</button>
+        </form>
+        <p class="pr-search-count" id="pr-search-count" aria-live="polite">전체 4개 콘텐츠</p>
+        <div class="pr-menu-grid" id="pr-menu-grid">
           <a class="pr-menu-card" href="pr-center/news.html"><span class="pr-menu-icon" aria-hidden="true">01</span><span class="pr-menu-label">NEWS</span><strong>하츠의 새로운 소식</strong><span class="pr-menu-desc">보도자료와 브랜드 소식을 확인하세요.</span><span class="pr-arrow" aria-hidden="true">↗</span></a>
           <a class="pr-menu-card" href="pr-center/video.html"><span class="pr-menu-icon" aria-hidden="true">02</span><span class="pr-menu-label">VIDEO</span><strong>홍보영상</strong><span class="pr-menu-desc">영상으로 만나는 하츠의 제품과 이야기.</span><span class="pr-arrow" aria-hidden="true">↗</span></a>
           <a class="pr-menu-card" href="pr-center/media.html"><span class="pr-menu-icon" aria-hidden="true">03</span><span class="pr-menu-label">HAATZ MEDIA</span><strong>하츠 미디어</strong><span class="pr-menu-desc">브랜드와 제품 관련 자료를 살펴보세요.</span><span class="pr-arrow" aria-hidden="true">↗</span></a>
@@ -82,6 +88,7 @@
       </div>
     </section>
   </main>
+  <script src="js/pr-search.js"></script>
 
   <footer class="foot">
     <div class="wrap">
