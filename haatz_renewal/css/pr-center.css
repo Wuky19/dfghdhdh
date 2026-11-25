@@ -54,3 +54,80 @@
 .pr-search-count{margin:12px 0 0;color:#667078;font-size:14px}
 .pr-menu-card[hidden]{display:none}
 @media(max-width:600px){.pr-search{margin-top:24px}.pr-search input{height:48px;padding:0 12px;font-size:14px}.pr-search button{min-width:72px}}
+
+
+/* 검색 영역 디자인 개선 */
+.pr-menu .pr-search{
+  display:flex;
+  align-items:center;
+  width:100%;
+  max-width:640px;
+  min-height:58px;
+  margin:32px 0 0;
+  padding:5px;
+  border:1px solid #d8e0e4;
+  border-radius:8px;
+  background:#fff;
+  box-shadow:0 4px 16px rgba(22,48,60,.06);
+  overflow:hidden;
+  transition:border-color .2s, box-shadow .2s;
+}
+.pr-menu .pr-search:focus-within{
+  border-color:#1686ad;
+  box-shadow:0 0 0 3px rgba(22,134,173,.12);
+}
+.pr-menu .pr-search .sr-only{
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+.pr-menu .pr-search input{
+  flex:1;
+  width:100%;
+  min-width:0;
+  height:46px;
+  padding:0 16px;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:#202a30;
+  font-family:inherit;
+  font-size:15px;
+}
+.pr-menu .pr-search input::placeholder{color:#9aa4aa}
+.pr-menu .pr-search input:focus-visible{outline:0}
+.pr-menu .pr-search button{
+  flex:0 0 92px;
+  min-width:92px;
+  height:46px;
+  border:0;
+  border-radius:5px;
+  background:#1686ad;
+  color:#fff;
+  font-family:inherit;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .2s;
+}
+.pr-menu .pr-search button:hover{background:#106b8b}
+.pr-menu .pr-search button:focus-visible{
+  outline:3px solid rgba(22,134,173,.28);
+  outline-offset:2px;
+}
+.pr-menu .pr-search-count{
+  margin:12px 0 0;
+  color:#7a858b;
+  font-size:13px;
+}
+@media(max-width:600px){
+  .pr-menu .pr-search{max-width:none;min-height:54px;margin-top:24px}
+  .pr-menu .pr-search input{height:42px;padding:0 11px;font-size:14px}
+  .pr-menu .pr-search button{flex-basis:72px;min-width:72px;height:42px;font-size:13px}
+}
