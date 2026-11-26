@@ -35,12 +35,14 @@
         </div>
       </section>
       <section id="news-list" aria-label="하츠 소식 목록">
-        <form class="news-search" id="news-search-form" role="search">
-          <label class="sr-only" for="news-search-input">하츠 소식 검색어</label>
-          <input type="search" id="news-search-input" placeholder="검색어를 입력하세요" autocomplete="off">
-          <button type="submit">검색</button>
-        </form>
-        <div class="news-category-filters" id="news-category-filters" aria-label="소식 유형 필터"></div>
+        <div class="news-list-toolbar">
+          <div class="news-category-filters" id="news-category-filters" aria-label="소식 유형 필터"></div>
+          <form class="news-search" id="news-search-form" role="search">
+            <label class="sr-only" for="news-search-input">하츠 소식 검색어</label>
+            <input type="search" id="news-search-input" placeholder="검색어를 입력하세요" autocomplete="off">
+            <button type="submit" aria-label="검색">검색</button>
+          </form>
+        </div>
         <div class="news-board-wrap" id="news-board-list" aria-live="polite"></div> 
         <nav class="news-pagination" id="news-pagination" aria-label="뉴스 목록 페이지 이동"></nav>
       </section>
