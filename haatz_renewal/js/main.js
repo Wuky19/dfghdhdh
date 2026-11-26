@@ -10,12 +10,6 @@ if (!REDUCE) document.documentElement.classList.add("js-motion");
 /* ===== 사이트 콘텐츠 데이터: 교체 시 이 객체만 수정 ===== */
 const B = "index.html#";
 const I = "img/";
-const MENU = [
-  ["하츠이야기", "./about.html"],
-  ["제품소개", "custom-finder.html"],
-  ["고객지원", "customer.html"],
-  ["홍보센터", "pr-center/news.html"]
-];
 const CAT = [
   ["빌트인 주방가전","Built-in Kitchen Appliances","세련된 디자인과 정교한 기술력으로 주방의 새로운 기준을 제시합니다.",I+"cat-kitchen.webp","product.html#tab-kitchen"],
   ["환기·공기질 솔루션","Ventilation & Air Quality Solutions","효율적인 환기와 정교한 공기 제어로, 조용하고 깨끗한 생활환경을 실현합니다.",I+"cat-air.webp","product.html#tab-air"],
@@ -87,7 +81,6 @@ const R = {
   sns: SNS.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`),
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
-document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${u.startsWith("http") ? ext : ""}>${t}</a></li>`).join("");
 /* SNS 채널 탭: 전체/인스타그램/블로그/유튜브 */
 const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
@@ -168,67 +161,6 @@ document.querySelectorAll("[data-chan]").forEach(container => {
   });
 });
 renderSNS();
-
-/* ===== 헤더 자세히 보기(메가 메뉴): 제품소개에 마우스를 올리거나 포커스하면 펼쳐짐 ===== */
-const SUB = {
-  "하츠이야기": {
-    desc: "30년 넘게 이어온 하츠의 이야기와 사업, 경영 정보를 소개합니다.",
-    links: [["About 하츠","./about.html"],["연혁","about.html#brand-story"],["CI","about.html#brand-value"],["사업소","about.html#haatz-solution"],["사업소개","about.html#haatz-solution"],["투자정보","about.html#brand-value"],["윤리경영","about.html#brand-value"]]
-  },
-  "제품소개": {
-    desc: "주방, 생활, 공기환경 등 다양한 분야의 제품을 통해 일상에 편리함과 품질을 더하는 하츠의 솔루션을 소개합니다.",
-    links: [["나에게 맞는 하츠 찾기", "custom-finder.html"], ["빌트인 주방가전", "product.html#tab-kitchen"], ["욕실 솔루션", "product.html#tab-bath"], ["환기·공기질 솔루션", "product.html#tab-air"]]
-  },
-  "고객지원": {
-    desc: "제품 사용 중 궁금한 점과 A/S, 매뉴얼, 구매처까지 필요한 지원 정보를 확인하세요.",
-    links: [["고객지원 홈","customer.html"],["자주 묻는 질문","customer/faq.html"],["유지관리 가이드","customer/maintenance.html"],["A/S 신청·조회","customer/service.html"],["E-카탈로그","customer/catalog.html"],["사용설명서","customer/manual.html"],["서비스 정책","customer/policy.html"],["구매처","customer/store.html"],["고객의 소리","customer/voice.html"],["대리점 개설 문의","customer/partnership.html"]]
-  }
-};
-(function () {
-  const head = document.querySelector(".head");
-  const mega = document.createElement("div");
-  mega.className = "mega"; mega.id = "mega"; mega.hidden = true;
-  head.appendChild(mega);
-  const subLinks = (links) => links.map(([t, u]) => `<a class="chip" href="${u}" ${u.startsWith("http") ? ext : ""}><span>${t}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`).join("");
-  let cur = null, timer;
-  function open(name, trigger) {
-    clearTimeout(timer);
-    const d = SUB[name]; if (!d) return close();
-    if (cur !== name) {
-      mega.innerHTML = `<div class="wrap mega-in"><div class="mega-l"><strong>${name}</strong><p>${d.desc}</p></div><div class="mega-r">${subLinks(d.links)}</div></div>`;
-      swapIn(mega.querySelector(".mega-r"), 0, 10, 0, 320);
-    }
-    cur = name; mega.hidden = false;
-    document.querySelectorAll("#gnb-list > li > a").forEach(a => a.classList.toggle("on", a === trigger));
-    trigger.setAttribute("aria-expanded", "true");
-  }
-  function close() {
-    cur = null; mega.hidden = true;
-    document.querySelectorAll("#gnb-list > li > a").forEach(a => { a.classList.remove("on"); if (a.hasAttribute("aria-expanded")) a.setAttribute("aria-expanded", "false"); });
-  }
-  document.querySelectorAll("#gnb-list > li > a").forEach(a => {
-    const name = a.textContent.trim();
-    if (SUB[name]) {
-      a.setAttribute("aria-haspopup", "true"); a.setAttribute("aria-expanded", "false"); a.setAttribute("aria-controls", "mega");
-      /* 모바일 메뉴: 같은 항목 아래에 하위 링크를 세로로 표시 */
-      a.parentElement.insertAdjacentHTML("beforeend", `<div class="m-sub${name === "제품소개" ? " m-sub-product" : ""}">${subLinks(SUB[name].links)}</div>`);
-    }
-    const li = a.parentElement;
-    li.addEventListener("mouseenter", () => { if (innerWidth > 768) open(name, a); });
-    a.addEventListener("focus", () => { if (innerWidth > 768) open(name, a); });
-  });
-  head.addEventListener("mouseleave", () => { timer = setTimeout(close, 120); });
-  head.addEventListener("mouseenter", () => clearTimeout(timer));
-  head.addEventListener("focusout", e => { if (!head.contains(e.relatedTarget)) close(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
-  mega.addEventListener("click", e => { if (e.target.closest("a")) close(); });
-  window.addEventListener("resize", close);
-})();
-
-/* ===== 모바일 메뉴 ===== */
-const mb = document.querySelector(".menu-btn"), gnb = document.getElementById("gnb");
-mb.addEventListener("click", () => { mb.setAttribute("aria-expanded", gnb.classList.toggle("open")); });
-gnb.addEventListener("click", e => { if (e.target.tagName === "A") { gnb.classList.remove("open"); mb.setAttribute("aria-expanded", false); } });
 
 /* ===== 맞춤 제품 찾기: 조건을 한 단계씩 선택 ===== */
 const STEPS = [["concern","어떤 고민이 있으신가요?"],["space","제품을 설치할 공간을 선택하세요"],["env","설치 환경을 선택하세요"]];
