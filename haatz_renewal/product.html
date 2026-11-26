@@ -159,8 +159,44 @@
         <div class="detail-divider"></div>
         <p class="detail-description" id="detail-description"></p>
         <div class="detail-tags" id="detail-tags"></div>
-        <a class="detail-cta" href="#product-inquiry">제품 문의하기 <span aria-hidden="true">→</span></a>
+        <button type="button" class="detail-cta" id="open-inquiry">제품 문의하기 <span aria-hidden="true">→</span></button>
       </section>
+    </div>
+  </dialog>
+  <dialog class="product-inquiry-dialog" id="product-inquiry-dialog" aria-labelledby="inquiry-title">
+    <button type="button" class="inquiry-close" aria-label="문의창 닫기">×</button>
+    <div class="inquiry-inner">
+      <p class="eyebrow">PRODUCT INQUIRY</p>
+      <h2 id="inquiry-title">제품 문의하기</h2>
+      <p class="inquiry-intro">문의하실 내용을 작성해 주세요.</p>
+      <form id="product-inquiry-form">
+        <div class="inquiry-field">
+          <label for="inquiry-product">문의 제품</label>
+          <input type="text" id="inquiry-product" name="product" readonly>
+        </div>
+        <div class="inquiry-field">
+          <label for="inquiry-name">이름</label>
+          <input type="text" id="inquiry-name" name="name" autocomplete="name" placeholder="이름을 입력해 주세요" required>
+        </div>
+        <div class="inquiry-field">
+          <label for="inquiry-phone">연락처</label>
+          <input type="tel" id="inquiry-phone" name="phone" autocomplete="tel" placeholder="연락 가능한 번호를 입력해 주세요" required>
+        </div>
+        <div class="inquiry-field">
+          <label for="inquiry-email">이메일</label>
+          <input type="email" id="inquiry-email" name="email" autocomplete="email" placeholder="답변받을 이메일을 입력해 주세요" required>
+        </div>
+        <div class="inquiry-field">
+          <label for="inquiry-message">문의 내용</label>
+          <textarea id="inquiry-message" name="message" rows="4" placeholder="문의하실 내용을 입력해 주세요" required></textarea>
+        </div>
+        <label class="inquiry-consent">
+          <input type="checkbox" id="inquiry-consent" required>
+          <span>개인정보 수집·이용에 동의합니다. <small>(시연용 입력 항목이며 실제 저장·전송되지 않습니다.)</small></span>
+        </label>
+        <p class="inquiry-notice" id="inquiry-notice" role="status" aria-live="polite">현재 문의 기능은 화면 시연용이며, 실제 문의 접수는 연결되어 있지 않습니다.</p>
+        <button type="submit" class="inquiry-submit">문의 내용 확인</button>
+      </form>
     </div>
   </dialog>
   <script src="js/product.js"></script>
