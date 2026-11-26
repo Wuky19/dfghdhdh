@@ -12,8 +12,8 @@
         ["About 하츠", "about.html"],
         ["연혁", "about.html#brand-story"],
         ["CI", "about.html#brand-value"],
-        ["사업소", "about.html#haatz-solution"],
         ["사업소개", "about.html#haatz-solution"],
+        ["사업소", "about.html#haatz-solution"],
         ["투자정보", "about.html#brand-value"],
         ["윤리경영", "about.html#brand-value"]
       ]
