@@ -51,9 +51,10 @@
 /* 뉴스 게시판 페이지 이동 - 공통 캡슐형 버튼 */
 .news-pagination{display:flex;align-items:center;justify-content:center;gap:10px;margin:34px 0 8px}
 .news-page-numbers{display:flex;align-items:center;gap:8px}
-.news-pagination button{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;padding:0 16px;border:1px solid #d2d2d2;border-radius:999px;background:#fff;color:#222;font:inherit;font-size:14px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
-.news-pagination button:hover:not(:disabled){border-color:#00a1dc;color:#008fc5}
-.news-pagination button.is-active{border-color:#00a1dc;background:#00a1dc;color:#fff;font-weight:700}
+.news-filter,.news-pagination button{border:1px solid #d2d2d2;border-radius:999px;background:#fff;color:#222;font:inherit;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.news-pagination button{display:inline-flex;align-items:center;justify-content:center;min-width:42px;height:42px;padding:0 16px;font-size:14px}
+.news-filter:hover,.news-pagination button:hover:not(:disabled){border-color:#00a1dc;color:#008fc5}
+.news-filter.is-active,.news-pagination button.is-active{border-color:#00a1dc;background:#00a1dc;color:#fff;font-weight:700}
 .news-pagination button:disabled{opacity:.4;cursor:not-allowed}
 .news-pagination button:focus-visible{outline:2px solid #00a1dc;outline-offset:3px}
 @media(max-width:760px){
@@ -65,7 +66,7 @@
 
 /* 하츠 소식 통합 카테고리 필터 - 제품 카테고리 버튼 스타일 */
 .news-category-filters{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
-.news-filter{min-height:46px;padding:0 20px;border:1px solid #d2d2d2;border-radius:999px;background:#fff;color:#222;font:inherit;font-size:14px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.news-filter{min-height:46px;padding:0 20px;font-size:14px}
 .news-filter:hover{border-color:#00a1dc;color:#008fc5}
 .news-filter.is-active{border-color:#00a1dc;background:#00a1dc;color:#fff;font-weight:700}
 .news-board-title-wrap{display:flex;align-items:center;gap:14px;min-width:0}
