@@ -91,26 +91,23 @@ document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href
 const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
 function renderSNS(channel = "전체") {
-  const instagramCards = INSTAGRAM_POSTS.map(([title, date, shortcode]) => `
+  const instagramCards = INSTAGRAM_POSTS.map(([title, date, shortcode]) => {
+    const imageUrl = `https://www.instagram.com/p/${shortcode}/media/?size=l`;
+    const postUrl = `https://www.instagram.com/p/${shortcode}/`;
+    return `
     <li>
       <article class="card newscard snscard instagram-post-card">
         <div class="instagram-post-frame">
-          <iframe
-            src="https://www.instagram.com/p/${shortcode}/embed/"
-            title="하츠 인스타그램 게시물: ${esc(title)}"
-            loading="lazy"
-            allowtransparency="true"
-            allow="encrypted-media"
-            referrerpolicy="strict-origin-when-cross-origin">
-          </iframe>
+          ${img(imageUrl, title, "instagram-post-image")}
         </div>
         <div class="card-b">
           <span class="tag">INSTAGRAM · ${esc(date)}</span>
           <h3 class="sm">${esc(title)}</h3>
-          <a class="btn" href="https://www.instagram.com/p/${shortcode}/" target="_blank" rel="noopener">원본 게시물 보기</a>
+          <a class="btn" href="${postUrl}" target="_blank" rel="noopener">원본 게시물 보기</a>
         </div>
       </article>
-    </li>`).join("");
+    </li>`;
+  }).join("");
 
   const otherPosts = SNS.filter(([, kind]) => kind !== "인스타그램");
   const filtered = channel === "전체" ? otherPosts : otherPosts.filter(([, kind]) => kind === channel);
