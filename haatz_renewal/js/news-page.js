@@ -59,7 +59,11 @@
           </a>`;
       }).join("")}
     `;
-    if (!pageItems.length) board.innerHTML = '<p class="empty-state">검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>';
+    if (!pageItems.length) {
+      board.innerHTML = '<p class="empty-state">검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>';
+      pagination.innerHTML = "";
+      return;
+    }
 
     pagination.innerHTML = `
       <button type="button" class="news-page-arrow" data-page="${currentPage-1}" ${currentPage===1?"disabled":""}>이전</button>
