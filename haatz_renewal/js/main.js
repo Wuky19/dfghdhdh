@@ -101,7 +101,11 @@ function renderSNS(channel = "전체") {
       </div>
     </article></li>`).join("");
 
-  const otherPosts = SNS.map(([title, kind, src, url]) => `
+  const filteredPosts = SNS.filter(([, kind]) =>
+    channel === "전체" || kind === channel
+  );
+
+  const otherPosts = filteredPosts.map(([title, kind, src, url]) => `
     <li><article class="card newscard snscard">
       <div class="nthumb">${img(src,title,"thumb snsimg")}</div>
       <div class="card-b">
@@ -109,18 +113,15 @@ function renderSNS(channel = "전체") {
         <h3 class="sm">${esc(title)}</h3>
         <a class="btn" href="${url}" ${ext}>${esc(kind)}에서 보기</a>
       </div>
-    </article></li>`);
+    </article></li>`).join("");
 
   if (channel === "인스타그램") {
     snsTrack.innerHTML = instagramCards;
-    return;
+  } else if (channel === "전체") {
+    snsTrack.innerHTML = instagramCards + otherPosts;
+  } else {
+    snsTrack.innerHTML = otherPosts;
   }
-  const filtered = channel === "전체"
-    ? otherPosts
-    : otherPosts.filter(([title, kind]) => kind === channel);
-  snsTrack.innerHTML = (channel === "전체"
-    ? [...instagramCards, ...filtered]
-    : filtered).join("");
 }
 document.querySelectorAll("[data-chan]").forEach(container => {
   container.setAttribute("role", "tablist");
