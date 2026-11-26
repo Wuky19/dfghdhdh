@@ -107,3 +107,16 @@
   .pr-news-hero-in>p:not(.pr-news-eyebrow){font-size:15px}
 }
 @media(prefers-reduced-motion:reduce){.pr-news-hero-link span{transition:none}}
+
+
+/* 홍보센터 소식 검색 */
+.news-search{display:flex;gap:8px;max-width:520px;margin:34px 0 0 auto}
+.news-search input{flex:1;min-width:0;height:46px;padding:0 16px;border:1px solid #d2d2d2;border-radius:999px;background:#fff;color:#222;font:inherit;font-size:14px;outline:none}
+.news-search input:focus{border-color:#00a1dc;box-shadow:0 0 0 3px rgba(0,161,220,.12)}
+.news-search button{min-width:82px;height:46px;padding:0 20px;border:1px solid #00a1dc;border-radius:999px;background:#00a1dc;color:#fff;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.news-search button:hover{background:#008fc5;border-color:#008fc5}
+@media(max-width:760px){
+ .news-search{gap:6px;margin-top:24px}
+ .news-search input{height:42px;padding:0 13px;font-size:13px}
+ .news-search button{min-width:66px;height:42px;padding:0 14px;font-size:13px}
+}
