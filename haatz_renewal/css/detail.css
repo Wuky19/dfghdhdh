@@ -63,18 +63,18 @@
 }
 
 
-/* 하츠 소식 통합 카테고리 필터 */
+/* 하츠 소식 통합 카테고리 필터 - 제품 카테고리 버튼 스타일 */
 .news-category-filters{display:flex;flex-wrap:wrap;gap:10px;margin:30px 0 0}
-.news-filter{min-height:42px;padding:0 20px;border:1px solid #d5dde1;border-radius:999px;background:#fff;color:#25313a;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
-.news-filter:hover{border-color:#1686ad;color:#1686ad}
-.news-filter.is-active{border-color:#25313a;background:#25313a;color:#fff;font-weight:700}
+.news-filter{min-height:46px;padding:0 20px;border:1px solid #d2d2d2;border-radius:999px;background:#fff;color:#222;font:inherit;font-size:14px;cursor:pointer;transition:background-color .2s,border-color .2s,color .2s}
+.news-filter:hover{border-color:#00a1dc;color:#008fc5}
+.news-filter.is-active{border-color:#00a1dc;background:#00a1dc;color:#fff;font-weight:700}
 .news-board-title-wrap{display:flex;align-items:center;gap:14px;min-width:0}
 .news-board-thumb{width:58px;height:58px;flex:0 0 58px;object-fit:cover;border-radius:6px}
 .news-type-blog{background:#f2f0fa;color:#6752a0}
 .news-type-instagram{background:#fff0f5;color:#b34d78}
 @media(max-width:760px){
  .news-category-filters{gap:7px;margin-top:22px}
- .news-filter{min-height:38px;padding:0 14px;font-size:13px}
+ .news-filter{min-height:42px;padding:0 16px;font-size:13px}
  .news-board-title-wrap{grid-column:2;grid-row:2}
  .news-board-thumb{width:46px;height:46px;flex-basis:46px}
  .news-board-title{font-size:14px}
