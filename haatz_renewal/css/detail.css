@@ -132,3 +132,14 @@
  .news-search input{height:42px;padding:0 14px;font-size:13px}
  .news-search button{min-width:68px;height:42px;padding:0 15px;font-size:13px}
 }
+
+
+/* 홍보센터 공통 버튼 기반 스타일
+   개별 버튼의 크기, 색상, 간격은 기존 클래스로 유지 */
+.pr-news-hero ~ * .btn,
+#news-list .btn{
+  border-radius:999px;
+  font:inherit;
+  cursor:pointer;
+  transition:background-color .2s,border-color .2s,color .2s;
+}
