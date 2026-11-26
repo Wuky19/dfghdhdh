@@ -66,9 +66,9 @@
     }
 
     pagination.innerHTML = `
-      <button type="button" class="news-page-arrow" data-page="${currentPage-1}" ${currentPage===1?"disabled":""}>이전</button>
+      <button type="button" class="btn btn-page news-page-arrow" data-page="${currentPage-1}" ${currentPage===1?"disabled":""}>이전</button>
       <div class="news-page-numbers">
-        ${Array.from({length:totalPages},(_,i)=>`<button type="button" class="news-page-number ${i+1===currentPage?"is-active":""}" data-page="${i+1}" ${i+1===currentPage?'aria-current="page"':""}>${i+1}</button>`).join("")}
+        ${Array.from({length:totalPages},(_,i)=>`<button type="button" class="btn btn-page news-page-number ${i+1===currentPage?"is-active":""}" data-page="${i+1}" ${i+1===currentPage?'aria-current="page"':""}>${i+1}</button>`).join("")}
       </div>
       <button type="button" class="news-page-arrow" data-page="${currentPage+1}" ${currentPage===totalPages?"disabled":""}>다음</button>
     `;
@@ -82,7 +82,7 @@
   }
 
   filters.innerHTML = categories.map(([key,label]) =>
-    `<button type="button" class="news-filter ${key===activeCategory?"is-active":""}" data-category="${key}" aria-pressed="${key===activeCategory}">${label}</button>`
+    `<button type="button" class="btn btn-category news-filter ${key===activeCategory?"is-active":""}" data-category="${key}" aria-pressed="${key===activeCategory}">${label}</button>`
   ).join("");
   filters.addEventListener("click", event => {
     const button = event.target.closest("[data-category]");
