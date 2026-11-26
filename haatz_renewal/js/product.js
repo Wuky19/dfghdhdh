@@ -70,6 +70,13 @@
   const shareDetail = document.querySelector(".detail-share");
   let currentDetailUrl = window.location.href;
   const closeDetail = dialog?.querySelector(".detail-close");
+  const inquiryDialog = document.getElementById("product-inquiry-dialog");
+  const openInquiry = document.getElementById("open-inquiry");
+  const closeInquiry = inquiryDialog?.querySelector(".inquiry-close");
+  const inquiryForm = document.getElementById("product-inquiry-form");
+  const inquiryProduct = document.getElementById("inquiry-product");
+  const inquiryNotice = document.getElementById("inquiry-notice");
+  let currentProductName = "";
   if (total) total.textContent = "(145개)";
   const names = {
     all: "전체 제품",
@@ -150,6 +157,7 @@
     const image = card?.querySelector(".product-image img");
     const category = card?.querySelector(".tag")?.textContent || "하츠 제품";
     const description = card?.querySelector(".product-card-info p")?.textContent || "제품 상세 정보는 확인 후 업데이트할 예정입니다.";
+    currentProductName = name;
     if (detailTitle) detailTitle.textContent = name;
     if (detailImage && image) { detailImage.src = image.src; detailImage.alt = image.alt; }
     if (detailCategory) detailCategory.textContent = category;
@@ -159,6 +167,24 @@
     dialog?.showModal();
   });
   closeDetail?.addEventListener("click", () => dialog.close());
+  openInquiry?.addEventListener("click", () => {
+    if (inquiryProduct) inquiryProduct.value = currentProductName;
+    if (inquiryNotice) inquiryNotice.textContent = "현재 문의 기능은 화면 시연용이며, 실제 문의 접수는 연결되어 있지 않습니다.";
+    if (dialog?.open) dialog.close();
+    inquiryDialog?.showModal();
+  });
+  closeInquiry?.addEventListener("click", () => inquiryDialog?.close());
+  inquiryDialog?.addEventListener("click", event => {
+    if (event.target === inquiryDialog) inquiryDialog.close();
+  });
+  inquiryForm?.addEventListener("submit", event => {
+    event.preventDefault();
+    if (!inquiryForm.reportValidity()) return;
+    if (inquiryNotice) {
+      inquiryNotice.textContent = "입력한 문의 내용이 확인되었습니다. 현재는 시연용 화면으로 실제 접수되지는 않습니다.";
+      inquiryNotice.classList.add("is-complete");
+    }
+  });
   shareDetail?.addEventListener("click", async () => {
     try { await navigator.clipboard.writeText(currentDetailUrl); shareDetail.textContent = "복사됨"; }
     catch { shareDetail.textContent = "복사 불가"; }
