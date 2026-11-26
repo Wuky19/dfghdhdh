@@ -45,6 +45,15 @@ const STORY = [
   ["사업소개","하츠의 사업 영역","index.html#story"]
 ];
 const NEWS = window.HAATZ_NEWS || [];
+const INSTAGRAM_POSTS = [
+  ["[10월] 월간 하츠 모음.zip · 하츠앱 활용법", "2026.10.08", "DeOdKDCCJUE"],
+  ["하츠 슬라이드 콘센트 소개", "2026.10.02", "Dd_AWY8kZZv"],
+  ["하츠 폰테 싱크볼·수전 고객 후기", "2026.09.29", "Dd3XQYakyuS"],
+  ["2026 대한민국 ESG소비자 브랜드 대상 수상", "2026.09.18", "Dda9TkAjzaB"],
+  ["IFA 2026 참가 소식", "2026.09.11", "DdI7v5QjQhq"],
+  ["[9월] 월간 하츠 모음.zip · 추석 기획전", "2026.09.04", "Dc26E6dk2rs"]
+];
+
 const SNS = [
   ["온라인 하츠레터 43편","블로그",I+"s-l43.png","https://blog.naver.com/haatz_official/224309633090"],
   ["[하츠한스푼] ep4. 마라 고수가 말아주는 인생 마라샹궈","유튜브",I+"s-ep4.png","https://youtu.be/FZMMQ3x8ILQ"],
@@ -80,14 +89,19 @@ const R = {
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
 document.getElementById("gnb-list").innerHTML = MENU.map(([t,u]) => `<li><a href="${u}" ${u.startsWith("http") ? ext : ""}>${t}</a></li>`).join("");
 /* SNS 채널 탭: 전체/인스타그램/블로그/유튜브 */
-const SNS_CHANNELS = ["전체", "블로그", "유튜브"];
+const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
 function renderSNS(channel = "전체") {
-  const filtered = channel === "전체"
-    ? SNS
-    : SNS.filter(([, kind]) => kind === channel);
+  const instagramCards = INSTAGRAM_POSTS.map(([title, date, shortcode]) => `
+    <li><article class="card newscard snscard">
+      <div class="card-b">
+        <span class="tag">INSTAGRAM · ${esc(date)}</span>
+        <h3 class="sm">${esc(title)}</h3>
+        <a class="btn" href="https://www.instagram.com/p/${shortcode}/" ${ext}>원본 게시물 보기</a>
+      </div>
+    </article></li>`).join("");
 
-  const cards = filtered.map(([title, kind, src, url]) => `
+  const otherPosts = SNS.map(([title, kind, src, url]) => `
     <li><article class="card newscard snscard">
       <div class="nthumb">${img(src,title,"thumb snsimg")}</div>
       <div class="card-b">
@@ -95,9 +109,18 @@ function renderSNS(channel = "전체") {
         <h3 class="sm">${esc(title)}</h3>
         <a class="btn" href="${url}" ${ext}>${esc(kind)}에서 보기</a>
       </div>
-    </article></li>`).join("");
+    </article></li>`);
 
-  snsTrack.innerHTML = cards;
+  if (channel === "인스타그램") {
+    snsTrack.innerHTML = instagramCards;
+    return;
+  }
+  const filtered = channel === "전체"
+    ? otherPosts
+    : otherPosts.filter(([title, kind]) => kind === channel);
+  snsTrack.innerHTML = (channel === "전체"
+    ? [...instagramCards, ...filtered]
+    : filtered).join("");
 }
 document.querySelectorAll("[data-chan]").forEach(container => {
   container.setAttribute("role", "tablist");
