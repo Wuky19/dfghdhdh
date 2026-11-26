@@ -1,10 +1,14 @@
-/* 공통 헤더 메가 메뉴 및 모바일 하위 메뉴 */
+/* HAATZ 공통 헤더 메뉴: 모든 페이지가 이 파일의 메뉴 데이터만 사용 */
 (() => {
-  const head = document.querySelector(".head");
-  const navLinks = [...document.querySelectorAll("#gnb-list > li > a, #gnb > ul > li > a")];
-  if (!head || !navLinks.length) return;
-
-  /* 기존 리뉴얼 사이트에서 사용하던 하위 메뉴 목록과 단순 칩 형태를 유지 */
+  const siteRoot = new URL("../", document.currentScript.src);
+  const pageUrl = location.pathname;
+  const path = value => new URL(value, siteRoot).href;
+  const MENU = [
+    ["하츠이야기", "about.html", "about"],
+    ["제품소개", "custom-finder.html", "product"],
+    ["고객지원", "customer.html", "customer"],
+    ["홍보센터", "pr-center/news.html", "pr"]
+  ];
   const SUB = {
     "하츠이야기": {
       desc: "30년 넘게 이어온 하츠의 이야기와 사업, 경영 정보를 소개합니다.",
@@ -41,79 +45,86 @@
         ["고객의 소리", "customer/voice.html"],
         ["대리점 개설 문의", "customer/partnership.html"]
       ]
+    },
+    "홍보센터": {
+      desc: "하츠의 새로운 소식과 영상, 미디어 자료를 확인하세요.",
+      links: [
+        ["하츠 소식", "pr-center/news.html"],
+        ["홍보영상", "pr-center/video.html"],
+        ["하츠 미디어", "pr-center/media.html"],
+        ["공지사항", "pr-center/notice.html"]
+      ]
     }
   };
-
-  const makeLinks = links => links.map(([label, url]) =>
-    `<a class="chip" href="${url}"><span>${label}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`
+  const head = document.querySelector(".head");
+  const nav = document.getElementById("gnb");
+  const list = nav && nav.querySelector("ul");
+  if (!head || !nav || !list) return;
+  let section = "";
+  if (pageUrl.endsWith("/about.html")) section = "about";
+  else if (pageUrl.endsWith("/product.html") || pageUrl.endsWith("/custom-finder.html")) section = "product";
+  else if (pageUrl.includes("/customer")) section = "customer";
+  else if (pageUrl.includes("/pr-center")) section = "pr";
+  list.id = "gnb-list";
+  list.innerHTML = MENU.map(([label, href, key]) => {
+    const active = key === section;
+    return `<li><a href="${path(href)}"${active ? ' class="on" aria-current="page"' : ""}>${label}</a></li>`;
+  }).join("");
+  const makeLinks = links => links.map(([label, href]) =>
+    `<a class="chip" href="${path(href)}"><span>${label}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`
   ).join("");
-
+  const navLinks = [...list.querySelectorAll(":scope > li > a")];
   const mega = document.createElement("div");
-  mega.className = "mega";
-  mega.id = "mega";
-  mega.hidden = true;
+  mega.className = "mega"; mega.id = "mega"; mega.hidden = true;
   head.appendChild(mega);
-
-  let current = null;
-  let closeTimer;
-
+  let current = null, closeTimer;
+  function close() {
+    current = null; mega.hidden = true;
+    navLinks.forEach(link => { link.classList.remove("on"); link.setAttribute("aria-expanded", "false"); });
+  }
   function open(name, trigger) {
     const item = SUB[name];
     if (!item || window.innerWidth <= 768) return close();
     clearTimeout(closeTimer);
     if (current !== name) {
-      mega.innerHTML = `
-        <div class="wrap mega-in">
-          <div class="mega-l"><strong>${name}</strong><p>${item.desc}</p></div>
-          <div class="mega-r">${makeLinks(item.links)}</div>
-        </div>`;
+      mega.innerHTML = `<div class="wrap mega-in"><div class="mega-l"><strong>${name}</strong><p>${item.desc}</p></div><div class="mega-r">${makeLinks(item.links)}</div></div>`;
       current = name;
     }
     mega.hidden = false;
     navLinks.forEach(link => {
       const active = link === trigger;
       link.classList.toggle("on", active);
-      link.setAttribute("aria-expanded", active ? "true" : "false");
+      link.setAttribute("aria-expanded", String(active));
     });
   }
-
-  function close() {
-    current = null;
-    mega.hidden = true;
-    navLinks.forEach(link => {
-      link.classList.remove("on");
-      if (link.hasAttribute("aria-expanded")) link.setAttribute("aria-expanded", "false");
-    });
-  }
-
   navLinks.forEach(link => {
-    const name = link.textContent.trim();
-    if (!SUB[name]) return;
+    const name = link.textContent.trim(), item = SUB[name];
+    if (!item) return;
     link.setAttribute("aria-haspopup", "true");
     link.setAttribute("aria-expanded", "false");
     link.setAttribute("aria-controls", "mega");
-
     const mobileSub = document.createElement("div");
     mobileSub.className = "m-sub";
-    mobileSub.innerHTML = makeLinks(SUB[name].links);
+    mobileSub.innerHTML = makeLinks(item.links);
     link.parentElement.appendChild(mobileSub);
-
     link.parentElement.addEventListener("mouseenter", () => open(name, link));
     link.addEventListener("focus", () => open(name, link));
   });
-
   head.addEventListener("mouseenter", () => clearTimeout(closeTimer));
-  head.addEventListener("mouseleave", () => {
-    closeTimer = setTimeout(close, 120);
-  });
-  head.addEventListener("focusout", event => {
-    if (!head.contains(event.relatedTarget)) close();
-  });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape") close();
-  });
-  mega.addEventListener("click", event => {
-    if (event.target.closest("a")) close();
-  });
+  head.addEventListener("mouseleave", () => { closeTimer = setTimeout(close, 120); });
+  head.addEventListener("focusout", event => { if (!head.contains(event.relatedTarget)) close(); });
+  document.addEventListener("keydown", event => { if (event.key === "Escape") close(); });
+  mega.addEventListener("click", event => { if (event.target.closest("a")) close(); });
   window.addEventListener("resize", close);
+  const menuButton = head.querySelector(".menu-btn");
+  menuButton?.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+  });
+  nav.addEventListener("click", event => {
+    if (event.target.closest("a")) {
+      nav.classList.remove("open");
+      menuButton?.setAttribute("aria-expanded", "false");
+    }
+  });
 })();
