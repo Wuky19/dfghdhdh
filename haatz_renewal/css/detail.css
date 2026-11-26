@@ -32,7 +32,7 @@
 .news-board-row:hover,.news-board-row:focus-visible{background:#f5fafc}
 .news-board-row:focus-visible{outline:2px solid #1686ad;outline-offset:-2px}
 .news-board-no,.news-board-date{text-align:center;color:#78858c;font-size:14px}
-.news-board-type{justify-self:start;padding:5px 10px;border-radius:999px;background:#eaf5f9;color:#147da2;font-size:12px;font-weight:700}
+.news-board-type{justify-self:start;padding:5px 10px;border-radius:999px;background:#f1f5f7;color:#53616a;font-size:12px;font-weight:700}
 .news-board-title{font-size:16px;font-weight:600;line-height:1.6}
 .news-board-note{margin:18px 0 0;color:#77838a;font-size:13px;line-height:1.7}
 .news-board-actions{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:28px}
@@ -70,7 +70,7 @@
 .news-filter.is-active{border-color:#00a1dc;background:#00a1dc;color:#fff;font-weight:700}
 .news-board-title-wrap{display:flex;align-items:center;gap:14px;min-width:0}
 .news-board-thumb{width:58px;height:58px;flex:0 0 58px;object-fit:cover;border-radius:6px}
-.news-type-blog{background:#f2f0fa;color:#6752a0}
+.news-type-blog{background:#f1f5f7;color:#53616a}
 .news-type-instagram{background:#f1f5f7;color:#53616a}
 @media(max-width:760px){
  .news-category-filters{gap:7px;margin-top:22px}
