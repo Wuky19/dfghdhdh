@@ -94,6 +94,15 @@ const snsTrack = document.querySelector('[data-cards="sns"]');
 function renderSNS(channel = "전체") {
   const instagramCards = INSTAGRAM_POSTS.map(([title, date, shortcode]) => `
     <li><article class="card newscard snscard instagram-card">
+      <div class="instagram-post-frame">
+        <iframe
+          src="https://www.instagram.com/p/${shortcode}/embed/"
+          title="${esc(title)} 인스타그램 게시물"
+          loading="lazy"
+          scrolling="no"
+          referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+      </div>
       <div class="card-b">
         <span class="tag">INSTAGRAM · ${esc(date)}</span>
         <h3 class="sm">${esc(title)}</h3>
