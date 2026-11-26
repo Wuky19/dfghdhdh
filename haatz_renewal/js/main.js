@@ -93,7 +93,7 @@ const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
 function renderSNS(channel = "전체") {
   const instagramCards = INSTAGRAM_POSTS.map(([title, date, shortcode]) => `
-    <li><article class="card newscard snscard">
+    <li><article class="card newscard snscard instagram-card">
       <div class="card-b">
         <span class="tag">INSTAGRAM · ${esc(date)}</span>
         <h3 class="sm">${esc(title)}</h3>
