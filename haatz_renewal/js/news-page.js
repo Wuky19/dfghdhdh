@@ -3,6 +3,8 @@
   const board = document.getElementById("news-board-list");
   const pagination = document.getElementById("news-pagination");
   const filters = document.getElementById("news-category-filters");
+  const searchForm = document.getElementById("news-search-form");
+  const searchInput = document.getElementById("news-search-input");
   const allItems = window.HAATZ_NEWS || [];
   if (!board || !pagination || !filters) return;
 
@@ -14,6 +16,7 @@
     ["INSTAGRAM", "인스타그램"]
   ];
   let activeCategory = "ALL";
+  let searchKeyword = "";
   let currentPage = 1;
 
   const esc = value => String(value ?? "").replace(/[&<>"']/g, char => ({
@@ -23,6 +26,10 @@
   function getItems() {
     return allItems
       .filter(item => activeCategory === "ALL" || item.category === activeCategory)
+      .filter(item => {
+        const keyword = searchKeyword.toLocaleLowerCase();
+        return !keyword || [item.title, item.category, item.date].some(value => String(value || "").toLocaleLowerCase().includes(keyword));
+      })
       .slice()
       .sort((a,b) => (b.sortDate || "").localeCompare(a.sortDate || ""));
   }
@@ -52,7 +59,7 @@
           </a>`;
       }).join("")}
     `;
-    if (!pageItems.length) board.innerHTML = '<p class="empty-state">등록된 콘텐츠가 없습니다.</p>';
+    if (!pageItems.length) board.innerHTML = '<p class="empty-state">검색 결과가 없습니다. 다른 검색어를 입력해 주세요.</p>';
 
     pagination.innerHTML = `
       <button type="button" class="news-page-arrow" data-page="${currentPage-1}" ${currentPage===1?"disabled":""}>이전</button>
@@ -83,6 +90,18 @@
       item.classList.toggle("is-active",selected);
       item.setAttribute("aria-pressed",String(selected));
     });
+    render();
+  });
+
+  searchForm?.addEventListener("submit", event => {
+    event.preventDefault();
+    searchKeyword = searchInput.value.trim();
+    currentPage = 1;
+    render();
+  });
+  searchInput?.addEventListener("input", () => {
+    searchKeyword = searchInput.value.trim();
+    currentPage = 1;
     render();
   });
 
