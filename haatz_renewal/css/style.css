@@ -216,7 +216,23 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .card.prod .card-b{gap:6px;padding:18px 22px 22px}
 .card.prod h3{font-size:18px;line-height:1.4}
 .card.prod p{font-size:16px;line-height:1.6}
-.card.prod .btn,.snscard .btn{width:auto;min-height:44px;margin-top:auto;padding:8px 0;border:0;background:none;color:var(--ink);text-align:left;font-size:16px;transition:color .2s}
+.card.prod .btn,/* 인스타그램 카드: 게시물 이미지 영역 */
+#sns .instagram-post-frame{
+  width:100%;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  position:relative;
+  border-radius:16px;
+  background:#f3f5f7;
+}
+#sns .instagram-post-frame iframe{
+  display:block;
+  width:100%;
+  height:calc(100% + 56px);
+  border:0;
+  transform:translateY(-52px);
+}
+.snscard .btn{width:auto;min-height:44px;margin-top:auto;padding:8px 0;border:0;background:none;color:var(--ink);text-align:left;font-size:16px;transition:color .2s}
 .card.prod .btn:after,.snscard .btn:after{content:" \2192"}
 .card.prod .btn:hover,.snscard .btn:hover{background:none;color:var(--blue-d)}
 .card.prod:hover,.card.prod:focus-within{transform:translateY(-6px);box-shadow:0 14px 32px rgba(20,40,60,.14)}
