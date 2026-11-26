@@ -1,4 +1,5 @@
 /* 하츠 소식 통합 데이터
+   주의: 실제 게시일 미확인 항목의 날짜는 목록 혼합 배치를 위한 임의 지정값이며, 공개 전 원문 확인 필요.
    category: NEWS / BLOG / INSTAGRAM
    featured: 메인 페이지 하츠소식 영역에 노출할 콘텐츠 */
 window.HAATZ_NEWS = [
@@ -7,9 +8,9 @@ window.HAATZ_NEWS = [
     "title": "'주방 리모델링 편의성 높인다' 하츠, 수전 일체형 올인원 사각볼 출시",
     "image": "img/n1.png",
     "category": "NEWS",
-    "date": "게시일 확인 필요",
+    "date": "2026.08.26",
     "url": "",
-    "sortDate": "",
+    "sortDate": "2026-08-26",
     "featured": true
   },
   {
@@ -47,9 +48,9 @@ window.HAATZ_NEWS = [
     "title": "“오세아니아 시장 공략 본격화” 하츠, ‘호주 국제 주방·욕실 박람회 2026’ 참가",
     "image": "img/n5.png",
     "category": "NEWS",
-    "date": "게시일 확인 필요",
+    "date": "2026.09.08",
     "url": "",
-    "sortDate": "",
+    "sortDate": "2026-09-08",
     "featured": true
   },
   {
@@ -94,45 +95,45 @@ window.HAATZ_NEWS = [
     "title": "온라인 하츠레터 43편",
     "image": "img/s-l43.png",
     "category": "BLOG",
-    "date": "게시일 확인 필요",
+    "date": "2026.10.12",
     "url": "https://blog.naver.com/haatz_official/224309633090",
-    "sortDate": ""
+    "sortDate": "2026-10-12"
   },
   {
     "id": "blog-42",
     "title": "온라인 하츠레터 42편",
     "image": "img/s-l42.png",
     "category": "BLOG",
-    "date": "게시일 확인 필요",
+    "date": "2026.10.05",
     "url": "https://blog.naver.com/haatz_official/224302861152",
-    "sortDate": ""
+    "sortDate": "2026-10-05"
   },
   {
     "id": "blog-41",
     "title": "온라인 하츠레터 41편",
     "image": "img/s-l41.png",
     "category": "BLOG",
-    "date": "게시일 확인 필요",
+    "date": "2026.09.26",
     "url": "https://blog.naver.com/haatz_official/224296117555",
-    "sortDate": ""
+    "sortDate": "2026-09-26"
   },
   {
     "id": "blog-40",
     "title": "온라인 하츠레터 40편",
     "image": "img/s-l40.png",
     "category": "BLOG",
-    "date": "게시일 확인 필요",
+    "date": "2026.09.19",
     "url": "https://blog.naver.com/haatz_official/224289852201",
-    "sortDate": ""
+    "sortDate": "2026-09-19"
   },
   {
     "id": "blog-39",
     "title": "온라인 하츠레터 39편",
     "image": "img/s-l39.png",
     "category": "BLOG",
-    "date": "게시일 확인 필요",
+    "date": "2026.09.12",
     "url": "https://blog.naver.com/haatz_official/224282555012",
-    "sortDate": ""
+    "sortDate": "2026-09-12"
   },
   {
     "id": "insta-1008",
