@@ -387,7 +387,9 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 /* SNS 채널 필터: 섹션 제목 아래 별도 행으로 배치 */
 #sns .sns-head{display:block;margin-bottom:18px}
 #sns .sns-toolbar{display:flex;justify-content:flex-start;align-items:center;margin:0 0 24px}
-#sns .chan{display:flex;flex-wrap:wrap;gap:10px}
+#sns .chan{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+#sns .chan button:first-child{order:1;margin-left:auto}
+#sns .chan button:not(:first-child){order:0}
 @media(max-width:768px){
   #sns .sns-toolbar{margin-bottom:20px}
   #sns .chan{gap:8px}
