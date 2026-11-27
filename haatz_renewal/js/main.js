@@ -77,7 +77,7 @@ const R = {
   svc: SVC.map(([t,d,s,u]) => `<li><a class="svc" href="${u}"><span class="svc-img">${img(s,"","ico")}</span><span class="svc-b"><strong>${esc(t)}</strong><span>${esc(d)}</span></span></a></li>`),
   best: BEST.map(([t,d,s,u]) => `<li><article class="card prod">${img(s,t,"prod-img")}<div class="card-b"><h3>${esc(t)}</h3>${d?`<p>${esc(d)}</p>`:""}<a class="btn" href="${u}" ${ext}>제품 보기</a></div></article></li>`),
   story: STORY.map(([t,d,u]) => `<li><a href="${u}" ${ext}>${esc(t)} <span class="sr">(외부 링크)</span><span aria-hidden="true">&rarr;</span></a></li>`),
-  news: NEWS.filter(item => item.featured).slice(0, 6).map(item => `<li><a class="news-card-link" href="pr-center/news.html#${encodeURIComponent(item.id)}"><article class="card newscard"><div class="nthumb">${img(item.image,item.title,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(item.title)}</h3></div></article></a></li>`),
+  news: NEWS.filter(item => item.featured).slice(0, 6).map(item => `<li><article class="card newscard"><div class="nthumb">${img(item.image,item.title,"thumb news")}</div><div class="card-b"><h3 class="sm">${esc(item.title)}</h3></div></article></li>`),
   sns: SNS.map(([t,k,s,u]) => `<li><article class="card newscard snscard"><div class="nthumb">${img(s,t,"thumb snsimg")}</div><div class="card-b"><span class="tag">${esc(k)}</span><h3 class="sm">${esc(t)}</h3><a class="btn" href="${u}" ${ext}>${esc(k)}에서 보기</a></div></article></li>`),
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
