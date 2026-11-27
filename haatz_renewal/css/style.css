@@ -216,6 +216,7 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .card.prod .card-b{gap:6px;padding:18px 22px 22px}
 .card.prod h3{font-size:18px;line-height:1.4}
 .card.prod p{font-size:16px;line-height:1.6}
+.card.prod .btn{width:auto;min-height:44px;margin-top:auto;padding:8px 0;border:0;background:none;color:var(--ink);text-align:left;font-size:16px;transition:color .2s}
 /* 인스타그램 카드: 게시물 이미지 영역 */
 #sns .instagram-post-frame{
   width:100%;
