@@ -137,12 +137,15 @@ document.querySelectorAll("[data-chan]").forEach(container => {
         window.location.href = "pr-center/news.html";
         return;
       }
+      // 같은 채널을 한 번 더 누르면 전체 보기 상태로 되돌림
+      const activeButton = buttons.find(item => item.getAttribute("aria-selected") === "true");
+      const nextChannel = activeButton === button ? "전체 보기" : button.dataset.channel;
       buttons.forEach(item => {
-        const selected = item === button;
+        const selected = item.dataset.channel === nextChannel;
         item.setAttribute("aria-selected", String(selected));
         item.tabIndex = selected ? 0 : -1;
       });
-      renderSNS(button.dataset.channel);
+      renderSNS(nextChannel);
       const track = document.querySelector("#sns .track");
       if (track) track.scrollLeft = 0;
       const prev = document.querySelector("#sns .sl-prev");
