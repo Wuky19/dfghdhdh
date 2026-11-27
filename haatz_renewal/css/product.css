@@ -17,6 +17,7 @@
 .product-tab{flex:0 0 auto;min-height:46px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:16px;font-weight:500;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
 .product-tab:hover,.product-tab:focus-visible{border-color:var(--blue);color:var(--blue-d)}
 .product-tab.is-active{border-color:var(--blue);background:var(--blue);color:#fff}
+.product-tab.is-active:focus-visible{outline:none}
 .product-result-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin:30px 0 20px}
 .product-result-head h3{margin:0;font-size:21px;font-weight:600}
 .product-result-head p{margin:0;color:var(--sub);font-size:16px}
