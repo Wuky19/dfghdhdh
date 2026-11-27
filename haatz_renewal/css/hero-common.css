@@ -1,0 +1,144 @@
+/* 공통 HERO 시스템: 모든 주요 페이지의 높이·타이포그래피·간격 통일 */
+.hero,
+.about-hero,
+.product-hero,
+.cf-hero,
+.customer-hero,
+.pr-news-hero{
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  min-height:560px;
+  padding:120px 0 104px;
+}
+.hero .wrap,
+.about-hero-in,
+.product-hero-in,
+.cf-hero-in,
+.customer-hero-in,
+.pr-news-hero-in{
+  box-sizing:border-box;
+  width:min(100% - 48px,1240px);
+  max-width:1240px;
+  margin:0 auto;
+}
+.hero-sub,
+.about-eyebrow,
+.product-hero .eyebrow,
+.cf-eyebrow,
+.customer-eyebrow,
+.pr-news-eyebrow{
+  display:block;
+  margin:0 0 18px;
+  color:#9bdcf2;
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:.12em;
+  line-height:1.4;
+}
+.hero h1,
+.about-hero h1,
+.product-hero h1,
+.cf-hero h1,
+.customer-hero h1,
+.pr-news-hero h1{
+  max-width:760px;
+  margin:0 0 22px;
+  font-size:clamp(40px,5.2vw,72px);
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:-.045em;
+  word-break:keep-all;
+}
+.hero-p,
+.about-hero-in>p:not(.about-eyebrow),
+.product-hero-in>p:not(.eyebrow),
+.cf-hero-in>p:not(.cf-eyebrow),
+.customer-intro,
+.pr-news-hero-in>p:not(.pr-news-eyebrow){
+  max-width:620px;
+  margin:0 0 30px;
+  color:rgba(255,255,255,.9);
+  font-size:18px;
+  line-height:1.8;
+}
+.hero-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:48px;
+  padding:12px 28px;
+  border:0;
+  border-radius:var(--r,4px);
+  background:var(--blue,#009ddc);
+  color:#fff;
+  font:inherit;
+  font-size:16px;
+  font-weight:700;
+  line-height:1.4;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+  transition:background .2s;
+}
+.hero-cta:hover,
+.hero-cta:focus-visible{background:var(--blue-d,#0a7fb0);color:#fff}
+.hero-cta:focus-visible{outline:3px solid var(--blue,#009ddc);outline-offset:3px}
+
+/* 밝은 배경의 제품 HERO는 본문 텍스트 색상 유지 */
+.product-hero .product-hero-in>p:not(.eyebrow){color:#343a40}
+
+/* 고객지원 검색은 기존 검색 동작을 유지하면서 공통 버튼 규격 적용 */
+.customer-hero{text-align:center}
+.customer-hero-in{max-width:900px}
+.customer-intro{margin-right:auto;margin-left:auto}
+.support-search{display:flex;align-items:center;gap:8px;max-width:620px;margin:0 auto}
+.support-search button.hero-cta{flex:0 0 auto;margin:0}
+.customer-hero .search-hint{margin:12px 0 0;color:rgba(255,255,255,.78);font-size:13px}
+
+@media(max-width:768px){
+  .hero,.about-hero,.product-hero,.cf-hero,.customer-hero,.pr-news-hero{
+    min-height:480px;
+    padding:80px 0 64px;
+  }
+  .hero .wrap,
+  .about-hero-in,
+  .product-hero-in,
+  .cf-hero-in,
+  .customer-hero-in,
+  .pr-news-hero-in{
+    width:calc(100% - 48px);
+  }
+  .hero h1,
+  .about-hero h1,
+  .product-hero h1,
+  .cf-hero h1,
+  .customer-hero h1,
+  .pr-news-hero h1{
+    font-size:clamp(34px,8vw,54px);
+    margin-bottom:18px;
+  }
+  .hero-p,
+  .about-hero-in>p:not(.about-eyebrow),
+  .product-hero-in>p:not(.eyebrow),
+  .cf-hero-in>p:not(.cf-eyebrow),
+  .customer-intro,
+  .pr-news-hero-in>p:not(.pr-news-eyebrow){
+    margin-bottom:24px;
+    font-size:16px;
+  }
+  .customer-hero{padding-top:80px;padding-bottom:64px}
+  .support-search{gap:6px}
+  .support-search input{min-width:0}
+  .support-search button.hero-cta{min-height:44px;padding:10px 18px}
+}
+@media(max-width:480px){
+  .hero .wrap,
+  .about-hero-in,
+  .product-hero-in,
+  .cf-hero-in,
+  .customer-hero-in,
+  .pr-news-hero-in{width:calc(100% - 40px)}
+  .hero-cta{min-height:46px;padding:11px 22px}
+}
