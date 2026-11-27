@@ -26,6 +26,11 @@ a{color:inherit;text-decoration:none}ul,ol{list-style:none;margin:0;padding:0}im
 .btn{display:inline-block;min-height:48px;padding:12px 28px;background:var(--blue);color:#fff;border:0;border-radius:var(--r);font:inherit;font-weight:700;text-decoration:none;cursor:pointer;text-align:center}
 .btn:hover{background:var(--blue-d)}.btn.dark{background:var(--ink)}.btn.dark:hover{background:var(--blue-d)}
 .btn.sm{min-height:44px;padding:0;font-size:16px}
+/* 공통 HERO CTA 버튼: 모든 페이지에서 동일한 파란색 버튼 사용 */
+.hero-cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:48px;padding:12px 28px;border:0;border-radius:var(--r);background:var(--blue);color:#fff;font:inherit;font-weight:700;text-decoration:none;text-align:center;transition:background .2s}
+.hero-cta:hover,.hero-cta:focus-visible{background:var(--blue-d);color:#fff}
+.hero-cta:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+
 /* 주요 이동 링크 공통 스타일: 홍보센터 HERO의 텍스트 + 밑줄 + 아래 화살표 */
 a.link-arrow{display:inline-flex;align-items:center;gap:22px;min-height:0;padding:0 0 10px;border:0;border-bottom:1px solid currentColor;border-radius:0;background:transparent;color:inherit;font:inherit;font-size:15px;font-weight:700;line-height:1.4;text-decoration:none;cursor:pointer;transition:color .2s}
 a.link-arrow span{display:inline-block;font-size:19px;line-height:1;transition:transform .2s}
