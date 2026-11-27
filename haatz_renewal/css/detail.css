@@ -144,3 +144,41 @@
   cursor:pointer;
   transition:background-color .2s,border-color .2s,color .2s;
 }
+
+
+/* 고객지원 FAQ 인터랙션 */
+.faq-tools{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:30px 0 22px}
+.faq-tools input{width:min(100%,520px);height:52px;padding:0 18px;border:1px solid #dce3e6;border-radius:7px;background:#fff;font:inherit}
+.faq-tools input:focus{outline:2px solid #1686ad;outline-offset:2px}
+.faq-tools span{flex:none;color:#667078;font-size:14px}
+.faq-layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:28px;align-items:start;margin-top:22px}
+.faq-categories{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.faq-categories button{min-height:40px;padding:0 17px;border:1px solid #d8e0e3;border-radius:999px;background:#fff;color:#53616a;font:inherit;font-size:14px;cursor:pointer;transition:.2s}
+.faq-categories button:hover,.faq-categories button.is-active{border-color:#1686ad;background:#1686ad;color:#fff}
+.faq-categories button:focus-visible,.faq-question:focus-visible{outline:2px solid #1686ad;outline-offset:3px}
+.faq-list{overflow:hidden;border-top:1px solid #dfe5e8;background:#fff}
+.faq-item{border-bottom:1px solid #e5eaec}
+.faq-item[hidden]{display:none}
+.faq-question{display:grid;grid-template-columns:100px minmax(0,1fr) 28px;align-items:center;gap:16px;width:100%;min-height:76px;padding:16px 20px;border:0;background:#fff;text-align:left;font:inherit;cursor:pointer}
+.faq-tag{color:#1686ad;font-size:13px;font-weight:700}
+.faq-question-text{color:#25313a;font-size:16px;font-weight:600;line-height:1.5}
+.faq-toggle{display:grid;place-items:center;width:28px;height:28px;border:1px solid #dce3e6;border-radius:50%;color:#53616a;font-size:20px;transition:transform .2s,background .2s}
+.faq-item.is-open .faq-toggle{transform:rotate(45deg);background:#eef7fb;color:#1686ad}
+.faq-answer{padding:0 64px 24px 136px}
+.faq-answer p{margin:0;color:#667078;font-size:15px;line-height:1.85}
+.faq-aside{padding:26px;background:#eef5f7;border-radius:9px}
+.faq-aside h2{margin:0 0 12px;color:#25313a;font-size:21px;line-height:1.45;letter-spacing:-.04em}
+.faq-aside p:not(.subpage-eyebrow){margin:0 0 20px;color:#667078;font-size:14px;line-height:1.75}
+.faq-aside .subpage-btn{width:100%;background:#1686ad;border-color:#1686ad}
+.faq-empty{padding:48px 20px;border:1px dashed #cbd4d8;text-align:center;color:#667078}
+.faq-page>.wrap>.subpage-actions{margin-top:30px}
+@media(max-width:760px){
+ .faq-tools{align-items:stretch;flex-direction:column;gap:10px}
+ .faq-tools input{width:100%}
+ .faq-layout{grid-template-columns:1fr;gap:18px}
+ .faq-question{grid-template-columns:1fr 28px;gap:6px 12px;padding:16px}
+ .faq-tag{grid-column:1}
+ .faq-question-text{grid-column:1;grid-row:2}
+ .faq-toggle{grid-column:2;grid-row:1 / span 2}
+ .faq-answer{padding:0 16px 20px}
+}
