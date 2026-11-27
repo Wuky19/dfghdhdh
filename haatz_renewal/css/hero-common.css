@@ -19,7 +19,7 @@
 .pr-news-hero-in{
   box-sizing:border-box;
   padding:0!important;
-  width:min(100% - 48px,1240px);
+  width:calc(100% - 48px);
   max-width:1240px;
   margin:0 auto;
 }
@@ -150,3 +150,5 @@
 @media(max-width:768px){
   .about-hero{flex-direction:row;align-items:center;min-height:480px}
 }
+
+.pr-news-hero-in{max-width:720px}
