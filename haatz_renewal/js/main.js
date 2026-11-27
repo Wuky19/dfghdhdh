@@ -104,7 +104,7 @@ function renderSNS(channel = "전체 보기") {
     </article></li>`).join("");
 
   const filteredPosts = SNS.filter(([, kind]) =>
-    channel === "전체" || kind === channel
+    channel === "전체 보기" || kind === channel
   );
 
   const otherPosts = filteredPosts.map(([title, kind, src, url]) => `
