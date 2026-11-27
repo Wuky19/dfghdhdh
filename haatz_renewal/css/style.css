@@ -400,3 +400,23 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
   #sns .chan{gap:8px}
   #sns .chan button{min-height:40px;padding:7px 14px;font-size:14px}
 }
+
+
+/* 전체 보기: 채널 필터의 활성 상태와 구분되는 이동 링크 스타일 */
+#sns .chan button[data-channel="전체 보기"]{
+  border-color:#cfd8de;
+  background:#fff;
+  color:var(--ink);
+  font-weight:600;
+}
+#sns .chan button[data-channel="전체 보기"]:hover,
+#sns .chan button[data-channel="전체 보기"]:focus-visible{
+  border-color:var(--blue);
+  background:#f0faff;
+  color:var(--blue-d);
+}
+#sns .chan button[data-channel="전체 보기"][aria-selected="true"]{
+  border-color:#cfd8de;
+  background:#fff;
+  color:var(--ink);
+}
