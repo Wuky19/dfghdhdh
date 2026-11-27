@@ -115,7 +115,7 @@ function renderSNS(channel = "전체 보기") {
         <h3 class="sm">${esc(title)}</h3>
         <a class="btn" href="${url}" ${ext}>${esc(kind)}에서 보기</a>
       </div>
-    </article></li>`).join("");
+    </article></li>`);
 
   if (channel === "인스타그램") {
     snsTrack.innerHTML = instagramCards;
