@@ -96,12 +96,10 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 .sl-ctrl button{width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:26px;line-height:1;cursor:pointer}
 .sl-ctrl button:hover:not(:disabled){border-color:var(--blue);color:var(--blue-d)}.sl-ctrl button:disabled{opacity:.35;cursor:default}
 .best{background:#f5f6f8}
-.best-head{position:relative;text-align:center;margin-bottom:44px;padding:0 120px}
-.best-head .best-ctrl{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;justify-content:flex-end;gap:12px;margin:0}
-@media(max-width:768px){
-  .best-head{padding:0}
-  .best-head .best-ctrl{position:static;transform:none;justify-content:center;margin:20px 0 0}
-}
+.best-head{text-align:center;margin-bottom:44px}
+.best-rail-wrap{min-width:0}
+.best-rail-wrap .best-ctrl{display:flex;justify-content:flex-end;gap:12px;margin:0 0 16px}
+
 .best-head h2{font-size:clamp(34px,5vw,56px);font-weight:800;letter-spacing:-.01em;margin-bottom:10px}
 .dot{color:var(--blue)}
 .best-stage{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:center}
