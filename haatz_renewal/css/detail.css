@@ -182,3 +182,10 @@
  .faq-toggle{grid-column:2;grid-row:1 / span 2}
  .faq-answer{padding:0 16px 20px}
 }
+
+/* FAQ: 아코디언 답변 표시 상태를 명시적으로 고정 */
+.faq-item{display:block;min-width:0}
+.faq-item[hidden]{display:none!important}
+.faq-question{display:grid;width:100%;min-height:76px}
+.faq-answer{display:block}
+.faq-answer[hidden]{display:none!important}
