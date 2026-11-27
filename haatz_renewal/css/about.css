@@ -245,3 +245,41 @@
   .brand-value{padding-top:92px}
   .value-grid{border-radius:10px}
 }
+
+
+/* 하츠이야기 하단 CTA: 배경과 텍스트 대비를 높여 가독성 개선 */
+.about-cta{
+  position:relative;
+  isolation:isolate;
+  min-height:360px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:96px 0;
+  background-color:#263238;
+  background-image:
+    linear-gradient(90deg,rgba(20,27,31,.78),rgba(20,27,31,.62)),
+    url("../img/cta.jfif");
+  background-position:center;
+  background-size:cover;
+}
+.about-cta .wrap{position:relative;z-index:1}
+.about-cta .about-eyebrow{
+  margin-bottom:18px;
+  color:#9bdcf2;
+}
+.about-cta h2{
+  color:#fff;
+  text-shadow:0 2px 14px rgba(0,0,0,.18);
+}
+.about-cta p:not(.about-eyebrow){
+  color:rgba(255,255,255,.92);
+  font-size:17px;
+  line-height:1.8;
+}
+.about-cta .hero-cta{margin-top:0}
+@media(max-width:768px){
+  .about-cta{min-height:320px;padding:76px 0}
+  .about-cta h2{font-size:clamp(28px,7vw,40px)}
+  .about-cta p:not(.about-eyebrow){font-size:16px}
+}
