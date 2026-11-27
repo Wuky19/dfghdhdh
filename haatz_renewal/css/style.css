@@ -374,3 +374,11 @@ h2{font-size:clamp(26px,3vw,36px);margin:0 0 8px}.sec-head h2{margin:0 0 4px}
 }
 
 
+
+
+/* 현재 방문 중인 상위 메뉴는 페이지 이동 후에도 파란색 유지 */
+.gnb a.is-current,
+.gnb a.is-current:hover,
+.gnb a.is-current:focus-visible{
+  color:var(--blue-d);
+}
