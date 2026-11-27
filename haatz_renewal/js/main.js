@@ -132,6 +132,11 @@ document.querySelectorAll("[data-chan]").forEach(container => {
   const buttons = [...container.querySelectorAll("button")];
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
+      // 전체 보기는 채널 필터가 아니라 홍보센터 소식 페이지로 이동
+      if (button.dataset.channel === "전체 보기") {
+        window.location.href = "pr-center/news.html";
+        return;
+      }
       buttons.forEach(item => {
         const selected = item === button;
         item.setAttribute("aria-selected", String(selected));
