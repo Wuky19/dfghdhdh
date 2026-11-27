@@ -101,7 +101,7 @@ function renderSNS(channel = "전체 보기") {
         <h3 class="sm">${esc(title)}</h3>
         <a class="btn" href="https://www.instagram.com/p/${shortcode}/" ${ext}>원본 게시물 보기</a>
       </div>
-    </article></li>`).join("");
+    </article></li>`);
 
   const filteredPosts = SNS.filter(([, kind]) =>
     channel === "전체 보기" || kind === channel
@@ -120,9 +120,16 @@ function renderSNS(channel = "전체 보기") {
   if (channel === "인스타그램") {
     snsTrack.innerHTML = instagramCards;
   } else if (channel === "전체 보기") {
-    snsTrack.innerHTML = instagramCards + otherPosts;
+    // 전체 보기에서는 인스타그램·블로그·유튜브 게시물을 번갈아 배치
+    const mixedPosts = [];
+    const maxLength = Math.max(instagramCards.length, otherPosts.length);
+    for (let i = 0; i < maxLength; i++) {
+      if (instagramCards[i]) mixedPosts.push(instagramCards[i]);
+      if (otherPosts[i]) mixedPosts.push(otherPosts[i]);
+    }
+    snsTrack.innerHTML = mixedPosts.join("");
   } else {
-    snsTrack.innerHTML = otherPosts;
+    snsTrack.innerHTML = otherPosts.join("");
   }
 }
 document.querySelectorAll("[data-chan]").forEach(container => {
