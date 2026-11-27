@@ -68,7 +68,7 @@
   list.id = "gnb-list";
   list.innerHTML = MENU.map(([label, href, key]) => {
     const active = key === section;
-    return `<li><a href="${path(href)}"${active ? ' class="on" aria-current="page"' : ""}>${label}</a></li>`;
+    return `<li><a href="${path(href)}"${active ? ' class="is-current" aria-current="page"' : ""}>${label}</a></li>`;
   }).join("");
   const makeLinks = links => links.map(([label, href]) =>
     `<a class="chip" href="${path(href)}"><span>${label}</span><svg viewBox="0 0 8 14" width="8" height="14" aria-hidden="true"><path d="M1 1l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>`
