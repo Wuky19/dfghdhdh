@@ -135,7 +135,7 @@ function renderSNS(channel = "전체 보기") {
 document.querySelectorAll("[data-chan]").forEach(container => {
   container.setAttribute("role", "tablist");
   container.setAttribute("aria-label", "SNS 채널 선택");
-  container.innerHTML = SNS_CHANNELS.map((name, i) => `<button type="button" role="tab" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}" data-channel="${name}">${name}</button>`).join("");
+  container.innerHTML = SNS_CHANNELS.map((name, i) => `<button type="button" role="tab" aria-selected="false" tabindex="${i === 1 ? 0 : -1}" data-channel="${name}">${name}</button>`).join("");
   const buttons = [...container.querySelectorAll("button")];
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -148,7 +148,7 @@ document.querySelectorAll("[data-chan]").forEach(container => {
       const activeButton = buttons.find(item => item.getAttribute("aria-selected") === "true");
       const nextChannel = activeButton === button ? "전체 보기" : button.dataset.channel;
       buttons.forEach(item => {
-        const selected = item.dataset.channel === nextChannel;
+        const selected = nextChannel !== "전체 보기" && item.dataset.channel === nextChannel;
         item.setAttribute("aria-selected", String(selected));
         item.tabIndex = selected ? 0 : -1;
       });
