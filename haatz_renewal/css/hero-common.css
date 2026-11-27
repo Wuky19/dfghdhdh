@@ -18,6 +18,7 @@
 .customer-hero-in,
 .pr-news-hero-in{
   box-sizing:border-box;
+  padding:0!important;
   width:min(100% - 48px,1240px);
   max-width:1240px;
   margin:0 auto;
@@ -141,4 +142,11 @@
   .customer-hero-in,
   .pr-news-hero-in{width:calc(100% - 40px)}
   .hero-cta{min-height:46px;padding:11px 22px}
+}
+
+/* 페이지별 과거 HERO 규칙 중 공통 기준과 충돌하는 값 정리 */
+.about-hero{flex-direction:row;align-items:center}
+.about-hero::after{display:none!important}
+@media(max-width:768px){
+  .about-hero{flex-direction:row;align-items:center;min-height:480px}
 }
