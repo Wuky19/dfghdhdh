@@ -82,9 +82,9 @@ const R = {
 };
 document.querySelectorAll("[data-cards]").forEach(ul => ul.innerHTML = R[ul.dataset.cards].join(""));
 /* SNS 채널 탭: 전체/인스타그램/블로그/유튜브 */
-const SNS_CHANNELS = ["전체", "인스타그램", "블로그", "유튜브"];
+const SNS_CHANNELS = ["전체 보기", "인스타그램", "블로그", "유튜브"];
 const snsTrack = document.querySelector('[data-cards="sns"]');
-function renderSNS(channel = "전체") {
+function renderSNS(channel = "전체 보기") {
   const instagramCards = INSTAGRAM_POSTS.map(([title, date, shortcode]) => `
     <li><article class="card newscard snscard instagram-card">
       <div class="instagram-post-frame">
@@ -119,7 +119,7 @@ function renderSNS(channel = "전체") {
 
   if (channel === "인스타그램") {
     snsTrack.innerHTML = instagramCards;
-  } else if (channel === "전체") {
+  } else if (channel === "전체 보기") {
     snsTrack.innerHTML = instagramCards + otherPosts;
   } else {
     snsTrack.innerHTML = otherPosts;
